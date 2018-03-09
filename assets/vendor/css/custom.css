@@ -197,6 +197,21 @@ margin-right: 7px;
 {
     display: none;
 }
+.prev .col-md-2{
+	margin:10px 0px;
+}
+.pos-ab-close{
+	position:absolute;
+	top:0px;
+	right:5px;
+	background:#ddd;
+	border-radius:100px;
+	padding:5px 9px;
+	margin:0;
+	height:30px;
+	width:30px;
+	
+}
 /* additional */
 
 

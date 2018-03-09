@@ -11,15 +11,15 @@
 									<form>
 										<textarea placeholder="What are you doing right now?" ></textarea>
 										
-										<div class="row">
+										<div class="row prev">
 											<div class="col-md-2">
 												<img class="img-responsive" src="https://rukminim1.flixcart.com/image/400/400/iron/f/g/c/philips-gc1905-gc1905-original-imadztntwyhmcmge.jpeg?q=70">
-											</div>
-											<div class="col-md-2">
-												<img class="img-responsive" src="https://rukminim1.flixcart.com/image/400/400/iron/f/g/c/philips-gc1905-gc1905-original-imadztntwyhmcmge.jpeg?q=70">
+												<div class="pos-ab-close"><i class="fa fa-close"></i></div>
 											</div><div class="col-md-2">
-												<img class="img-responsive" src="https://rukminim1.flixcart.com/image/400/400/iron/f/g/c/philips-gc1905-gc1905-original-imadztntwyhmcmge.jpeg?q=70">
+												<img class="img-responsive" src="https://i.ytimg.com/vi/iU2yPKrWKYQ/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAU8RvPZS1_i_Q_r4m4H5v5QiKkuA">
+												<div class="pos-ab-close"><i class="fa fa-close"></i></div>
 											</div>
+											
 										</div>
 								
 										<ul>
