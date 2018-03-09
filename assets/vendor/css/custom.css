@@ -137,7 +137,7 @@ border: 1px solid #F2F2F2;
 float: left;
 list-style: none outside none;
 margin: 0;
-padding: 0 0 0 15px;
+padding: 10px 0 0 15px;
 width: auto;
 }
 .status-upload ul > li {
@@ -191,12 +191,13 @@ border-left-color: #2dcb73;
 margin-right: 7px;
 }
 .image-upload{
-    padding:6px 10px 3px 10px;
+    padding:6px 10px 3px 40px;
 }
 .image-upload > input
 {
     display: none;
 }
+/* additional */
 
 
 @media only screen and (max-width: 767px) {
