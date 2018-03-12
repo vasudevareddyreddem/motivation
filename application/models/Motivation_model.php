@@ -95,5 +95,9 @@ class Motivation_model extends CI_Model
 		$this->db->order_by("posts.create_at", "DESC");
 		return $this->db->get()->result_array();
 	}
+	public function add_comment($data){
+		$this->db->insert('comments', $data);
+		return $insert_id = $this->db->insert_id();	
+	}
 	
 }

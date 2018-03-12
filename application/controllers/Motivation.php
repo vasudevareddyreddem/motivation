@@ -203,6 +203,23 @@ class Motivation extends CI_Controller {
 		}
 		
 	}
+	public function addcomment(){
+		$post=$this->input->post();
+		//echo '<pre>';print_r($post);exit;
+		$commentdata=array(
+						'post_id'=>$post['post_id'],
+						'comment'=>$post['comment'],
+						'create_at'=>date('Y-m-d H:i:s')				
+						 );
+		$comment = $this->Motivation_model->add_comment($commentdata);
+		if(count($comment)>0){
+			$this->session->set_flashdata('success',"Comment successfully Added");
+				redirect(''); 
+		}else{
+			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+			redirect(''); 
+		}
+	}
 	
 	
 	public function logout()
