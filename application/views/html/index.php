@@ -66,15 +66,17 @@
 				<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
 					<form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
 					<div class="col-md-8 col-xs-8">
-					<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+					<input type="hidden" id="post_id" name="post_id"  value="<?php echo $List['p_id']; ?>">
+					<textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
 					</div>
 					<div class="col-md-2 col-xs-2">
 						<div class="file btn btn-sm btn-primary ">
 							<button type="submit">Send</button>
 							
 						</div>
-						</form>
-				</div>
+						</div>
+					</form>
+				
 				</div>
 			</div>
 							</div>
@@ -110,15 +112,19 @@
 				<div class="row">
 				<hr>
 				<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+					<form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
 					<div class="col-md-8 col-xs-8">
-					<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+					<input type="hidden" id="post_id" name="post_id"  value="<?php echo $List['p_id']; ?>">
+					<textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
 					</div>
 					<div class="col-md-2 col-xs-2">
 						<div class="file btn btn-sm btn-primary ">
-							Send
+							<button type="submit">Send</button>
 							
 						</div>
-				</div>
+						</div>
+					</form>
+				
 				</div>
 			</div>
 						</div>
