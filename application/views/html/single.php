@@ -97,10 +97,9 @@
                   </p>
                   <!-- RD Mailform-->
                   <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="" class="rd-mailform">
-                    <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your name *">
-                    <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail *">
-                    <input type="text" name="site" placeholder="Your website">
-                    <textarea name="message" data-constraints="@NotEmpty" placeholder="Comments *"></textarea>
+                    <input type="text" id="name" name="name"  placeholder="Your name *" required>
+                    <input type="text" id="email" name="email"  placeholder="Your e-mail *" required>
+                    <textarea name="message" id="message" placeholder="Comments *" required></textarea>
                     <div class="text-md-left offset-top-30">
                       <button class="btn btn-primary">Submit Comment</button>
                     </div>
