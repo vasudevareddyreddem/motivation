@@ -134,38 +134,6 @@
 			<?php } ?>
 			<!--second post-->
 			 
-			  <!--third post-->
-			  <div class="post post-variant-1 box mar-t30">
-                <div>
-                  <div class="post-media-wrap">
-					<div >
-					<iframe width="100%" height="315" src="<?php echo base_url('assets/files/video.mp4'); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-					</div>
-                  </div>
-                  <div class="post-content-wrap">
-                    <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">Lorem Ipsum</a></span></div>
-                    <h4><a href="#">Lorem Ipsum is simply dummy text </a></h4>
-                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged...</p>
-                    <ul class="post-meta list-inline list-inline-md">
-                      <li><a href="#" class="post-meta-date small">Dec 15, 2016</a></li>
-                      <li><a href="#" class="post-meta-comment small">34</a></li>
-					   <li><a href="#" class="post-meta-like small">4</a></li>
-                      <li><a href="#" class="post-meta-share small">4</a></li>
-                    </ul>
-                  </div>
-                  <hr class="divider offset-none"/>
-                  <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
-                            <ul class="list-inline-0">
-                              <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                              <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                              <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                              <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                              <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
-                            </ul><a href="#" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
-                  </div>
-                </div>
-              </div>
-			  <!--plugin start-->
 			  
             </div>
             <div class="cell-md-4">

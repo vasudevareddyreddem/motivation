@@ -79,8 +79,10 @@ class Motivation_model extends CI_Model
 		$return= $this->db->get()->result_array();
 		foreach($return as $list){
 			$images=$this-> get_all_post_imgs($list['p_id']);
+			$comment=$this-> get_all_comments_imgs($list['p_id']);
 			$lis[$list['p_id']]=$list;
 			$lis[$list['p_id']]['p_list']=$images;
+			$lis[$list['p_id']]['comment_list']=$comment;
 		}
 		if(!empty($lis))
 		{
@@ -93,6 +95,12 @@ class Motivation_model extends CI_Model
 		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
 		$this->db->where('posts.post_id', $p_id);
 		$this->db->order_by("posts.create_at", "DESC");
+		return $this->db->get()->result_array();
+	}
+	public function get_all_comments_imgs($p_id){
+		$this->db->select('*')->from('comments');		
+		$this->db->where('comments.post_id', $p_id);
+		$this->db->order_by("comments.create_at", "DESC");
 		return $this->db->get()->result_array();
 	}
 	public function add_comment($data){
