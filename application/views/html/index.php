@@ -130,7 +130,6 @@
                             </ul><a href="single.php" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
                   </div>
 				  <div class="card-footer" style="display:none;" id="comm_sec">
-				<div class="pad-30">
 				<div class="row">
 				<hr>
 				<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
@@ -142,24 +141,12 @@
 							Send
 							
 						</div>
-					
+					 <!--<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+					 <div class="pos-ab-cem " >
+					 <span class="btn-bs-file"><input type="file" /><i  class="fa fa-camera " aria-hidden="true"></i></span>
+					 </div>-->
 				</div>
 				</div>
-				<hr>
-				 <div class="row">
-				 <div class="media">
-					<div class="media-left">
-					  <img src="http://fakeimg.pl/50x50" class="media-object" style="width:40px">
-					</div>
-					<div class="media-body">
-					  <h4 class="media-heading title">Fahmi Arif</h4>
-					  <p class="komen">
-						  kalo bisa ya ndak usah gan biar cepet<br>
-						
-					  </p>
-					</div>
-				</div>
-                        </div>
 			</div>
                 </div>
               </div>

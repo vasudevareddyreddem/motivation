@@ -1,4 +1,3 @@
- <?php include('header.php'); ?>
 <main class="page-content" style="margin-top:50px;">
         <div id="fb-root"></div>
         <div class="shell">
@@ -12,16 +11,13 @@
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                  
                
-                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="index.php" class="rd-mailform">
-                    <input type="text" name="name" data-constraints="@NotEmpty" placeholder="user name *"> 
-					<input type="password" name="name" placeholder="Enter Password *">
+                  <form  method="POST" action="<?php echo base_url('admin/loginpost'); ?>">
+                    <input class="form-control" type="text" id="email" name="email"  placeholder="Email Adress" required><br> 
+					<input class="form-control" type="password" id="password" name="password" placeholder="Enter Password " required><br> 
                   
-                    <div class="text-md-left offset-top-30">
-                      <a href="index.php" class="btn btn-primary">Login</a>
-                    </div>
+                      <button type="submit" class="btn btn-primary">Login</button>
                   </form>
                   <!-- Rd Mailform result field-->
-                  <div class="rd-mailform-validate-2"></div>
                 </div>
               </div>
             </div>
@@ -29,4 +25,3 @@
           </div>
         </div>
       </main>
-	  <?php include('footer.php'); ?>
