@@ -10,7 +10,7 @@
                   <h4><?php echo isset($post_images['text'])?$post_images['text']:''; ?></h4>
 				  <?php if(count($post_images['p_list'])>0){ ?>
                      <div id="gallery<?php echo $post_images['p_id']; ?>"></div>
-				<?php } ?>
+					<?php } ?>
                   <div class="post-meta element-groups-15">
                     <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">
 					<?php echo isset($post_images['name'])?$post_images['name']:''; ?></a></span></div>
@@ -131,7 +131,7 @@
                       <h5>Newsletter</h5>
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
-                      <form data-result-class="rd-mailform-validate" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="rd-mailform form-inline-flex form-inline reveal-xs-flex">
+                      <form data-result-class="rd-mailform-validate" data-form-type="subscribe" method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="rd-mailform form-inline-flex form-inline reveal-xs-flex">
                         <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail">
                         <button class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
                       </form>
