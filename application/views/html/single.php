@@ -110,6 +110,7 @@
                   </p>
                   <!-- RD Mailform-->
                   <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/postrquestcommit'); ?>" class="">
+                    <input type="hidden" id="post_id" name="post_id" value="<?php echo $post_images['p_id']; ?>" >
                     <input type="text" id="name" name="name" class="form-control"   placeholder="Your name *" required><br>
                     <input type="text" id="email" name="email" class="form-control"   placeholder="Your e-mail *" required><br>
                     <textarea name="message" id="message" class="form-control"  placeholder="Comments *" required></textarea><br>

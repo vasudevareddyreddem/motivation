@@ -1,4 +1,3 @@
- <?php include('header.php'); ?>
 <main class="page-content">
         <!--Contact us-->
        <!-- <section>
@@ -24,17 +23,16 @@
           <p>Your email address will not be published.<br class="veil-sm"> Required fields are marked *
           </p>
           <!-- RD Mailform-->
-          <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform">
-            <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your name *">
-            <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail *">
-            <input type="text" name="subjects" placeholder="Subjects">
-            <textarea name="message" data-constraints="@NotEmpty" placeholder="Message *"></textarea>
+          <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/contactpost'); ?>" >
+            <input type="text" class="form-control" name="name"  placeholder="Your name *" required><br>
+            <input type="text" class="form-control" name="email"  placeholder="Your e-mail *"required><br>
+            <input type="text" class="form-control" name="subjects" placeholder="Subjects"required><br>
+            <textarea name="message" class="form-control" placeholder="Message *"required></textarea><br>
             <div class="text-md-left offset-top-30">
-              <button class="btn btn-primary">Send</button>
+              <button type="submit" class="btn btn-primary">Send</button>
             </div>
           </form>
           <!-- Rd Mailform result field-->
           <div class="rd-mailform-validate-2"></div>
         </section>
       </main>
-	  <?php include('footer.php'); ?>

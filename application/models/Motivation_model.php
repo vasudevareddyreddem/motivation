@@ -148,6 +148,14 @@ class Motivation_model extends CI_Model
 		$this->db->where('post_id', $pid);
 		return $this->db->update('like_count', $data);
 	}
+	public function add_leavecomment($data){
+		$this->db->insert('leave_a_replay', $data);
+		return $insert_id = $this->db->insert_id();	
+	}
+	public function add_conatctus($data){
+		$this->db->insert('contactus', $data);
+		return $insert_id = $this->db->insert_id();	
+	}
 	
 	
 }

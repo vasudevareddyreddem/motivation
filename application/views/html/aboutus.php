@@ -1,4 +1,3 @@
- <?php include('header.php'); ?>
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -46,15 +45,15 @@
                   <p>Your email address will not be published.<br class="veil-sm"> Required fields are marked *
                   </p>
                   <!-- RD Mailform-->
-                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform">
-                    <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your name *">
-                    <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail *">
-                    <input type="text" name="subjects" placeholder="Subjects">
-                    <textarea name="message" data-constraints="@NotEmpty" placeholder="Message *"></textarea>
-                    <div class="text-md-left offset-top-30">
-                      <button class="btn btn-primary">Send</button>
-                    </div>
-                  </form>
+                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/contactpost'); ?>" >
+            <input type="text" class="form-control" name="name"  placeholder="Your name *" required><br>
+            <input type="text" class="form-control" name="email"  placeholder="Your e-mail *"required><br>
+            <input type="text" class="form-control" name="subjects" placeholder="Subjects"required><br>
+            <textarea name="message" class="form-control" placeholder="Message *"required></textarea><br>
+            <div class="text-md-left offset-top-30">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
                   <!-- Rd Mailform result field-->
                   <div class="rd-mailform-validate-2"></div>
                 </div>
@@ -82,9 +81,9 @@
                       <h5>Newsletter</h5>
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
-                      <form data-result-class="rd-mailform-validate" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="rd-mailform form-inline-flex form-inline reveal-xs-flex">
-                        <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail">
-                        <button class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
+                      <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
+                        <input type="email" name="email"  placeholder="Your e-mail" required>
+                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->
                     </div>
@@ -105,4 +104,3 @@
         </div>
       </main>
 	  
-	  <?php include('footer.php'); ?>

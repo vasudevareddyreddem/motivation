@@ -70,7 +70,7 @@
  
 <script>
 
-
+<?php if(isset($post_images) && count($post_images)>0){ ?>
 <?php foreach($post_images as $List){
 if(count($List['p_list'])!=0){ ?>
  var images<?php echo $List['p_id']; ?> = [
@@ -87,10 +87,11 @@ if(count($List['p_list'])!=0){ ?>
 			});
 
   $(document).ready(function(){
-    $("#comm_expand<?php echo $List['p_id']; ?>").click(function(){
+    $("#comm_expand<?php echo $List['p_id']; ?>>").click(function(){
         $("#comm_sec<?php echo $List['p_id']; ?>").toggle();
     });
 });
+<?php } ?>
 <?php } ?>
 <?php } ?>
      
