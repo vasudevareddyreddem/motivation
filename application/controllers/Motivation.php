@@ -129,6 +129,11 @@ class Motivation extends CI_Controller {
 		'create_at'=>date('Y-m-d H:i:s')
 		);
 		$post_count=$this->Motivation_model->save_image_count($data);
+		$like_data=array(
+						'post_id'=>$post_count,
+						'create_at'=>date('Y-m-d H:i:s')				
+						 );
+		$this->Motivation_model->save_like_count($like_data);
 		foreach($image_list as $list){
 			rename("assets/temp/".$list['name'], "assets/files/".$list['name']);
 			$filedata=array(
@@ -221,6 +226,21 @@ class Motivation extends CI_Controller {
 		}
 	}
 	
+	public function likecount(){
+		$post=$this->input->post();
+		$details=$this->Motivation_model->get_like_count($post['postid']);
+		$data=array(
+		'like'=>$details['like']+1,
+		);
+		$details=$this->Motivation_model->update_like_count($post['postid'],$data);
+		$countdetails=$this->Motivation_model->get_like_count($post['postid']);
+		if(count($details) > 0)
+				{
+				$data['msg']=$countdetails['like'];
+				echo json_encode($data);	
+				}
+		
+	}
 	
 	public function logout()
 	{

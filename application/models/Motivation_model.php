@@ -18,6 +18,10 @@ class Motivation_model extends CI_Model
 		$this->db->insert('post_count', $data);
 		return $insert_id = $this->db->insert_id();
 	}
+	public function save_like_count($data){
+		$this->db->insert('like_count', $data);
+		return $insert_id = $this->db->insert_id();
+	}
 	public function save_filepost($data){
 		$this->db->insert('posts', $data);
 		return $insert_id = $this->db->insert_id();
@@ -80,9 +84,11 @@ class Motivation_model extends CI_Model
 		foreach($return as $list){
 			$images=$this-> get_all_post_imgs($list['p_id']);
 			$comment=$this-> get_all_comments_imgs($list['p_id']);
+			$like=$this-> get_all_like_imgs($list['p_id']);
 			$lis[$list['p_id']]=$list;
 			$lis[$list['p_id']]['p_list']=$images;
 			$lis[$list['p_id']]['comment_list']=$comment;
+			$lis[$list['p_id']]['like_count']=$like['like'];
 		}
 		if(!empty($lis))
 		{
@@ -103,9 +109,24 @@ class Motivation_model extends CI_Model
 		$this->db->order_by("comments.create_at", "DESC");
 		return $this->db->get()->result_array();
 	}
+	public function get_all_like_imgs($p_id){
+		$this->db->select('*')->from('like_count');		
+		$this->db->where('like_count.post_id', $p_id);
+		return $this->db->get()->row_array();
+	}
 	public function add_comment($data){
 		$this->db->insert('comments', $data);
 		return $insert_id = $this->db->insert_id();	
 	}
+	public function get_like_count($post_id){
+		$this->db->select('*')->from('like_count');		
+		$this->db->where('post_id', $post_id);
+		return $this->db->get()->row_array();
+	}
+	public function update_like_count($pid,$data){
+		$this->db->where('post_id', $pid);
+		return $this->db->update('like_count', $data);
+	}
+	
 	
 }
