@@ -55,9 +55,9 @@
 					</li>
                     <li class="active"><a href="./">Home</a></li>
              
-                    <li><a href="aboutus.php">About us</a></li>
+                    <li><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
                      <li><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
-                    <li><a href="contactus.php">Contacts</a></li>
+                    <li><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
                   </ul>
                 </div>
               

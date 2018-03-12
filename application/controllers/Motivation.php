@@ -26,6 +26,20 @@ class Motivation extends CI_Controller {
 			$this->load->view('html/index',$data);
 			$this->load->view('html/footer',$data);
 	}
+	public function aboutus()
+	{
+			$this->load->view('html/header');
+			$loginuser_id=$this->session->userdata('userdetails');
+			$this->load->view('html/aboutus');
+			$this->load->view('html/footer');
+	}
+	public function contactus()
+	{
+			$this->load->view('html/header');
+			$loginuser_id=$this->session->userdata('userdetails');
+			$this->load->view('html/contactus');
+			$this->load->view('html/footer');
+	}
 	public function singlepost()
 	{
 			$this->load->view('html/header');
@@ -236,17 +250,58 @@ class Motivation extends CI_Controller {
 			redirect($this->agent->referrer()); 
 		}
 	}
-	public function addcommentjhgj(){
+	public function postrquestcommit(){
 		$post=$this->input->post();
 		//echo '<pre>';print_r($post);exit;
 		$commentdata=array(
 						'post_id'=>$post['post_id'],
-						'comment'=>$post['comment'],
+						'name'=>$post['name'],
+						'email'=>$post['email'],
+						'message'=>$post['message'],
 						'create_at'=>date('Y-m-d H:i:s')				
 						 );
-		$comment = $this->Motivation_model->add_comment($commentdata);
+		$comment = $this->Motivation_model->add_leavecomment($commentdata);
 		if(count($comment)>0){
+			$this->load->library('email');
+						$this->email->set_newline("\r\n");
+						$this->email->set_mailtype("html");
+						$this->email->from($post['email']);
+						$this->email->to('admin@whatslyf.com');
+						$this->email->subject('whatslyf - Leave a Reply');
+						$html='Hi  My Name '.$post['name'].' Here is the info my (post Id '.$post['post_id'].' ) requested is .'.$post['message'];
+						//echo $html;exit;
+						$this->email->message($html);
+						$this->email->send();
 			$this->session->set_flashdata('success',"Comment successfully Added");
+				redirect($this->agent->referrer()); 
+		}else{
+			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+			redirect($this->agent->referrer()); 
+		}
+	}
+	public function contactpost(){
+		$post=$this->input->post();
+		//echo '<pre>';print_r($post);exit;
+		$commentdata=array(
+						'name'=>$post['name'],
+						'subject'=>$post['subjects'],
+						'email'=>$post['email'],
+						'message'=>$post['message'],
+						'create_at'=>date('Y-m-d H:i:s')				
+						 );
+		$comment = $this->Motivation_model->add_conatctus($commentdata);
+		if(count($comment)>0){
+			$this->load->library('email');
+						$this->email->set_newline("\r\n");
+						$this->email->set_mailtype("html");
+						$this->email->from($post['email']);
+						$this->email->to('admin@whatslyf.com');
+						$this->email->subject($post['subjects']);
+						$html=$post['message'];
+						//echo $html;exit;
+						$this->email->message($html);
+						$this->email->send();
+			$this->session->set_flashdata('success',"Query successfully Submit");
 				redirect($this->agent->referrer()); 
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
