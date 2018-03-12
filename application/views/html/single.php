@@ -68,43 +68,28 @@
 					    <div class="comment bg-ghost-white section-xs-size">
 						<!--LOOP-->
 						
-                      <div class="text-sm-left">
-                        <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
-                          <div class="unit-left"><img src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"></div>
-                          <div class="unit-body">
-                            <div class="range range-xs-justify range-xs-bottom text-xs-left">
-                              <div class="col-sm-10">
-                                <ul class="list-inline list-inline-md">
-                                  <li class="small">Posted by <a href="">Lorem Ipsum</a>
-                                  </li>
-                                  <li><span class="icon-date"></span><span class="text-primary small">Dec 13, 2016</span></li>
-                                </ul>
-                              </div>
-                              <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
-                            </div>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
-                          </div>
-                        </div>
-                      </div>
-					  <hr class="divider offset-top-30">
-					  <!--LOOP-->
-					 
-                        <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
-                          <div class="unit-left"><img src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"></div>
-                          <div class="unit-body">
-                            <div class="range range-xs-justify range-xs-bottom text-xs-left">
-                              <div class="col-sm-10">
-                                <ul class="list-inline list-inline-md">
-                                  <li class="small">Posted by <a href="">Lorem Ipsum</a>
-                                  </li>
-                                  <li><span class="icon-date"></span><span class="text-primary small">Dec 13, 2016</span></li>
-                                </ul>
-                              </div>
-                              <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
-                            </div>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
-                          </div>
-                        </div>
+						 <?php foreach($post_images['comment_list'] as $lis){ ?>
+								  <div class="text-sm-left">
+									<div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
+									  <div class="unit-left"><img src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"></div>
+									  <div class="unit-body">
+										<div class="range range-xs-justify range-xs-bottom text-xs-left">
+										  <div class="col-sm-10">
+											<ul class="list-inline list-inline-md">
+											  <!--<li class="small">Posted by <a href="">Lorem Ipsum</a>
+											  </li>-->
+											  <li><span class="icon-date"></span><span class="text-primary small"><?php echo date('M d,  Y',strtotime(htmlentities($lis['create_at'])));?></span></li>
+											</ul>
+										  </div>
+										  <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
+										</div>
+										<p> <?php echo $lis['comment']; ?></p>
+									  </div>
+									</div>
+								  </div>
+						  <hr class="divider offset-top-30">
+						 
+					 <?php } ?>
                       </div>
 					  <hr class="divider offset-top-30">
                      
