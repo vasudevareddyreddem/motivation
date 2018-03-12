@@ -70,7 +70,7 @@
 					</div>
 					<div class="col-md-2 col-xs-2">
 						<div class="file btn btn-sm btn-primary ">
-							Send
+							<button type="submit">Send</button>
 							
 						</div>
 						</form>
