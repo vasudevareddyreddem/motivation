@@ -3,7 +3,8 @@
         <div id="fb-root"></div>
         <!-- Owl Carousel-->
         <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="false" data-margin="30px" class="owl-carousel owl-carousel-flex offset-top-0">
-          <div class="owl-item">
+          <?php foreach($post_images as $List){ ?>
+		  <div class="owl-item">
             <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
               <div>
                 <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url(); ?>assets/vendor/img/p1.jpg" width="370" height="231" alt="" class="img-responsive post-image"/></a>
@@ -22,82 +23,11 @@
               </div>
             </div>
           </div>
-          <div class="owl-item">
-            <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
-              <div>
-                <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url(); ?>assets/vendor/img/p2.jpg" width="370" height="231" alt="" class="img-responsive post-image"/></a>
-                  
-                </div>
-                <div class="post-content-wrap">
-                  <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#">Lorem Ipsum</a></span></div>
-                  <h5><a href="#">Lorem Ipsum is simply dummy text </a></h5>
-                </div>
-                <div class="post-content-bottom">
-                  <ul class="post-meta list-inline list-inline-md">
-                    <li><a href="#" class="post-meta-date small">Dec 14, 2016</a></li>
-                    <li><a href="#" class="post-meta-comment small">14</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item">
-            <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
-              <div>
-                <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url(); ?>assets/vendor/img/p3.jpg" width="370" height="231" alt="" class="img-responsive post-image"/></a>
-                 
-                </div>
-                <div class="post-content-wrap">
-                  <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#">Lorem Ipsum</a></span></div>
-                  <h5><a href="#">E-bike: a Beautiful Design</a></h5>
-                </div>
-                <div class="post-content-bottom">
-                  <ul class="post-meta list-inline list-inline-md">
-                    <li><a href="#" class="post-meta-date small">Dec 15, 2016</a></li>
-                    <li><a href="#" class="post-meta-comment small">26</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item">
-            <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
-              <div>
-                <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url(); ?>assets/vendor/img/p1.jpg" width="370" height="231" alt="" class="img-responsive post-image"/></a>
-                 
-                </div>
-                <div class="post-content-wrap">
-                  <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#">Lorem Ipsum</a></span></div>
-                  <h5><a href="#">Research &amp; Development: Building a Dream</a></h5>
-                </div>
-                <div class="post-content-bottom">
-                  <ul class="post-meta list-inline list-inline-md">
-                    <li><a href="#" class="post-meta-date small">Dec 26, 2016</a></li>
-                    <li><a href="#" class="post-meta-comment small">3</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item">
-            <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
-              <div>
-                <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url(); ?>assets/vendor/img/p2.jpg" width="370" height="231" alt="" class="img-responsive post-image"/></a>
-                  
-                </div>
-                <div class="post-content-wrap">
-                  <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#">Lorem Ipsum</a></span></div>
-                  <h5><a href="#">Bicycle NXT 3000 - reviewed by industry pros</a></h5>
-                </div>
-                <div class="post-content-bottom">
-                  <ul class="post-meta list-inline list-inline-md">
-                    <li><a href="#" class="post-meta-date small">Dec 28, 2016</a></li>
-                    <li><a href="#" class="post-meta-comment small">30</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+		  <?php } ?>
+         
+          
+       
+        
         </div>
         <!--Posts-->
         <div class="shell">

@@ -8,19 +8,17 @@
 						<div class="col-md-12">
     						<div class="widget-area no-padding blank">
 								<div class="status-upload">
-									<form>
-										<textarea placeholder="What are you doing right now?" ></textarea>
-										
+									<form  id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+										<?php if(isset($image_list) && count($image_list)>0){ ?>
 										<div class="row prev">
-											<div class="col-md-2">
-												<img class="img-responsive" src="https://rukminim1.flixcart.com/image/400/400/iron/f/g/c/philips-gc1905-gc1905-original-imadztntwyhmcmge.jpeg?q=70">
-												<div class="pos-ab-close"><i class="fa fa-close"></i></div>
-											</div><div class="col-md-2">
-												<img class="img-responsive" src="https://i.ytimg.com/vi/iU2yPKrWKYQ/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAU8RvPZS1_i_Q_r4m4H5v5QiKkuA">
-												<div class="pos-ab-close"><i class="fa fa-close"></i></div>
+										<?php foreach($image_list as $list){ ?>
+											<div class="col-md-2" id="attach_<?php echo $list['id']; ?>">
+												<img class="img-responsive" src="<?php echo base_url('assets/temp/'.$list['name']);?>">
+												<div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
 											</div>
-											
+										<?php } ?>
 										</div>
+										<?php } ?>
 								
 										<ul>
 											<li class="image-upload">
@@ -28,25 +26,31 @@
 														<i class="fa fa-music"></i>
 													</label>
 
-													 <input type="file"  id="images" name="images[]" onchange="preview_images();" multiple/>
+													 <input type="file"  id="images" name="images1" onchange="onchangeimage();" />
 											</li>
 											<li class="image-upload">
 													<label for="images">
 														<i class="fa fa-camera"></i>
 													</label>
-													 <input type="file"  id="images" name="images[]" onchange="preview_images();" multiple/>
+													 <input type="file"  id="images" name="images2" onchange="onchangeimage();" />
 											</li>
 											<li class="image-upload">
 													<label for="images">
 														<i class="fa fa-picture-o"></i>
 													</label>
-													 <input type="file"  id="images" name="images[]" onchange="preview_images();" multiple/>
+													 <input type="file"  id="images" name="images3" onchange="onchangeimage();" />
 											</li>
 											
 										</ul>
-										<button type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
+										
 									
 								
+									</form>
+									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
+
+									<textarea placeholder="What are you doing right now?" id="content" name="content" ></textarea>
+
+									<button type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
 									</form>
 									
 								</div><!-- Status Upload  -->
@@ -67,30 +71,30 @@
       </main>
 	  
   <script>
-function myFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+function remove_image(id){
+	if(id!=''){
+		 jQuery.ajax({
+					url: "<?php echo site_url('motivation/attchements');?>",
+					data: {
+						attachmentid: id,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+					if(data.msg==1){
+					$('#modalwindow').modal('hide');
+						jQuery('#attach_'+id).hide();
+					}
+				 }
+				});
+			}
 }
+function onchangeimage(){
+	$("#addimages").submit();
+}
+
+
 </script>
-<!--<script>
-function preview_images() 
-{
- var total_file=document.getElementById("images").files.length;
- for(var i=0;i<total_file;i++)
- {
-  $('#image_preview').append("<div class='col-md-2'><img class='img-responsive' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
- }
-}
-</script>-->
+
 
 
