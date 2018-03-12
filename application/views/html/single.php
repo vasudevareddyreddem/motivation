@@ -101,7 +101,7 @@
                       
                     </div>
                  
-                  </div>
+                  
                 </div>
                 <hr class="divider">
                 <div id="reply" class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
