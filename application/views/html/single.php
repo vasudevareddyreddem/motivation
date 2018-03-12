@@ -96,12 +96,12 @@
                   <p class="small">Your email address will not be published.<br class="veil-sm"> Required fields are marked *
                   </p>
                   <!-- RD Mailform-->
-                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="" class="rd-mailform">
-                    <input type="text" id="name" name="name"  placeholder="Your name *" required>
-                    <input type="text" id="email" name="email"  placeholder="Your e-mail *" required>
-                    <textarea name="message" id="message" placeholder="Comments *" required></textarea>
+                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/postrquestcommit'); ?>" class="">
+                    <input type="text" id="name" name="name" class="form-control"   placeholder="Your name *" required><br>
+                    <input type="text" id="email" name="email" class="form-control"   placeholder="Your e-mail *" required><br>
+                    <textarea name="message" id="message" class="form-control"  placeholder="Comments *" required></textarea><br>
                     <div class="text-md-left offset-top-30">
-                      <button class="btn btn-primary">Submit Comment</button>
+                      <button type="submit" class="btn btn-primary">Submit Comment</button>
                     </div>
                   </form>
                   <!-- Rd Mailform result field-->
