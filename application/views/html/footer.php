@@ -7,8 +7,10 @@
 <div class="modal fade right" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
   data-backdrop="false">
   <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-    <div class="modal-content">
+    <form>
+	<div class="modal-content">
       <!--Header-->
+	  
       <div class="modal-header" >
         <span class="heading lead">Feedback request
         </span>
@@ -21,7 +23,7 @@
 
       <!--Body-->
       <div class="modal-body" style="height:100%;">
-         <form>
+         <form action="<?php echo base_url('motivation/feedback'); ?>" method="post">
     <div class="radio">
       <label><input type="radio" name="optradio">Very good</label>
     </div>
@@ -35,7 +37,7 @@
       <label><input type="radio" name="optradio">Bad</label>
     </div>
 	<div class="radio">
-      <label><input type="radio" name="optradio">Very bad</label>
+      <label><input type="radio" name="optradio" required>Very bad</label>
     </div>
     
   </form>
@@ -47,7 +49,7 @@
         <!--Basic textarea-->
         <div class="md-form">
 		<label for="form79textarea">Your message</label>
-          <textarea type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
+          <textarea type="text" name="message" id="form79textarea" class="md-textarea form-control" rows="3" required></textarea>
           
         </div>
 
@@ -55,12 +57,13 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center" style="background:#fff;">
-        <a type="button" class="btn btn-primary waves-effect waves-light">Send
+        <button type="submit" class="btn btn-primary waves-effect waves-light">Send
           <i class="fa fa-paper-plane ml-1"></i>
-        </a>
+        </button>
         <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
       </div>
     </div>
+	</form>
   </div>
 </div>
 <!-- Modal: modalPoll -->
