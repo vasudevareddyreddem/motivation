@@ -73,6 +73,27 @@ class Motivation_model extends CI_Model
 		$sql1="DELETE FROM post_count WHERE p_id = '".$id."'";
 		return $this->db->query($sql1);
 	}
+	public function get_all_post_detail_list($postid){
+		$this->db->select('post_count.*,,admin.name')->from('post_count');
+		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
+		$this->db->where('post_count.p_id', $postid);
+		$this->db->group_by('post_count.p_id');
+		$this->db->order_by("post_count.create_at", "DESC");
+		$this->db->where('post_count.pstatus', 1);
+		$return= $this->db->get()->row_array();
+			$images=$this-> get_all_post_imgs($return['p_id']);
+			$comment=$this-> get_all_comments_imgs($return['p_id']);
+			$like=$this-> get_all_like_imgs($return['p_id']);
+			$lis=$return;
+			$lis['p_list']=$images;
+			$lis['comment_list']=$comment;
+			$lis['like_count']=$like['like'];
+		
+		if(!empty($lis))
+		{
+		return $lis;
+		}
+	}
 	public function get_all_post_lists($user_id){
 		$this->db->select('post_count.*,,admin.name')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');

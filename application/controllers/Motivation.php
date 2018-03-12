@@ -26,6 +26,16 @@ class Motivation extends CI_Controller {
 			$this->load->view('html/index',$data);
 			$this->load->view('html/footer',$data);
 	}
+	public function singlepost()
+	{
+			$this->load->view('html/header');
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post_id=base64_decode($this->uri->segment(3));
+			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/single',$data);
+			$this->load->view('html/footer',$data);
+	}
 	public function admin()
 	{
 			$this->load->view('html/header');

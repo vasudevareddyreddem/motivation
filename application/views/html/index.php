@@ -38,7 +38,6 @@
                      <a href="#"><h4>
                      
                         <?php echo isset($List['text'])?$List['text']:''; ?>
-                        <?php echo isset($List['p_id'])?$List['p_id']:''; ?>
                         </h4></a>
                         <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                      <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
@@ -59,7 +58,7 @@
                         <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
                      </ul>
-                     <a href="single.php" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
+                     <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
                   </div>
                   <div class="card-footer"  id="myDIV<?php echo $List['p_id']; ?>"  style="display:none">
                      <div class="pad-30">
@@ -126,7 +125,7 @@
                         <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
                      </ul>
-                     <a href="#" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
+                     <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
                   </div>
                   <div class="card-footer"  id="myDIV<?php echo $List['p_id']; ?>"  style="display:none">
                      <div class="pad-30">

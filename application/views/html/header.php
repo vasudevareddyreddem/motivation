@@ -36,7 +36,7 @@
               </div>
               <div class="rd-navbar-nav-wrap">
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a href="index.php" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
+                <div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
                 <!-- RD Navbar Nav-->
                 <div class="rd-navbar-nav-outher">
                   <ul class="rd-navbar-nav">

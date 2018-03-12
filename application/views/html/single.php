@@ -1,4 +1,3 @@
- <?php include('header.php'); ?>
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -7,9 +6,13 @@
               <div class="box section-bottom-15">
                 <div class="post post-default section-top-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   
-                  <h4>Lorem Ipsum is simply dummy text </h4>
+                  <h4><?php echo isset($post_images['text'])?$post_images['text']:''; ?></h4>
                   <div class="post-meta element-groups-15">
-                    <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">Shane Doe</a></span></div><a href="#" class="post-meta-date small">Dec 15, 2016</a><a href="#comments" class="post-meta-comment small">25</a>
+                    <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">
+					<?php echo isset($post_images['name'])?$post_images['name']:''; ?></a></span></div>
+					<a href="#" class="post-meta-date small">
+					<?php echo date('M d,  Y',strtotime(htmlentities($post_images['create_at'])));?></a>
+					<a href="#comments" class="post-meta-comment small"><?php if(count($post_images['comment_list'])>0){ echo count($post_images['comment_list']) ; } ?></a>
                   </div><img src="img/p2.jpg" width="770" height="480" alt="" class="img-responsive post-image"/>
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                   <p>
@@ -33,21 +36,7 @@
                     </div>
                   </div>
                 </div>
-                <hr class="divider">
-                <div class="section-xs-size">
-                  <div class="bg-primary">
-                    <div class="section-30-all text-sm-left">
-                      <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-middle">
-                        <div class="unit-left"><img src="images/author.jpg" width="138" height="138" alt="" class="img-responsive img-circle max-width-none"/></div>
-                        <div class="unit-body">
-                          <h5>Written by  Lorem Ipsum
-                          </h5>
-                          <p class="offset-top-10 small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+             
                 <hr class="divider">
                 <div class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <!--Comments-->
@@ -177,4 +166,3 @@
           </div>
         </div>
       </main>
-	  <?php include('footer.php'); ?>
