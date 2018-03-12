@@ -156,6 +156,15 @@ class Motivation_model extends CI_Model
 		$this->db->insert('contactus', $data);
 		return $insert_id = $this->db->insert_id();	
 	}
+	public function add_newsletter($data){
+		$this->db->insert('newsletter', $data);
+		return $insert_id = $this->db->insert_id();	
+	}
+	public function get_newsletter($email){
+		$this->db->select('*')->from('newsletter');		
+		$this->db->where('email', $email);
+		return $this->db->get()->row_array();
+	}
 	
 	
 }

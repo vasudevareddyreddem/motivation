@@ -1,3 +1,13 @@
+<?php if($this->session->flashdata('success')): ?>
+				<div class="alert_msg1 animated slideInUp bg-succ">
+				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('error')): ?>
+				<div class="alert_msg1 animated slideInUp bg-warn">
+				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -145,9 +155,9 @@
                       <h5>Newsletter</h5>
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
-                      <form data-result-class="rd-mailform-validate" data-form-type="subscribe" method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="rd-mailform form-inline-flex form-inline reveal-xs-flex">
-                        <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail">
-                        <button class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
+                       <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
+                        <input type="email" name="email"  placeholder="Your e-mail" required>
+                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->
                     </div>

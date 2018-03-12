@@ -307,6 +307,28 @@ class Motivation extends CI_Controller {
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect($this->agent->referrer()); 
 		}
+	}	
+	public function newsletter(){
+		$post=$this->input->post();
+		//echo '<pre>';print_r($post);exit;
+		$email=$this->Motivation_model->get_newsletter($post['email']);
+		if(count($email)==0){
+			$newsletter=array(
+							'email'=>$post['email'],
+							'create_at'=>date('Y-m-d H:i:s')				
+							 );
+			$comment = $this->Motivation_model->add_newsletter($newsletter);
+			if(count($comment)>0){
+					$this->session->set_flashdata('success',"You are successfully subscribed");
+					redirect($this->agent->referrer()); 
+			}else{
+				$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+				redirect($this->agent->referrer()); 
+			}
+		}else{
+			$this->session->set_flashdata('error'," You are already subscribed");
+			redirect($this->agent->referrer()); 
+		}
 	}
 	
 	public function likecount(){
