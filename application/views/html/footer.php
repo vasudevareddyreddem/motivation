@@ -67,25 +67,13 @@
     <script src="<?php echo base_url(); ?>assets/vendor/js/core.min.js"></script>
    <script src="<?php echo base_url(); ?>assets/vendor/js/script.js"></script>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/js/images-grid.js"></script>
-   
-    
+ 
 <script>
-$(document).ready(function(){
-    $("#comm_expand").click(function(){
-        $("#comm_sec").toggle();
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-    $("#comm_expand1").click(function(){
-        $("#comm_sec1").toggle();
-    });
-});
+
 
 <?php foreach($post_images as $List){
 if(count($List['p_list'])!=0){ ?>
- var images = [
+ var images<?php echo $List['p_id']; ?> = [
 			<?php foreach($List['p_list'] as $lis){ ?>
                 '<?php echo base_url('assets/files/'.$lis['imgname']); ?>',
 			<?php } ?>
@@ -93,12 +81,16 @@ if(count($List['p_list'])!=0){ ?>
 
            $(function() {
 					$('#gallery<?php echo $List['p_id']; ?>').imagesGrid({
-                    images: images
+                    images: images<?php echo $List['p_id']; ?>
                 });
                 
 			});
 
-  
+  $(document).ready(function(){
+    $("#comm_expand<?php echo $List['p_id']; ?>").click(function(){
+        $("#comm_sec<?php echo $List['p_id']; ?>").toggle();
+    });
+});
 <?php } ?>
 <?php } ?>
      

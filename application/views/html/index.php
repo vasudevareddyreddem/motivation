@@ -38,14 +38,14 @@
             <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0">
 			<?php foreach($post_images as $List){?>
 			<?php if(count($List['p_list'])==0){ ?>
-						  <div class="post post-variant-1 box">
+						  <div class="post post-variant-1 box mar-t30">
 							<div>
 							  <div class="post-content-wrap">
 								<h4><a href="#"><?php echo isset($List['text'])?$List['text']:''; ?><h4>
 								<div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
 								<ul class="post-meta list-inline list-inline-md">
 								  <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
-								  <li  id="comm_expand"><a  class="post-meta-comment small">34</a></li>
+								 <li  id="comm_expand<?php echo $List['p_id']; ?>"><a  class="post-meta-comment small">34</a></li>
 								  <li><a href="#" class="post-meta-like small">4</a></li>
 								  <li><a href="#" class="post-meta-share small">4</a></li>
 								</ul>
@@ -60,21 +60,23 @@
 										  <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
 										</ul><a href="single.php" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
 							  </div>
-							  <div class="card-footer" style="display:none;" id="comm_sec">
-							<div class="row">
-							<hr>
-							<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
-								<div class="col-md-8 col-xs-8">
-								<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
-								</div>
-								<div class="col-md-2 col-xs-2">
-									<div class="file btn btn-sm btn-primary ">
-										Send
-										
-									</div>
-							</div>
-							</div>
+							  <div class="card-footer" style="display:none;" id="comm_sec<?php echo $List['p_id']; ?>">
+				<div class="row">
+				<hr>
+				<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+					<form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
+					<div class="col-md-8 col-xs-8">
+					<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+					</div>
+					<div class="col-md-2 col-xs-2">
+						<div class="file btn btn-sm btn-primary ">
+							Send
+							
 						</div>
+						</form>
+				</div>
+				</div>
+			</div>
 							</div>
 						  </div>
 			<?php }else{ ?>
@@ -85,12 +87,11 @@
 							<div id="gallery<?php echo $List['p_id']; ?>"></div>
 						  </div>
 						  <div class="post-content-wrap">
-							<div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">Lorem Ipsum</a></span></div>
-							<h4><a href="#">Lorem Ipsum is simply dummy text </a></h4>
-							<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged...</p>
+							<div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
+							<h4><a href="#"><?php echo isset($List['text'])?$List['text']:''; ?></a></h4>
 							<ul class="post-meta list-inline list-inline-md">
-							  <li><a href="#" class="post-meta-date small">Dec 15, 2016</a></li>
-							  <li><a href="#" class="post-meta-comment small">34</a></li>
+							  <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
+							  <li  id="comm_expand<?php echo $List['p_id']; ?>"><a  class="post-meta-comment small">34</a></li>
 							   <li><a href="#" class="post-meta-like small">4</a></li>
 							  <li><a href="#" class="post-meta-share small">4</a></li>
 							</ul>
@@ -105,6 +106,21 @@
 									  <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
 									</ul><a href="#" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
 						  </div>
+						   <div class="card-footer" style="display:none;" id="comm_sec<?php echo $List['p_id']; ?>">
+				<div class="row">
+				<hr>
+				<span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+					<div class="col-md-8 col-xs-8">
+					<textarea type="text"  class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+					</div>
+					<div class="col-md-2 col-xs-2">
+						<div class="file btn btn-sm btn-primary ">
+							Send
+							
+						</div>
+				</div>
+				</div>
+			</div>
 						</div>
 					  </div>
 			<?php } ?>
@@ -194,7 +210,17 @@
         
         
       </main>
-	  
+	  <script>
+	  <?php foreach($post_images as $List){ ?>
+		 
+			$(document).ready(function(){
+			$("#comm_expand<?php echo $List['p_id']; ?>").click(function(){
+			$("#comm_sec").toggle();
+			});
+			});
+	  <?php } ?>
+		 </script>
+		
   <script>
 function myFunction() {
     var input, filter, ul, li, a, i;
