@@ -32,9 +32,10 @@ class Motivation extends CI_Controller {
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
 			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			$footerdata['post_images']=$this->Motivation_model->get_all_post_lists($loginuser_id['id']);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('html/single',$data);
-			$this->load->view('html/footer',$data);
+			$this->load->view('html/footer',$footerdata);
 	}
 	public function admin()
 	{
@@ -229,10 +230,10 @@ class Motivation extends CI_Controller {
 		$comment = $this->Motivation_model->add_comment($commentdata);
 		if(count($comment)>0){
 			$this->session->set_flashdata('success',"Comment successfully Added");
-				redirect(''); 
+				redirect($this->agent->referrer()); 
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-			redirect(''); 
+			redirect($this->agent->referrer()); 
 		}
 	}
 	

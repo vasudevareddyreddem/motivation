@@ -4,25 +4,23 @@
           <div class="range">
             <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0">
               <div class="box section-bottom-15">
+			  
                 <div class="post post-default section-top-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   
                   <h4><?php echo isset($post_images['text'])?$post_images['text']:''; ?></h4>
+				  <?php if(count($post_images['p_list'])>0){ ?>
+                     <div id="gallery<?php echo $post_images['p_id']; ?>"></div>
+				<?php } ?>
                   <div class="post-meta element-groups-15">
                     <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">
 					<?php echo isset($post_images['name'])?$post_images['name']:''; ?></a></span></div>
 					<a href="#" class="post-meta-date small">
 					<?php echo date('M d,  Y',strtotime(htmlentities($post_images['create_at'])));?></a>
 					<a href="#comments" class="post-meta-comment small"><?php if(count($post_images['comment_list'])>0){ echo count($post_images['comment_list']) ; } ?></a>
+					<a href="javascript:void(0)" onclick="likecount('<?php echo $post_images['p_id']; ?>');" class="post-meta-like small"><span id="count"><?php if($post_images['like_count']>0){ echo $post_images['like_count']; } ?> </span></a>
+
                   </div><img src="img/p2.jpg" width="770" height="480" alt="" class="img-responsive post-image"/>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    
-                  </p>
-                  <p>
-                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    
-                  </p>
+                  
                   <div class="offset-top-20 reveal-sm-flex range-sm-justify range-xs-middle">
                    
                     <div class="offset-top-15 offset-sm-top-0">
@@ -36,71 +34,60 @@
                     </div>
                   </div>
                 </div>
-             
+				
+              <div class="row">
+                           <hr>
+                           <span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+                           <form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
+                              <div class="col-md-8 col-xs-8">
+                                 <input type="hidden" id="post_id" name="post_id"  value="<?php echo $post_images['p_id']; ?>">
+                                 <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+                              </div>
+                              <div class="col-md-2 col-xs-2">
+                                 <div class="file btn btn-sm btn-primary ">
+                                    <button class="btn btn-sm btn-primary" type="submit">Send</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
                 <hr class="divider">
                 <div class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <!--Comments-->
                   <h5>3 Responses</h5>
                   <div id="comments">
-                    <div class="comment bg-ghost-white section-xs-size">
+                   
+				
+					    <div class="comment bg-ghost-white section-xs-size">
+							<?php $c=0;foreach($post_images['comment_list'] as $li){ ?>
+							<?php if (($c % 2) == 0) { ?>
                       <div class="text-sm-left">
+							<?php }else{?>
+							<div class="comment comment-reply text-sm-left">
+							<?php } ?>
                         <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
                           <div class="unit-left"><img src="img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"/></div>
                           <div class="unit-body">
                             <div class="range range-xs-justify range-xs-bottom text-xs-left">
                               <div class="col-sm-10">
                                 <ul class="list-inline list-inline-md">
-                                  <li class="small">Posted by <a href="">Lorem Ipsum</a>
-                                  </li>
-                                  <li><span class="icon-date"></span><span class="text-primary small">Dec 13, 2016</span></li>
+                                  <!--<li class="small">Posted by <a href="">Lorem Ipsum</a>
+                                  </li>-->
+                                  <li><span class="icon-date"></span><span class="text-primary small"><?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?></span></li>
                                 </ul>
                               </div>
-                              <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
+                              <div class="col-sm-2 text-right"></div>
                             </div>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+                            <p>  <?php echo $li['comment']; ?></p>
                           </div>
                         </div>
                       </div>
-                      <hr class="divider offset-top-30"/>
-                      <div class="comment comment-reply text-sm-left">
-                        <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
-                          <div class="unit-left"><img src="img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"/></div>
-                          <div class="unit-body">
-                            <div class="range range-xs-justify range-xs-bottom text-xs-left">
-                              <div class="col-sm-10">
-                                <ul class="list-inline list-inline-md">
-                                  <li class="small">Posted by <a href="">Lorem Ipsum</a>
-                                  </li>
-                                  <li><span class="icon-date"></span><span class="text-primary small">Dec 15, 2016</span></li>
-                                </ul>
-                              </div>
-                              <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
-                            </div>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text !</p>
-                          </div>
-                        </div>
+					    <hr class="divider offset-top-30"/>
+					   <?php $c++;} ?>
                       </div>
+					   
+                      
                     </div>
-                    <div class="comment bg-ghost-white section-xs-size">
-                      <div class="text-sm-left">
-                        <div class="unit unit-sm-horizontal unit-md-horizontal unit-lg-horizontal unit-xl-horizontal unit-top">
-                          <div class="unit-left"><img src="img/coment-user.png" width="80" alt="" class="max-width-none img-circle img-responsive"/></div>
-                          <div class="unit-body">
-                            <div class="range range-xs-justify range-xs-bottom text-xs-left">
-                              <div class="col-sm-10">
-                                <ul class="list-inline list-inline-md">
-                                  <li class="small">Posted by <a href="">Lorem Ipsum</a>
-                                  </li>
-                                  <li><span class="icon-date"></span><span class="text-primary small">Dec 9, 2016</span></li>
-                                </ul>
-                              </div>
-                              <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
-                            </div>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text!</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                 
                   </div>
                 </div>
                 <hr class="divider">
@@ -109,7 +96,7 @@
                   <p class="small">Your email address will not be published.<br class="veil-sm"> Required fields are marked *
                   </p>
                   <!-- RD Mailform-->
-                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform">
+                  <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="" class="rd-mailform">
                     <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your name *">
                     <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail *">
                     <input type="text" name="site" placeholder="Your website">
@@ -166,3 +153,22 @@
           </div>
         </div>
       </main>
+	  <script>
+function likecount(id){
+	if(id!=''){
+		 jQuery.ajax({
+					url: "<?php echo site_url('motivation/likecount');?>",
+					data: {
+						postid: id,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+						jQuery('#count').empty();
+						jQuery('#count').prepend(data.msg);
+					
+				 }
+				});
+			}
+}
+</script>
