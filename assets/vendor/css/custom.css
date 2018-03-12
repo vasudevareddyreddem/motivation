@@ -7,6 +7,16 @@
 box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 
 }
+.pad-30{
+	padding:0 40px;
+}
+.title {
+    font-size: 14px;
+    font-weight:bold;
+}
+.komen {
+    font-size:14px;
+}
 .sear-btn{
 	position:absolute;
 	right:10px;
