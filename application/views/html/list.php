@@ -15,6 +15,7 @@
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
+                 <th>Posted By</th>
                  <th>Image Count</th>
                 <th>Date</th>
 				 <th>Status</th>
@@ -23,7 +24,8 @@
         </thead>
         <tfoot>
             <tr>
-                <th>Image Count</th>
+                <th>Posted By</th>
+				<th>Image Count</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -33,6 +35,7 @@
 		<?php if(isset($image_list) && count($image_list)>0){ ?>
 			<?php foreach($image_list as $list){ ?>
 				<tr>
+					<td><?php echo $list['name']; ?></td>
 					<td><?php echo $list['count']; ?></td>
 					<td><?php echo $list['create_at']; ?></td>
 					<td><?php if($list['pstatus']==1){ echo "Active";}elseif($list['pstatus']==1){ "Deactive"; } ?></td>

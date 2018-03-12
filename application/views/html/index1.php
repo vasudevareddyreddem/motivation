@@ -82,25 +82,55 @@ $(document).ready(function(){
         $("#comm_sec1").toggle();
     });
 });
+</script>
+<script>
 
-<?php foreach($post_images as $List){
-if(count($List['p_list'])!=0){ ?>
- var images = [
-			<?php foreach($List['p_list'] as $lis){ ?>
-                '<?php echo base_url('assets/files/'.$lis['imgname']); ?>',
-			<?php } ?>
+            var images = [
+                
+                '<?php echo base_url(); ?>assets/vendor/img/p1.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p3.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p2.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p3.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p1.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p2.jpg',
+                '<?php echo base_url(); ?>assets/vendor/img/p2.jpg',
+                
             ];
 
            $(function() {
-					$('#gallery<?php echo $List['p_id']; ?>').imagesGrid({
+
+                $('#gallery1').imagesGrid({
                     images: images
                 });
-                
-			});
+                $('#gallery2').imagesGrid({
+                    images: images.slice(0, 2)
+                });
+                $('#gallery3').imagesGrid({
+                    images: images.slice(0, 4)
+                });
+                $('#gallery4').imagesGrid({
+                    images: images.slice(0, 3)
+                });
+                $('#gallery5').imagesGrid({
+                    images: images.slice(0, 2)
+                });
+                $('#gallery6').imagesGrid({
+                    images: images.slice(0, 1)
+                });
+                $('#gallery7').imagesGrid({
+                    images: [
+                        'https://unsplash.it/660/440?image=875',
+                'https://unsplash.it/660/990?image=874',
+                'https://unsplash.it/660/440?image=872',
+                'https://unsplash.it/750/500?image=868',
+                'https://unsplash.it/660/990?image=839',
+                'https://unsplash.it/660/455?image=838'
+                    ],
+                    align: true,
+                    getViewAllText: function(imgsCount) { return 'View all' }
+                });
 
-  
-<?php } ?>
-<?php } ?>
-     
-      </script> 
+            });
+
+        </script> 
 </html>

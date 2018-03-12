@@ -42,8 +42,9 @@ class Motivation_model extends CI_Model
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_list($user_id){
-		$this->db->select('COUNT(img_id) as count,post_count.p_id,post_count.pstatus,posts.create_at,posts.create_at')->from('posts');		
+		$this->db->select('COUNT(img_id) as count,post_count.p_id,post_count.pstatus,posts.create_at,posts.create_at,admin.name')->from('posts');		
 		$this->db->join('post_count', 'post_count.p_id = posts.post_id', 'left');
+		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
 		$this->db->where('post_count.user_id', $user_id);
 		//$this->db->where('post_count.pstatus', 1);
 		 $this->db->group_by('posts.post_id');
@@ -69,9 +70,28 @@ class Motivation_model extends CI_Model
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_lists($user_id){
-		$this->db->select('*')->from('posts');		
-		$this->db->where('posts.user_id', $user_id);
-		$this->db->where('posts.status', 1);
+		$this->db->select('post_count.*,,admin.name')->from('post_count');
+		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
+		$this->db->where('post_count.user_id', $user_id);
+		$this->db->group_by('post_count.p_id');
+		$this->db->order_by("post_count.create_at", "DESC");
+		$this->db->where('post_count.pstatus', 1);
+		$return= $this->db->get()->result_array();
+		foreach($return as $list){
+			$images=$this-> get_all_post_imgs($list['p_id']);
+			$lis[$list['p_id']]=$list;
+			$lis[$list['p_id']]['p_list']=$images;
+		}
+		if(!empty($lis))
+		{
+		return $lis;
+		}
+		//echo '<pre>';print_r($lis);
+	}
+	public function get_all_post_imgs($p_id){
+		$this->db->select('posts.name as imgname,posts.org_name,posts.create_at,admin.name')->from('posts');		
+		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
+		$this->db->where('posts.post_id', $p_id);
 		$this->db->order_by("posts.create_at", "DESC");
 		return $this->db->get()->result_array();
 	}
