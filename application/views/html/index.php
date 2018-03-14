@@ -100,7 +100,7 @@
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
                               <div class="col-md-2 col-xs-2">
-                                 <div class="file btn btn-sm btn-primary ">
+                                 <div class="file  ">
                                     <button class="btn btn-sm btn-primary" type="submit">Send</button>
                                  </div>
                               </div>
@@ -110,21 +110,24 @@
                         
 						  <?php foreach($List['comment_list'] as $li){ ?>
                         <div class="row">
+						<br>
                            <div class="media">
                               <div class="media-left">
                                  <img src="http://fakeimg.pl/50x50" class="media-object" style="width:40px">
                               </div>
                               <div class="media-body">
-                                 <!--<h4 class="media-heading title">Fahmi Arif</h4>-->
-                                 <p class="komen">
-                                    <?php echo $li['comment']; ?><br>
-                                    <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?><br>
-                                 </p>
+                              
+								 <h6 class="h6-comments"><?php echo $li['comment']; ?></h6>
+                                 <div class="komen">
+                                    <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?>
+                                 </div>
                               </div>
                            </div>
                         </div>
 					<?php } ?>
+					
                      </div>
+					 <br>
                   </div>
                </div>
             </div>
@@ -179,28 +182,29 @@
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
                               <div class="col-md-2 col-xs-2">
-                                 <div class="file btn btn-sm btn-primary ">
-                                    <button type="submit">Send</button>
+                                 <div class="file  ">
+                                    <button class="btn btn-primary btn-sm" type="submit">Send</button>
                                  </div>
                               </div>
                            </form>
                         </div>
                         <?php foreach($List['comment_list'] as $li){ ?>
+						<br>
                         <div class="row">
                            <div class="media">
                               <div class="media-left">
                                  <img src="http://fakeimg.pl/50x50" class="media-object" style="width:40px">
                               </div>
                               <div class="media-body">
-                                 <!--<h4 class="media-heading title">Fahmi Arif</h4>-->
-                                 <p class="komen">
-                                    <?php echo $li['comment']; ?><br>
-                                    <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?><br>
-                                 </p>
+                                  <h6 class="h6-comments"><?php echo $li['comment']; ?></h6>
+                                 <div class="komen">
+                                    <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?>
+                                 </div>
                               </div>
                            </div>
                         </div>
 					<?php } ?>
+					<br>
                      </div>
                   </div>
                </div>

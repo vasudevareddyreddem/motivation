@@ -15,7 +15,7 @@
 				<h4 class="card-title">Share your  photo, video or idea</h4>
 				   <div class="row">
 						<div class="col-md-12">
-    						<div class="widget-area no-padding blank">
+    						<div class="widget-area  blank">
 								<div class="status-upload">
 									<form  id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
 										<?php if(isset($image_list) && count($image_list)>0){ ?>
@@ -57,10 +57,13 @@
 									</form>
 									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
 
-									<input type="text" placeholder="Title" id="title" name="title" value="" required>
+									<input class="form-control" type="text" placeholder="Title" id="title" name="title" value="" required>
 									<textarea placeholder="What are you doing right now?" id="content" name="content" required></textarea>
+									
+									<button style="margin-bottom:10px;"type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
+								
 
-									<button type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
+									
 									</form>
 									
 								</div><!-- Status Upload  -->
