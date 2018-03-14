@@ -146,11 +146,10 @@
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-						console.log(data.text);
 						 $('#result').show();
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
-						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].text+"</li></a>");                      
+						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
                       
 					}
 				 }
