@@ -219,9 +219,9 @@
                      <div class="section-xs-size">
                         <h5>Newsletter</h5>
                         <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
-                        <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
-                        <input type="email" name="email"  placeholder="Your e-mail" required>
-                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
+                        <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
+                        <input style="width:50%" type="email" name="email"  placeholder="Your e-mail" required>
+                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                       </form>
                      </div>
                      <div class="rd-mailform-validate">
