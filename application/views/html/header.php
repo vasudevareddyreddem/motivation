@@ -44,7 +44,7 @@
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control sear-sty" placeholder="Search" name="q" style="background:#fff;">
+								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -133,7 +133,26 @@
       
     </div>
   </div>
-        <script>
+  <script>
+	function getsarchdata(val){
+		alert(val);
+			if(val!=''){
+				jQuery.ajax({
+					url: "<?php echo base_url('motivation/search');?>",
+					data: {
+						searchdata: val,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+						jQuery('#count').empty();
+						jQuery('#count').prepend(data.msg);
+					
+				 }
+				});
+			}
+			
+		}
 function myFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");

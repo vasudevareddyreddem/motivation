@@ -455,6 +455,13 @@ exit;
 				echo json_encode($data);	
 				}
 		
+	}	
+	public function search(){
+		$post=$this->input->post();
+		$details=$this->Motivation_model->get_search_post($post['searchdata']);
+		
+		echo '<pre>';print_r($details);exit;
+		
 	}
 	
 	public function logout()

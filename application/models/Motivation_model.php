@@ -162,6 +162,11 @@ class Motivation_model extends CI_Model
 		$this->db->where('post_id', $post_id);
 		return $this->db->get()->row_array();
 	}
+	public function get_search_post($post_id){
+		$this->db->select('*')->from('like_count');		
+		$this->db->where('post_id', $post_id);
+		return $this->db->get()->row_array();
+	}
 	public function update_like_count($pid,$data){
 		$this->db->where('post_id', $pid);
 		return $this->db->update('like_count', $data);
