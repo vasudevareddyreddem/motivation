@@ -459,8 +459,15 @@ exit;
 	public function search(){
 		$post=$this->input->post();
 		$details=$this->Motivation_model->get_search_post($post['searchdata']);
-		
-		echo '<pre>';print_r($details);exit;
+		if(count($details) > 0)
+				{
+				$data['msg']=1;
+				$data['text']=$details;
+				echo json_encode($data);	
+				}else{
+					$data['msg']=2;
+					echo json_encode($data);
+				}
 		
 	}
 	

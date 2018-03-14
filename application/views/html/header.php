@@ -17,7 +17,6 @@
 	     
     
 	
-	
   </head>
   
   <body>
@@ -49,14 +48,8 @@
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
 								</span>
-								<div class="search-bac" >
-							
-									<ul class="text-left mar-t10">
-										<a href="#"><li>fdfsdafsd</li></a>
-										<a href="#"><li>fdfsdafsd</li></a>
-										<a href="#"><li>fdfsdafsd</li></a>
-										<a href="#"><li>fdfsdafsd</li></a>
-										
+								<div class="search-bac" id="result" style="display:none;">
+									<ul class="text-left mar-t10" id="searchresult">
 									</ul>
 								</div>
 							</div>
@@ -133,10 +126,18 @@
       
     </div>
   </div>
+  <style>
+  .serachide{
+	  display
+  }
+  </style>
+  
   <script>
+  $('html').click(function(){
+    alert('fgfd')
+});
 	function getsarchdata(val){
-		alert(val);
-			if(val!=''){
+		if(val!=''){
 				jQuery.ajax({
 					url: "<?php echo base_url('motivation/search');?>",
 					data: {
@@ -145,12 +146,18 @@
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-						jQuery('#count').empty();
-						jQuery('#count').prepend(data.msg);
-					
+						console.log(data.text);
+						 $('#result').show();
+						$('#searchresult').empty();
+						for(i=0; i<data.text.length; i++) {
+						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].text+"</li></a>");                      
+                      
+					}
 				 }
 				});
-			}
+				
+		}
+			
 			
 		}
 function myFunction() {
