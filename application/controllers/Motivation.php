@@ -222,6 +222,7 @@ exit;
 				$image_list=$this->Motivation_model->get_all_images_list(1);
 				$data=array(
 				'user_id'=>$loginuser_id['id'],
+				'title'=>$post['title'],
 				'text'=>$post['content'],
 				'image_count'=>count($image_list),
 				'create_at'=>date('Y-m-d H:i:s')
@@ -248,7 +249,7 @@ exit;
 					foreach($image_list as $list){
 						$this->Motivation_model->delete_attachement($list['id']);
 					}
-					$this->session->set_flashdata('success',"File successfully Select");
+					$this->session->set_flashdata('success',"File successfully Upload");
 					redirect('motivation/lists'); 
 				}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

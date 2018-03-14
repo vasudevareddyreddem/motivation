@@ -19,15 +19,19 @@
 			  
                 <div class="post post-default section-top-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   
-                  <h4><?php echo isset($post_images['text'])?$post_images['text']:''; ?></h4>
-				 
-                  <div class="post-meta element-groups-15">
-                    <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">
+                  <h4><?php echo isset($post_images['title'])?$post_images['title']:''; ?></h4>
+				  <div class="post-meta element-groups-15">
+				 <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="">
 					<?php echo isset($post_images['name'])?$post_images['name']:''; ?></a></span></div>
 					<a href="#" class="post-meta-date small">
 					<?php echo date('M d,  Y',strtotime(htmlentities($post_images['create_at'])));?></a>
 					<a href="#comments" class="post-meta-comment small"><?php if(count($post_images['comment_list'])>0){ echo count($post_images['comment_list']) ; } ?></a>
 					<a href="javascript:void(0)" onclick="likecount('<?php echo $post_images['p_id']; ?>');" class="post-meta-like small"><span id="count"><?php if($post_images['like_count']>0){ echo $post_images['like_count']; } ?> </span></a>
+					</div>
+                  </div> <?php if(count($post_images['p_list'])>0){ ?>
+                     <div id="gallery<?php echo $post_images['p_id']; ?>"></div>
+					<?php } ?>
+                   
 					<?php
 					$title=urlencode($post_images['text']);
 					if(count($post_images['p_list'])>0){
@@ -40,11 +44,7 @@
 					$image=$url;
 					?>
 
-
-                  </div> <?php if(count($post_images['p_list'])>0){ ?>
-                     <div id="gallery<?php echo $post_images['p_id']; ?>"></div>
-					<?php } ?>
-                  
+                   <h4><?php echo isset($post_images['text'])?$post_images['text']:''; ?></h4>
                   <div class="offset-top-20 reveal-sm-flex range-sm-justify range-xs-middle">
                    
                     <div class="offset-top-15 offset-sm-top-0">
@@ -57,7 +57,7 @@
                               </ul>
                     </div>
                   </div>
-                </div>
+               
 				
               <div class="row">
                            <hr>
