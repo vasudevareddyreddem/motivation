@@ -48,6 +48,7 @@
    <!--Posts-->
    <div class="shell">
       <div class="range">
+	    <?php if(count($post_images)>0){ ?>
          <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0">
             <?php foreach($post_images as $List){?>
             <?php if(count($List['p_list'])==0){ ?>
@@ -72,8 +73,8 @@
 					<?php
 					$title=urlencode($List['text']);
 					if(count($List['p_list'])>0){
-					//$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
-					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
+					//$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
 					}else{
 					$url=urlencode('http://whatslyf.com/');	
 					}
@@ -154,8 +155,8 @@
 					<?php
 					$title=urlencode($List['text']);
 					if(count($List['p_list'])>0){
-					//$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
-					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
+					//$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
 					}else{
 					$url=urlencode('http://whatslyf.com/');	
 					}
@@ -213,6 +214,7 @@
             <?php } ?>
             <!--second post-->
          </div>
+		 <?php } ?>
          <div class="cell-md-4">
             <!-- Sidebar-->
             <div class="range offset-top-30 offset-md-top-0">
