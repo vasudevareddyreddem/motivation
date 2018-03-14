@@ -18,9 +18,14 @@ class Admin extends CI_Controller {
 	}
 	public function index()
 	{
-			$this->load->view('html/header');
-			$this->load->view('html/login');
-			$this->load->view('html/footer');
+			if(!$this->session->userdata('userdetails'))
+			{ $this->load->view('html/header');
+				$this->load->view('html/login');
+				$this->load->view('html/footer');
+				
+			}else{
+				redirect('motivation/admin');
+			}
 	}
 	public function loginpost()
 	{

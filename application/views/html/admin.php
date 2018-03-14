@@ -1,4 +1,13 @@
-
+    <?php if($this->session->flashdata('success')): ?>
+				<div class="alert_msg1 animated slideInUp bg-succ">
+				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('error')): ?>
+				<div class="alert_msg1 animated slideInUp bg-warn">
+				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
 <main class="page-content offset-top-30" >
 		<div class="">
 			<div class="">
@@ -21,13 +30,13 @@
 										<?php } ?>
 								
 										<ul>
-											<li class="image-upload">
+											<!--<li class="image-upload">
 													<label for="images">
 														<i class="fa fa-music"></i>
 													</label>
 
 													 <input type="file"  id="images" name="images1" onchange="onchangeimage();" />
-											</li>
+											</li>-->
 											<li class="image-upload">
 													<label for="images">
 														<i class="fa fa-camera"></i>

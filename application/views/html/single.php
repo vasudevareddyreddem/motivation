@@ -8,6 +8,8 @@
 				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
 				</div>
 			<?php endif; ?>
+			
+			<?php //echo '<pre>';print_r($post_images);exit; ?>
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -26,6 +28,13 @@
 					<?php echo date('M d,  Y',strtotime(htmlentities($post_images['create_at'])));?></a>
 					<a href="#comments" class="post-meta-comment small"><?php if(count($post_images['comment_list'])>0){ echo count($post_images['comment_list']) ; } ?></a>
 					<a href="javascript:void(0)" onclick="likecount('<?php echo $post_images['p_id']; ?>');" class="post-meta-like small"><span id="count"><?php if($post_images['like_count']>0){ echo $post_images['like_count']; } ?> </span></a>
+					<?php
+					$title=urlencode($post_images['text']);
+					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					$summary=urlencode($post_images['text']);
+					$image=$url;
+					?>
+
 
                   </div> <?php if(count($post_images['p_list'])>0){ ?>
                      <div id="gallery<?php echo $post_images['p_id']; ?>"></div>
@@ -35,11 +44,11 @@
                    
                     <div class="offset-top-15 offset-sm-top-0">
                               <ul class="list-inline-0">
-                                <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                                <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                                <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                                <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                                <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+                                <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+                                <li><a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+                                <li><a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
+                                <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+                                <li><a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
                               </ul>
                     </div>
                   </div>
@@ -61,6 +70,7 @@
                            </form>
                         </div>
                 <hr class="divider">
+				<?php if(count($post_images['comment_list'])>0){ ?>
                 <div class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <!--Comments-->
                   <h5>3 Responses</h5>
@@ -98,6 +108,7 @@
                  
                   
                 </div>
+				<?php } ?>
                 <hr class="divider">
                 <div id="reply" class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <h5>Leave a Reply</h5>
@@ -127,13 +138,14 @@
                   <div class="box text-center">
                     <div class="section-xs-size">
                       <h5>Follow us</h5>
-                                    <ul class="list-inline-0">
-                                      <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
-                                    </ul>
+						 <ul class="list-inline-0">
+                          <li><a href="https://www.facebook.com/Whats-lyf-1952309441763306/" target="_blank" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+                                      <li><a href="https://twitter.com/whats_lyf" target="_blank" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+                                      <li><a href="https://www.linkedin.com/in/whats-lyf-50a830156/" target="_blank" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+                                      <li><a href="https://www.pinterest.com.au/whatslyf/" target="_blank" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+                                     <li><a data-toggle="modal" data-target="#myModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
+                        </ul>
+                                
                     </div>
                     <hr class="divider offset-none">
                     <div class="section-xs-size">

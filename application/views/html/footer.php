@@ -7,7 +7,8 @@
 <div class="modal fade right" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
   data-backdrop="false">
   <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-    <form>
+             <form action="<?php echo base_url('motivation/feedback'); ?>" method="post">
+
 	<div class="modal-content">
       <!--Header-->
 	  
@@ -23,24 +24,22 @@
 
       <!--Body-->
       <div class="modal-body" style="height:100%;">
-         <form action="<?php echo base_url('motivation/feedback'); ?>" method="post">
     <div class="radio">
-      <label><input type="radio" name="optradio">Very good</label>
+      <label><input type="radio" name="optradio" value="Very good">Very good</label>
     </div>
     <div class="radio">
-      <label><input type="radio" name="optradio">Good</label>
+      <label><input type="radio" name="optradio" value="Good">Good</label>
     </div>
 	<div class="radio">
-      <label><input type="radio" name="optradio">Mediocre</label>
+      <label><input type="radio" name="optradio" value="Mediocre">Mediocre</label>
     </div>
 	<div class="radio">
-      <label><input type="radio" name="optradio">Bad</label>
+      <label><input type="radio" name="optradio" value="Bad">Bad</label>
     </div>
 	<div class="radio">
-      <label><input type="radio" name="optradio" required>Very bad</label>
+      <label><input type="radio" name="optradio" value="Very bad" required>Very bad</label>
     </div>
     
-  </form>
 
 
         <p class="text-center">

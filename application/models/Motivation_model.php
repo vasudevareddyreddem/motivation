@@ -82,22 +82,40 @@ class Motivation_model extends CI_Model
 		$this->db->where('post_count.pstatus', 1);
 		$return= $this->db->get()->row_array();
 			$images=$this-> get_all_post_imgs($return['p_id']);
+			//echo '<pre>';print_R($images);exit;
 			$comment=$this-> get_all_comments_imgs($return['p_id']);
 			$like=$this-> get_all_like_imgs($return['p_id']);
+			//$share=$this-> get_sahrecount($images[0]['imgname']);
 			$lis=$return;
 			$lis['p_list']=$images;
 			$lis['comment_list']=$comment;
 			$lis['like_count']=$like['like'];
+			//$lis['sharecount']=isset($share['share']['share_count'])?$share['share']['share_count']:'';
 		
 		if(!empty($lis))
 		{
 		return $lis;
 		}
 	}
-	public function get_all_post_lists($user_id){
+	
+	public function get_sahrecount($name){
+			$name='http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg';
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://graph.facebook.com/?id='.$name,
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+			));
+			$resp = curl_exec($curl);
+			$data=json_decode($resp, TRUE);
+			curl_close($curl);
+			return $data;
+			
+	}
+	public function get_all_post_lists(){
 		$this->db->select('post_count.*,,admin.name')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
-		$this->db->where('post_count.user_id', $user_id);
+		//$this->db->where('post_count.user_id', $user_id);
 		$this->db->group_by('post_count.p_id');
 		$this->db->order_by("post_count.create_at", "DESC");
 		$this->db->where('post_count.pstatus', 1);
@@ -158,6 +176,10 @@ class Motivation_model extends CI_Model
 	}
 	public function add_newsletter($data){
 		$this->db->insert('newsletter', $data);
+		return $insert_id = $this->db->insert_id();	
+	}
+	public function add_feedback($data){
+		$this->db->insert('feedback', $data);
 		return $insert_id = $this->db->insert_id();	
 	}
 	public function get_newsletter($email){

@@ -56,18 +56,23 @@
                          <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
 
-                        <li><a href="javascript:void(0)" class="post-meta-share small">4</a></li>
                      </ul>
                   </div>
                   <hr class="divider offset-none"/>
-                  <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
-                     <ul class="list-inline-0">
-                        <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
-                     </ul>
+                 <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
+					<?php
+					$title=urlencode($List['text']);
+					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					$summary=urlencode($List['text']);
+					$image=$url;
+					?>
+					<ul class="list-inline-0">
+						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+						<li><a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+					</ul>
                      <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
                   </div>
                   <div class="card-footer"  id="myDIV<?php echo $List['p_id']; ?>"  style="display:none">
@@ -123,18 +128,24 @@
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
-                        <li><a href="javascript:void(0)" class="post-meta-share small">4</a></li>
+                     
                      </ul>
                   </div>
                   <hr class="divider offset-none"/>
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
-                     <ul class="list-inline-0">
-                        <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                        <li><a href="#" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
-                     </ul>
+					<?php
+					$title=urlencode($List['text']);
+					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					$summary=urlencode($List['text']);
+					$image=$url;
+					?>
+					<ul class="list-inline-0">
+						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+						<li><a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+					</ul>
                      <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary offset-top-10 offset-xs-top-0">Read more</a>
                   </div>
                   <div class="card-footer"  id="myDIV<?php echo $List['p_id']; ?>"  style="display:none">
@@ -185,13 +196,13 @@
                   <div class="box text-center">
                      <div class="section-xs-size">
                         <h5>Follow us</h5>
-                        <ul class="list-inline-0">
-                           <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                           <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                           <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                           <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                           <li><a data-toggle="modal" data-target="#myModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
-                        </ul>
+						<ul class="list-inline-0">
+							<li><a href="https://www.facebook.com/Whats-lyf-1952309441763306/" target="_blank" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+							<li><a href="https://twitter.com/whats_lyf" target="_blank" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+							<li><a href="https://www.linkedin.com/in/whats-lyf-50a830156/" target="_blank" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+							<li><a href="https://www.pinterest.com.au/whatslyf/" target="_blank" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+							<li><a data-toggle="modal" data-target="#myModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
+						</ul>
                      </div>
                      <hr class="divider offset-none">
                      <div class="section-xs-size">

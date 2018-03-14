@@ -58,6 +58,12 @@
                     <li><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
                      <li><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
                     <li><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+					<?php if($this->session->userdata('userdetails'))
+						{ ?>
+                    <li><a href="<?php echo base_url('motivation/lists'); ?>">List</a></li>
+                    <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
+					
+						<?php } ?>
                   </ul>
                 </div>
               
@@ -92,43 +98,20 @@
 								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/whatsup.png">
 								<span>Whatsup</span></a>
 						</div></li>
+						<li>
+						<div class="col-md-4">	
+								<a href="https://www.instagram.com/whats_lyf/" target="_blank""><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/instagram.png">
+								<span>Instagram</span></a>
+
+						</div>
+						</li>
 						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
-								<span>twitter</span></a>
-						</div></li>
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
-								<span>pinterest</span></a>
-						</div></li>
-					</div>
-					<div class="row icon-si">
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
-								<span>Google plus</span></a>
-						</div></li>
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/face.png">
-								<span>Facebook</span></a>
-						</div></li>
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/email.png">
-								<span>Email</span></a>
-						</div></li>
-					</div>	
-					<div class="row icon-si">
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="img/follow/tumblr.png">
-								<span>tumblr</span></a>
-						</div></li>
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="img/follow/stumbleupon.png">
+								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
 								<span>stumbleupon</span></a>
 						</div></li>
-						<li><div class="col-md-4">	
-								<a href="#"><img class="img-fluid" src="img/follow/reddit.png">
-								<span>reddit</span></a>
-						</div></li>
 					</div>
+					
+					
 				
  
 				

@@ -8,7 +8,7 @@
  <div class="container">
  <br>
  <div class="row">
-	<button class="btn btn-primary">Back</button>
+	<a href="<?php echo base_url('motivation/admin'); ?>" class="btn btn-primary">Back</a>
 	<a href="<?php echo base_url('motivation/admin'); ?>" class="btn btn-primary pull-right">Home</a>
  </div>
 <main class="page-content " style="margin-top:50px;">
