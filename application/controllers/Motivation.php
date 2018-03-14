@@ -244,7 +244,7 @@ exit;
 								 );
 				$addfile = $this->Motivation_model->save_filepost($filedata);
 				}
-				if(count($addfile)>0){
+				if(count($addfile)>0 || count($post_count)>0){
 					foreach($image_list as $list){
 						$this->Motivation_model->delete_attachement($list['id']);
 					}
@@ -266,9 +266,7 @@ exit;
 			{
 				$loginuser_id=$this->session->userdata('userdetails');
 				$data['image_list']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
-				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/list',$data);
-				//$this->load->view('html/footer');
 			}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('');

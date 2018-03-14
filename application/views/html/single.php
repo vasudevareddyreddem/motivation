@@ -30,7 +30,12 @@
 					<a href="javascript:void(0)" onclick="likecount('<?php echo $post_images['p_id']; ?>');" class="post-meta-like small"><span id="count"><?php if($post_images['like_count']>0){ echo $post_images['like_count']; } ?> </span></a>
 					<?php
 					$title=urlencode($post_images['text']);
+					if(count($post_images['p_list'])>0){
+					//$url=urlencode(base_url('assets/files/'.$post_images['p_list'][0]['imgname']));
 					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					}else{
+					$url=urlencode('http://whatslyf.com/');	
+					}
 					$summary=urlencode($post_images['text']);
 					$image=$url;
 					?>

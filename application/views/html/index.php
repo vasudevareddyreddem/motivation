@@ -62,7 +62,12 @@
                  <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
 					<?php
 					$title=urlencode($List['text']);
+					if(count($List['p_list'])>0){
+					//$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
 					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					}else{
+					$url=urlencode('http://whatslyf.com/');	
+					}
 					$summary=urlencode($List['text']);
 					$image=$url;
 					?>
@@ -133,9 +138,15 @@
                   </div>
                   <hr class="divider offset-none"/>
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
+					
 					<?php
 					$title=urlencode($List['text']);
+					if(count($List['p_list'])>0){
+					//$url=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
 					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					}else{
+					$url=urlencode('http://whatslyf.com/');	
+					}
 					$summary=urlencode($List['text']);
 					$image=$url;
 					?>

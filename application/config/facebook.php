@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | at http://developer.facebook.com and create an app for your project.
 |
 |  facebook_app_id               string   Your facebook app ID.
+|  facebook_app_secret           string   Your facebook app secret.
 |  facebook_login_type           string   Set login type. (web, js, canvas)
 |  facebook_login_redirect_url   string   URL tor redirect back to after login. Do not include domain.
 |  facebook_logout_redirect_url  string   URL tor redirect back to after login. Do not include domain.

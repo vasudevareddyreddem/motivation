@@ -11,6 +11,16 @@
 	<a href="<?php echo base_url('motivation/admin'); ?>" class="btn btn-primary">Back</a>
 	<a href="<?php echo base_url('motivation/admin'); ?>" class="btn btn-primary pull-right">Home</a>
  </div>
+ <?php if($this->session->flashdata('success')): ?>
+				<div class="alert_msg1 animated slideInUp bg-succ">
+				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('error')): ?>
+				<div class="alert_msg1 animated slideInUp bg-warn">
+				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				</div>
+			<?php endif; ?>
 <main class="page-content " style="margin-top:50px;">
         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
