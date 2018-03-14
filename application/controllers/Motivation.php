@@ -222,6 +222,7 @@ exit;
 				$image_list=$this->Motivation_model->get_all_images_list(1);
 				$data=array(
 				'user_id'=>$loginuser_id['id'],
+				'title'=>$post['title'],
 				'text'=>$post['content'],
 				'image_count'=>count($image_list),
 				'create_at'=>date('Y-m-d H:i:s')
