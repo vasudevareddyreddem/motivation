@@ -63,10 +63,10 @@
                     <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
 					
 						<?php }else{ ?>
-						<li class="active"><a href="./">Home</a></li>
-						<li><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
-                    <li><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+						<li class="<?php if($currentURL==base_url()){ echo "active"; } ?>"><a href="<?php echo base_url(''); ?>">Home</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
+						<li ><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
 						<?php }	?>
                   </ul>
                 </div>

@@ -19,7 +19,9 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 			if(!$this->session->userdata('userdetails'))
-			{ $this->load->view('html/header');
+			{ 
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 				$this->load->view('html/login');
 				$this->load->view('html/footer');
 				
