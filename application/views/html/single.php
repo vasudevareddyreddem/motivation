@@ -46,7 +46,7 @@
                     </div>
                   </div>
                 </div>
-                  <div class="row">
+                  <div class="row inset-md-left-30 inset-md-right-30">
                            <hr>
                            <span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
                            <form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
@@ -55,7 +55,7 @@
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
                               <div class="col-md-2 col-xs-2">
-                                 <div class="file btn btn-sm btn-primary ">
+                                 <div class="file  ">
                                     <button class="btn btn-sm btn-primary" type="submit">Send</button>
                                  </div>
                               </div>
@@ -65,7 +65,7 @@
                 <?php if(count($post_images['comment_list'])>0){ ?>
                 <div class="section-top-15 section-bottom-15 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <!--Comments-->
-                  <h5>3 Responses</h5>
+                  <h5><?php echo count($post_images['comment_list']);?> Responses</h5>
                   <div id="comments">
 					    <div class="comment bg-ghost-white section-xs-size">
 						<!--LOOP-->
@@ -83,7 +83,7 @@
 											  <li><span class="icon-date"></span><span class="text-primary small"><?php echo date('M d,  Y',strtotime(htmlentities($lis['create_at'])));?></span></li>
 											</ul>
 										  </div>
-										  <div class="col-sm-2 text-right"><a href="#reply" class="icon-reply"></a></div>
+										  
 										</div>
 										<p> <?php echo $lis['comment']; ?></p>
 									  </div>
@@ -145,7 +145,7 @@
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
                        <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
-                        <input type="email" name="email"  placeholder="Your e-mail" required>
+                        <input style="width:50%" type="email" name="email"  placeholder="Your e-mail" required>
                         <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->
