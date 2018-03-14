@@ -18,7 +18,7 @@
       <div class="owl-item">
          <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
             <div>
-               <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="370" height="231" alt="" class="img-responsive post-image"/></a>
+               <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/></a>
                </div>
                <div class="post-content-wrap">
                   <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>

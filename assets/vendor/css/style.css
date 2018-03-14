@@ -19378,6 +19378,7 @@ audio {
   min-height: 55px;
   position: relative;
   overflow: hidden;
+  margin:0 auto;
 }
 
 .post .post-media-wrap img {
@@ -24424,7 +24425,7 @@ img.mfp-img {
 }
 
 .owl-carousel img {
-  min-width: 100%;
+  min-width: auto;
 }
 
 .owl-carousel .owl-stage {
