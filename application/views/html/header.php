@@ -44,7 +44,7 @@
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;">
+								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;z-index:1024">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
