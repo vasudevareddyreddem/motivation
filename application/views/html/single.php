@@ -162,6 +162,15 @@
                 </div>
                 
               </div>
+			  <br>
+			<div class="range offset-top-30 offset-md-top-0 ">
+               <div class="cell-sm-8 cell-sm-preffix-2 cell-md-12 cell-md-preffix-0 ">
+                  <div class="box text-center ">
+					<img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/sideadd.png">
+                  </div>
+               </div>
+            </div>
+			<br>
             </div>
           </div>
         </div>
