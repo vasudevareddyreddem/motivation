@@ -248,7 +248,7 @@ exit;
 					foreach($image_list as $list){
 						$this->Motivation_model->delete_attachement($list['id']);
 					}
-					$this->session->set_flashdata('success',"File successfully Select");
+					$this->session->set_flashdata('success',"File successfully Upload");
 					redirect('motivation/lists'); 
 				}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
