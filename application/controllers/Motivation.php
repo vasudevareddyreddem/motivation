@@ -22,7 +22,8 @@ class Motivation extends CI_Controller {
 	public function index()
 	{
 	
-			$this->load->view('html/header');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
 			//echo '<pre>';print_r($data);exit;
@@ -75,21 +76,24 @@ exit;
 	}
 	public function aboutus()
 	{
-			$this->load->view('html/header');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$this->load->view('html/aboutus');
 			$this->load->view('html/footer');
 	}
 	public function contactus()
 	{
-			$this->load->view('html/header');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$this->load->view('html/contactus');
 			$this->load->view('html/footer');
 	}
 	public function singlepost()
 	{
-			$this->load->view('html/header');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
 			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
@@ -102,7 +106,8 @@ exit;
 	{
 		if($this->session->userdata('userdetails'))
 		 {
-			$this->load->view('html/header');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			//echo '<pre>';print_r($data);exit;
@@ -118,7 +123,7 @@ exit;
 		if($this->session->userdata('userdetails'))
 		 {
 				$post=$this->input->post();
-				echo '<pre>';print_r($_FILES);
+				//echo '<pre>';print_r($_FILES);
 				$loginuser_id=$this->session->userdata('userdetails');
 				if(isset($_FILES['images1']['name']) && $_FILES['images1']['name']!=''){
 					
@@ -359,7 +364,7 @@ exit;
 						$this->email->set_newline("\r\n");
 						$this->email->set_mailtype("html");
 						$this->email->from($post['email']);
-						$this->email->to('admin@whatslyf.com');
+						$this->email->to('whatslyfhelp@gmail.com');
 						$this->email->subject('whatslyf - Leave a Reply');
 						$html='Hi  My Name '.$post['name'].' Here is the info my (post Id '.$post['post_id'].' ) requested is .'.$post['message'];
 						//echo $html;exit;
@@ -388,7 +393,7 @@ exit;
 						$this->email->set_newline("\r\n");
 						$this->email->set_mailtype("html");
 						$this->email->from($post['email']);
-						$this->email->to('admin@whatslyf.com');
+						$this->email->to('whatslyfhelp@gmail.com');
 						$this->email->subject($post['subjects']);
 						$html=$post['message'];
 						//echo $html;exit;
