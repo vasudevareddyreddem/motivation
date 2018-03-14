@@ -57,6 +57,7 @@
 									</form>
 									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
 
+									<input type="text" placeholder="Title" id="title" name="title" value="" required>
 									<textarea placeholder="What are you doing right now?" id="content" name="content" required></textarea>
 
 									<button type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
