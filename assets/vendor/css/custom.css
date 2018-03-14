@@ -1,3 +1,15 @@
+p{
+	font-size:16px;
+}
+ol li:before {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    content: counter(li, decimal) ".";
+    counter-increment: li;
+}
 .sear-sty{
 	border:1px solid #f1f1f1;
 	width:300px !important;
