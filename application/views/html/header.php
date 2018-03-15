@@ -78,8 +78,7 @@
         <!-- Swiper-->
         
       </header>
-	  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+	  
     <?php if($this->session->flashdata('success')): ?>
 				<div class="alert_msg1 animated slideInUp bg-succ">
 				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
@@ -91,6 +90,8 @@
 				</div>
 			<?php endif; ?>
       <!-- Modal content-->
+	  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
         
         <div class="modal-body">

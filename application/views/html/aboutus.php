@@ -80,22 +80,21 @@
                     <div class="section-xs-size">
                       <h5>Follow us</h5>
                                     <ul class="list-inline-0">
-                                      <li><a href="#" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                                      <li><a href="#" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                                     
-									  <li><a data-toggle="modal" data-target="#myModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
-                                    </ul>
+							<li><a href="https://www.facebook.com/Whats-lyf-1952309441763306/" target="_blank" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+							<li><a href="https://twitter.com/whats_lyf" target="_blank" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
+							<li><a href="https://www.linkedin.com/in/whats-lyf-50a830156/" target="_blank" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+							<li><a href="https://www.pinterest.com.au/whatslyf/" target="_blank" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
+							<li><a data-toggle="modal" data-target="#myModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
+						</ul>
                     </div>
                     <hr class="divider offset-none">
                     <div class="section-xs-size">
                       <h5>Newsletter</h5>
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
-                      <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
-                        <input style="width:50%" type="email" name="email"  placeholder="Your e-mail" required>
-                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
+                     <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
+                        <input style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
+                        <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->
                     </div>
@@ -110,9 +109,9 @@
                   </div><br>
 			<div class="range offset-top-30 offset-md-top-0 ">
                <div class="cell-sm-8 cell-sm-preffix-2 cell-md-12 cell-md-preffix-0 ">
-                  <div class="box text-center ">
+                  <a href="http://offerspot.in/" target="_blank"><div class="box text-center ">
 					<img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/sideadd.png">
-                  </div>
+                  </div></a>
                </div>
             </div>
                 </div>

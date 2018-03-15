@@ -20,10 +20,20 @@
 								<?php if(isset($image_list) && count($image_list)>0){ ?>
 										<div class="row prev">
 										<?php foreach($image_list as $list){ ?>
-											<div class="col-md-2" id="attach_<?php echo $list['id']; ?>">
+											<?php $path = $list['name'];
+											$ext = pathinfo($path, PATHINFO_EXTENSION); 
+											if($ext=="mp4" || $ext=="mp3" ||$ext=="3gpp"){  ?>
+												<div class="col-md-4" style="width:315px;" id="attach_<?php echo $list['id']; ?>">
+												<video  src="<?php echo base_url('assets/temp/'.$list['name']);?>" width="300px"  type="video/<?php echo $ext; ?>" controls></video>
+												<div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
+												</div>
+											 <?php }else{ ?>
+												<div class="col-md-2" id="attach_<?php echo $list['id']; ?>">
 												<img class="img-responsive" src="<?php echo base_url('assets/temp/'.$list['name']);?>">
 												<div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
 											</div>
+											<?php } ?>
+											
 										<?php } ?>
 										</div>
 										<?php } ?>
@@ -32,7 +42,7 @@
 											<ul  class="col-md-1" >
 					
 											<li class="image-upload">
-<<<<<<< HEAD
+
 													<label for="imagesupload">
 														<i class="fa fa-camera"></i>
 													</label>
@@ -97,7 +107,11 @@
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		var blockedTile = new Array("gif", "GIF", "JPEG", "jpeg", "jpg");
+		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+		{
+			
+		}
+		var names_arr = ['gif','GIF','JPEG','jpeg','jpg'];
 		jQuery.ajax({
 					url: "<?php echo site_url('motivation/getfiledata');?>",
 					data: {
@@ -107,31 +121,25 @@
 					type: 'POST',
 					success: function (data) {
 						if(data.msg !=''){
-							if(blockedTile.includes(ext)){
+							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
 								
+								$("#addimages").submit();
 							}else{
-								alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
-							}
+								
+									alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
+							
+								}
+							}else{
+							$("#addimages").submit();
 						}
 					}
 				});
-		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
-		{
-		$("#addimages").submit();
-		} 
-		else
-		{
-			alert("Upload Gif,JPEG,jpeg,jpg,JPG images only");return false;
-			
-		fup.focus();
-		return false;
-		}
+		
 	
 } 
 function onchangevideo(){
 	
 		var fup= document.getElementById('videoimages');
-		alert(fup);
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
 		var blockedTile = new Array("mp4", "mp3", "3gpp");
@@ -143,24 +151,21 @@ function onchangevideo(){
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-						alert(data.msg);
 						if(data.msg !=''){
 							alert('Your upload only one video at time');return false;
-							
+						}else{
+							if(ext == "mp4" || ext == "3gpp" || ext == "mp3")
+								{
+									$("#addimages1").submit();
+								} else
+									{
+										alert("Upload mp4,mp3 ,3gpp videos only");return false;
+								}
 						}
 					}
 				});
 				
-				return false;
-		if(ext == "mp4" || ext == "3gpp" || ext == "mp3")
-		{
-		$("#addimages1").submit();
-		} 
-		else
-		{
-			alert("Upload mp4,mp3 ,3gpp videos only");return false;
 		
-		}
 	
 } 
 

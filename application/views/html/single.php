@@ -17,9 +17,9 @@
                   </div>
 				  <img  class="img-responsive post-image"/>
 				    <?php 
-					$path = $post_images['p_list'][0]['imgname'];
+					$path = isset($post_images['p_list'][0]['imgname'])?$post_images['p_list'][0]['imgname']:'';
 					$ext = pathinfo($path, PATHINFO_EXTENSION);
-				if(count($post_images['p_list'])>=1 && $ext !='png' || $ext !='jpg' || $ext !='jpeg'){ ?>
+				if(count($post_images['p_list'])>=1 && $ext !='png' && $ext !='jpg'&& $ext !='jpeg'){ ?>
 				 	<video autoplay src="<?php echo base_url('assets/files/'.$post_images['p_list'][0]['imgname']); ?>" width="580px" type="video/<?php echo $ext; ?>" controls></video>
 
 				<?php }else{ ?>
@@ -44,12 +44,41 @@
 					$image=$url;
 					?>
                               <ul class="list-inline-0">
-                                <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                                <li><a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-twitter icon-default text-info"></a></li>
-                                <li><a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-google-plus icon-default text-info"></a></li>
-                                <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-                                <li><a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-pinterest icon-default text-info"></a></li>
-                              </ul>
+						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+						<li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
+					</ul>
+					<div class="modal fade" id="sharemyModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput" onkeyup="myFunction()"><br>
+			  <ul class="" id="myUL">
+					<div class="row icon-si ">
+						<li>
+						<div class="col-md-4">	
+								<a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
+								<span>Google+</span></a>
+
+						</div>
+						</li>
+						<li><div class="col-md-4">	
+								<a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
+								<span>Twitter</span></a>
+						</div></li>
+						<li><div class="col-md-4">	
+								<a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
+								<span>Pinterest</span></a>
+						</div></li>
+					</div>
+				</ul>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
                     </div>
                   </div>
                 </div>
@@ -151,9 +180,9 @@
                       <h5>Newsletter</h5>
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
-                       <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex">
-                        <input style="width:50%" type="email" name="email"  placeholder="Your e-mail" required>
-                        <button type="submit" class="btn btn-primary offset-top-15 offset-xs-top-0"> Subscribe</button>
+                         <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
+                        <input style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
+                        <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->
                     </div>

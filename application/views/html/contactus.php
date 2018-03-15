@@ -19,12 +19,13 @@
         <section class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
           <h5>Contacts</h5>
           <ul class="list-unstyled list">
-            <li><span class="icon icon-xs material-icons-location_on text-primary"></span><span>Address: </span><a href="#" class="text-underline">www.whatslyf.com</a></li>
-            <li><span class="icon icon-xs material-icons-email text-primary"></span><span>E-mail: <a href="mailto:#" class="text-underline">info@xxx.org</a></span></li>
-            <li><span class="icon icon-xs fa-youtube text-primary"></span><span>Youtube: </span><a href="#" class="text-underline">xxxxRide</a></li>
-            <li><span class="icon icon-xs fa-facebook text-primary"></span><span> Facebook: </span><a href="#" class="text-underline">WildxxxStartup</a></li>
-            <li><span class="icon icon-xs fa-instagram text-primary"></span><span>Instagram: <a href="#" class="text-underline">#xxxdRide</a></span></li>
-            <li><span class="icon icon-xs fa-twitter text-primary"></span><span>Twitter: <a href="#" class="text-underline">@Wxxxxx</a></span></li>
+            <li><span class="icon icon-xs material-icons-location_on text-primary"></span><span>Address: </span><a href="#" target="_blank" class="text-underline">www.whatslyf.com</a></li>
+            <li><span class="icon icon-xs material-icons-email text-primary"></span><span>E-mail: <a href="mailto:whatslyfhelp@gmail.com" target="_blank" class="text-underline">whatslyfhelp@gmail.com</a></span></li>
+            <li><span class="icon icon-xs fa-linkedin text-primary"></span><span> </span><a href="https://www.linkedin.com/in/whats-lyf-50a830156/" target="_blank" class="text-underline">Linkedin</a></li>
+            <li><span class="icon icon-xs fa-pinterest text-primary"></span><span> </span><a href="https://www.pinterest.com.au/whatslyf/" target="_blank" class="text-underline">Pinterest</a></li>
+            <li><span class="icon icon-xs fa-facebook text-primary"></span><span></span><a href="https://www.facebook.com/Whats-lyf-1952309441763306/" target="_blank" class="text-underline"> Facebook</a></li>
+            <li><span class="icon icon-xs fa-instagram text-primary"></span><span><a href="https://www.instagram.com/whats_lyf/" target="_blank" class="text-underline">Instagram </a></span></li>
+            <li><span class="icon icon-xs fa-twitter text-primary"></span><span><a href="https://twitter.com/whats_lyf" target="_blank" class="text-underline">Twitter </a></span></li>
           </ul>
         </section>
         <hr class="divider offset-none">
