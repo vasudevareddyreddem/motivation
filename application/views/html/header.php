@@ -144,31 +144,7 @@
       
     </div>
   </div> 
-  <!--search modal-->
-  <div class="modal fade" id="searchfun" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        
-        <div class="modal-body">
-           <form class="navbar-form" role="search">
-							<div class="input-group">
-								<input style="width:100%" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
-								<span class="sear-btn"  >
-									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
-									</span>
-								</span>
-								<div class="search-bac" id="result1" style="display:none;">
-									<ul class="text-left mar-t10" id="searchresult1">
-									</ul>
-								</div>
-							</div>
-							</form>
-        </div>
-        
-      </div>
-      
-    </div>
-  </div>
+  
   <style>
   .serachide{
 	  display

@@ -48,7 +48,7 @@
         <!--Basic textarea-->
         <div class="md-form">
 		<label for="form79textarea">Your message</label>
-          <textarea type="text" name="message" id="form79textarea" class="md-textarea form-control" rows="3" required></textarea>
+          <textarea type="text" name="message" id="form79textarea" class="md-textarea form-control" rows="3" ></textarea>
           
         </div>
 
