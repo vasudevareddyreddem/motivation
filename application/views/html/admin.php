@@ -42,7 +42,7 @@
 										</ul>
 										
 									</form>
-									<form  id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+									<form  id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
 									
 								
 										<ul class="col-md-3">
