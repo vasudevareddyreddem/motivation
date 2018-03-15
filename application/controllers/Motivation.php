@@ -271,6 +271,7 @@ exit;
 			{
 				$loginuser_id=$this->session->userdata('userdetails');
 				$data['image_list']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
+				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/list',$data);
 			}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
@@ -291,6 +292,7 @@ exit;
 				'pstatus'=>$sat
 				);
 				$update=$this->Motivation_model->update_post_staus($pid,$details);
+				//echo $this->db->last_query();exit;
 				if(count($update)>0){
 					if($status==1){
 						$this->session->set_flashdata('success',"Post successfully Deactivate");

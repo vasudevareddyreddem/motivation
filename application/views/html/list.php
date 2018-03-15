@@ -1,3 +1,4 @@
+<?php //echo '<pre>';print_r($image_list);exit; ?>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/datatable/dataTables.bootstrap.min.css">
@@ -27,6 +28,7 @@
             <tr>
                  <th>Posted By</th>
                  <th>Image Count</th>
+				 <th>Images</th>
                 <th>Date</th>
 				 <th>Status</th>
                 <th>Action</th>
@@ -36,6 +38,7 @@
             <tr>
                 <th>Posted By</th>
 				<th>Image Count</th>
+				<th>Images</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -47,9 +50,15 @@
 				<tr>
 					<td><?php echo $list['name']; ?></td>
 					<td><?php echo $list['count']; ?></td>
+					<td width="20%">
+					<?php foreach($list['p_list'] as $li){ ?>
+					<img src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" height="auto" width="100px">
+					<?php } ?>
+					
+					</td>
 					<td><?php echo $list['create_at']; ?></td>
-					<td><?php if($list['pstatus']==1){ echo "Active";}elseif($list['pstatus']==1){ "Deactive"; } ?></td>
-					<td><a href="<?php echo base_url('motivation/status/'.base64_encode($list['p_id']).'/'.base64_encode($list['pstatus'])); ?>"><?php if($list['pstatus']==1){ echo "Active";}else if($list['pstatus']==0){ "Deactive"; } ?></a> | <a href="<?php echo base_url('motivation/deletes/'.base64_encode($list['p_id'])); ?>">Delete</a></td>
+					<td><?php echo $list['status_text']; ?></td>
+					<td><a href="<?php echo base_url('motivation/status/'.base64_encode($list['p_id']).'/'.base64_encode($list['pstatus'])); ?>">Status change</a> | <a href="<?php echo base_url('motivation/deletes/'.base64_encode($list['p_id'])); ?>">Delete</a></td>
 				   
 				</tr>
 			<?php } ?>

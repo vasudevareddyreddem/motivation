@@ -46,14 +46,26 @@ class Motivation_model extends CI_Model
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_list($user_id){
-		$this->db->select('COUNT(img_id) as count,post_count.p_id,post_count.pstatus,posts.create_at,posts.create_at,admin.name')->from('posts');		
+		$this->db->select('COUNT(img_id) as count,post_count.p_id,post_count.pstatus,posts.create_at,posts.create_at,admin.name,status.status_text')->from('posts');		
 		$this->db->join('post_count', 'post_count.p_id = posts.post_id', 'left');
 		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
+		$this->db->join('status', 'status.id = post_count.pstatus', 'left');
 		$this->db->where('post_count.user_id', $user_id);
 		//$this->db->where('post_count.pstatus', 1);
 		 $this->db->group_by('posts.post_id');
-		$this->db->order_by("posts.create_at", "DESC");
-		return $this->db->get()->result_array();
+		$this->db->order_by("post_count.create_at", "DESC");
+		$return=$this->db->get()->result_array();
+		foreach($return as $list){
+			$images=$this-> get_all_post_imgs($list['p_id']);
+			$comment=$this-> get_all_comments_imgs($list['p_id']);
+			$like=$this-> get_all_like_imgs($list['p_id']);
+			$lis[$list['p_id']]=$list;
+			$lis[$list['p_id']]['p_list']=$images;
+		}
+		if(!empty($lis))
+		{
+		return $lis;
+		}
 	}
 	public function update_post_details($pid){
 		$this->db->select('*')->from('posts');		

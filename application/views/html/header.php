@@ -15,7 +15,10 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/style.css">
 	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/custom.css">
 	     
-    
+    <?php header('Cache-Control: no cache');
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Pragma: no-cache");
+ ?>
 	
   </head>
   
