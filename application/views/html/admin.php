@@ -51,7 +51,7 @@
 													<label for="images">
 														<i class="fa fa-video-camera"></i>
 													</label>
-													 <input type="file"  id="images" name="images3" onchange="onchangeimage();" />
+													 <input type="file"  id="images" name="images3" onchange="onchangeimage1();" />
 											</li>
 											
 										</ul>
@@ -91,6 +91,45 @@
   <script>
  
   function onchangeimage(){
+	
+		var fup= document.getElementById('images');
+		
+		var fileName = fup.value;
+		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+		var blockedTile = new Array("gif", "GIF", "JPEG", "jpeg", "jpg");
+		jQuery.ajax({
+					url: "<?php echo site_url('motivation/getfiledata');?>",
+					data: {
+						attachmentid: '',
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+					alert(data.msg);
+						if(data.msg !=''){
+							if(blockedTile.includes(ext)){
+								
+							}else{
+								alert('Invalid upload  formate.  please upload rt');
+							}
+						}
+					}
+				});
+				return false;
+		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "mp4" || ext == "3gpp" || ext == "mp3")
+		{
+		$("#addimages").submit();
+		} 
+		else
+		{
+			alert("Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only");
+			
+		fup.focus();
+		return false;
+		}
+	
+} 
+function onchangeimage(){
 	
 		var fup= document.getElementById('images');
 		
