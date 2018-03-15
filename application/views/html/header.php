@@ -101,7 +101,7 @@
 					<div class="row icon-si ">
 						<li><div class="col-md-4">	
 								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/whatsup.png">
-								<span>Whatsup</span></a>
+								<span>What'sapp</span></a>
 						</div></li>
 						<li>
 						<div class="col-md-4">	
