@@ -264,6 +264,13 @@ margin-right: 7px;
     padding-left: 10px;
     padding-right: 10px;
 }
+.mobi-res{
+	margin-top:10px;
+	
+}
+.mobile-pad{
+	padding:10px;
+}
 .owl-prev, .owl-next {
     position: absolute;
     height: 45px;

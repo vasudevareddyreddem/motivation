@@ -151,13 +151,13 @@
                      <div class="pad-30">
                         <div class="row">
                            <hr>
-                           <span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+                           <span class=" sm-hide col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
                            <form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
-                              <div class="col-md-8 col-xs-8">
+                              <div class="col-md-8 col-xs-12">
                                  <input type="hidden" id="post_id" name="post_id"  value="<?php echo $List['p_id']; ?>">
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
-                              <div class="col-md-2 col-xs-2">
+                              <div class="col-md-2 col-xs-2 mobi-res">
                                  <div class="file  ">
                                     <button class="btn btn-sm btn-primary" type="submit">Send</button>
                                  </div>
@@ -270,13 +270,13 @@
                      <div class="pad-30">
                         <div class="row">
                            <hr>
-                           <span class="col-md-2 col-xs-2 comm-img"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
+                           <span class="col-md-2 col-xs-2 comm-img sm-hide"><img class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/coment-user.png"></span>
                            <form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
-                              <div class="col-md-8 col-xs-8">
+                              <div class="col-md-8 col-xs-12">
                                  <input type="hidden" id="post_id" name="post_id"  value="<?php echo $List['p_id']; ?>">
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
-                              <div class="col-md-2 col-xs-2">
+                              <div class="col-md-2 col-xs-2 mobi-res">
                                  <div class="file  ">
                                     <button class="btn btn-primary btn-sm" type="submit">Send</button>
                                  </div>
