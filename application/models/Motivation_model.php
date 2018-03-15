@@ -193,6 +193,12 @@ class Motivation_model extends CI_Model
 		$this->db->where('email', $email);
 		return $this->db->get()->row_array();
 	}
+
+	public function filesdata(){
+		$this->db->select('*')->from('temp');
+		$this->db->order_by("temp.create_at", "DESC");		
+		return $this->db->get()->row_array();
+	}
 	
 	
 }

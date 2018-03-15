@@ -16,9 +16,16 @@
 					<a href="javascript:void(0)" onclick="likecount('<?php echo $post_images['p_id']; ?>');" class="post-meta-like small"><span id="count"><?php if($post_images['like_count']>0){ echo $post_images['like_count']; } ?> </span></a>
                   </div>
 				  <img  class="img-responsive post-image"/>
-				   <?php if(count($post_images['p_list'])>0){ ?>
-                     <div id="gallery<?php echo $post_images['p_id']; ?>" ></div>
-					<?php } ?>
+				    <?php 
+					$path = $post_images['p_list'][0]['imgname'];
+					$ext = pathinfo($path, PATHINFO_EXTENSION);
+				if(count($post_images['p_list'])>=1 && $ext !='png' || $ext !='jpg' || $ext !='jpeg'){ ?>
+				 	<video autoplay src="<?php echo base_url('assets/files/'.$post_images['p_list'][0]['imgname']); ?>" width="580px" type="video/<?php echo $ext; ?>" controls></video>
+
+				<?php }else{ ?>
+						 <div id="gallery<?php echo $post_images['p_id']; ?>" ></div>
+				<?php  } ?>
+				  
                   <p>
                     <?php echo isset($post_images['text'])?$post_images['text']:''; ?>
                   </p>

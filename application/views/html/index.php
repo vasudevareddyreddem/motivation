@@ -13,26 +13,19 @@
    <!-- Owl Carousel-->
    <?php //echo '<pre>';print_r($post_images); exit; ?>
    <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="false" data-margin="30px" class="owl-carousel owl-carousel-flex offset-top-0">
-      <?php foreach($post_images as $List){ ?>
-      <?php if(count($List['p_list'])>0){ ?>
+      <?php foreach($post_images as $List){
+				$path =isset($List['p_list'][0]['imgname'])?$List['p_list'][0]['imgname']:'';
+				$ext = pathinfo($path, PATHINFO_EXTENSION);  ?>
+				
+      <?php if(count($List['p_list'])>0 && $ext =='png' || $ext =='jpg' || $ext =='jpeg'){ ?>
       <div class="owl-item">
          <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
             <div>
-               <div class="post-media-wrap"><a href="#">
+               <div class="post-media-wrap">
+			   <a href="#">
 			   
-			   <?php
-				$path =$List['p_list'][0]['imgname'];
-				$ext = pathinfo($path, PATHINFO_EXTENSION);
-			   if($ext !='png' || $ext !='jpg' || $ext !='jpeg'){ ?>
-				<video class="video-fluid" autoplay loop >
-                    <source src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" type="video/mp4" />
-                </video>
-				<?php  }else{ ?>
-			   			   <img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/>
-
-			   <?php } ?>
-			   
-			   </a>
+				 <img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/>
+			</a>
                </div>
                <div class="post-content-wrap">
                   <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
@@ -150,9 +143,17 @@
             <?php //echo '<pre>';print_r($List);exit; ?>
             <div class="post post-variant-1 box mar-t30">
                <div>
-                  <div class="post-media-wrap">
-                     <div id="gallery<?php echo $List['p_id']; ?>"></div>
+			    <?php 
+					$path = $List['p_list'][0]['imgname'];
+					$ext = pathinfo($path, PATHINFO_EXTENSION);
+				if(count($List['p_list'])>=1 && $ext !='png' || $ext !='jpg' || $ext !='jpeg'){ ?>
+				 	<video autoplay src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="620px" type="video/<?php echo $ext; ?>" controls></video>
+
+				<?php }else{ ?>
+					<div class="post-media-wrap">
+						<div id="gallery<?php echo $List['p_id']; ?>"></div>
                   </div>
+				<?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
                      <h4><a href="#"><?php echo isset($List['text'])?$List['text']:''; ?></a></h4>

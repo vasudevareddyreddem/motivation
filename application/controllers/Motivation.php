@@ -459,6 +459,20 @@ exit;
 				echo json_encode($data);	
 				}
 		
+	}
+	public function getfiledata(){
+		$details=$this->Motivation_model->filesdata();
+		if(count($details) > 0)
+				{
+				$path = $details['name'];
+				$ext = pathinfo($path, PATHINFO_EXTENSION);
+				$data['msg']=$ext;
+				echo json_encode($data);	
+				}else{
+				$data['msg']=1;
+				echo json_encode($data);
+				}
+		
 	}	
 	public function search(){
 		$post=$this->input->post();
