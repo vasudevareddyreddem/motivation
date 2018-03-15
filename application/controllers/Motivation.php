@@ -469,7 +469,7 @@ exit;
 				$data['msg']=$ext;
 				echo json_encode($data);	
 				}else{
-				$data['msg']=1;
+				$data['msg']='';
 				echo json_encode($data);
 				}
 		

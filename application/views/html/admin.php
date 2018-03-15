@@ -32,10 +32,10 @@
 											<ul  class="col-md-3" >
 					
 											<li class="image-upload">
-													<label for="images">
+													<label for="imagesupload">
 														<i class="fa fa-camera"></i>
 													</label>
-													 <input type="file"  id="images" name="images2" onchange="onchangeimage();" />
+													 <input type="file"  id="imagesupload" name="images2" onchange="onchangeimage();" />
 											</li>
 											
 											
@@ -48,10 +48,10 @@
 										<ul class="col-md-3">
 					
 											<li class="image-upload">
-													<label for="images">
+													<label for="videoimages">
 														<i class="fa fa-video-camera"></i>
 													</label>
-													 <input type="file"  id="images" name="images3" onchange="onchangeimage1();" />
+													 <input type="file"  id="videoimages" name="images3" onchange="onchangevideo();" />
 											</li>
 											
 										</ul>
@@ -92,7 +92,7 @@
  
   function onchangeimage(){
 	
-		var fup= document.getElementById('images');
+		var fup= document.getElementById('imagesupload');
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
@@ -105,37 +105,35 @@
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-					alert(data.msg);
 						if(data.msg !=''){
 							if(blockedTile.includes(ext)){
 								
 							}else{
-								alert('Invalid upload  formate.  please upload rt');
+								alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
 							}
 						}
 					}
 				});
-				return false;
-		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "mp4" || ext == "3gpp" || ext == "mp3")
+		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
 		{
 		$("#addimages").submit();
 		} 
 		else
 		{
-			alert("Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only");
+			alert("Upload Gif,JPEG,jpeg,jpg,JPG images only");return false;
 			
 		fup.focus();
 		return false;
 		}
 	
 } 
-function onchangeimage(){
+function onchangevideo(){
 	
-		var fup= document.getElementById('images');
-		
+		var fup= document.getElementById('videoimages');
+		alert(fup);
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		var blockedTile = new Array("gif", "GIF", "JPEG", "jpeg", "jpg");
+		var blockedTile = new Array("mp4", "mp3", "3gpp");
 		jQuery.ajax({
 					url: "<?php echo site_url('motivation/getfiledata');?>",
 					data: {
@@ -144,27 +142,23 @@ function onchangeimage(){
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-					alert(data.msg);
+						alert(data.msg);
 						if(data.msg !=''){
-							if(blockedTile.includes(ext)){
-								
-							}else{
-								alert('Invalid upload  formate.  please upload rt');
-							}
+							alert('Your upload only one video at time');return false;
+							
 						}
 					}
 				});
+				
 				return false;
-		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "mp4" || ext == "3gpp" || ext == "mp3")
+		if(ext == "mp4" || ext == "3gpp" || ext == "mp3")
 		{
-		$("#addimages").submit();
+		$("#addimages1").submit();
 		} 
 		else
 		{
-			alert("Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only");
-			
-		fup.focus();
-		return false;
+			alert("Upload mp4,mp3 ,3gpp videos only");return false;
+		
 		}
 	
 } 
