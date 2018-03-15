@@ -18,7 +18,21 @@
       <div class="owl-item">
          <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
             <div>
-               <div class="post-media-wrap"><a href="#"><img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/></a>
+               <div class="post-media-wrap"><a href="#">
+			   
+			   <?php
+				$path =$List['p_list'][0]['imgname'];
+				$ext = pathinfo($path, PATHINFO_EXTENSION);
+			   if($ext !='png' || $ext !='jpg' || $ext !='jpeg'){ ?>
+				<video class="video-fluid" autoplay loop >
+                    <source src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" type="video/mp4" />
+                </video>
+				<?php  }else{ ?>
+			   			   <img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/>
+
+			   <?php } ?>
+			   
+			   </a>
                </div>
                <div class="post-content-wrap">
                   <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>

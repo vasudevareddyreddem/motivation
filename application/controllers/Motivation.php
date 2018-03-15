@@ -16,7 +16,6 @@ class Motivation extends CI_Controller {
 		$this->load->model('Motivation_model');
 		$loginuser_id=$this->session->userdata('userdetails');
 		$this->load->library('facebook');
-		$this->load->library('socialstats');
 		
 	}
 	public function index()
