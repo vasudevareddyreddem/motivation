@@ -16,7 +16,7 @@
 				   <div class="row">
 						<div class="col-md-12">
     						<div class="widget-area  blank">
-								<div class="status-upload">
+								<div class="">
 								<?php if(isset($image_list) && count($image_list)>0){ ?>
 										<div class="row prev">
 										<?php foreach($image_list as $list){ ?>
@@ -29,14 +29,15 @@
 										<?php } ?>
 										<div class="row">
 									<form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-											<ul  class="col-md-3" >
+											<ul  class="col-md-1" >
 					
 											<li class="image-upload">
+<<<<<<< HEAD
 													<label for="imagesupload">
 														<i class="fa fa-camera"></i>
 													</label>
 													 <input type="file"  id="imagesupload" name="images2" onchange="onchangeimage();" />
-											</li>
+												</li>
 											
 											
 										</ul>
@@ -45,7 +46,7 @@
 									<form  id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
 									
 								
-										<ul class="col-md-3">
+										<ul class="col-md-1">
 					
 											<li class="image-upload">
 													<label for="videoimages">
@@ -63,9 +64,9 @@
 									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
 
 									<input class="form-control" type="text" placeholder="Title" id="title" name="title" value="" required>
-									<textarea placeholder="What are you doing right now?" id="content" name="content" required></textarea>
+									<textarea  class="form-control" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
 									
-									<button style="margin-bottom:10px;"type="submit" class="btn  btn-primary"><i class="fa fa-share"></i> Post</button>
+									<button style="margin-top:10px;"type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
 								
 
 									
