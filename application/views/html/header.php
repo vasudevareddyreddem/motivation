@@ -33,10 +33,10 @@
                 <!-- RD Navbar Toggle-->
                 <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
 				 <span class="md-hide" style="position: absolute;
-    right: 5px;color: #d30f61;font-size: 21px;top:-8px">
+    left:65px;color: #d30f61;font-size: 21px;top:-3px">
 		<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input style="padding:0px 5px;width:250px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
+								<input style="padding:0px 5px;width:250px;height:40px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>

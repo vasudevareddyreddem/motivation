@@ -15,16 +15,16 @@
             <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0 offset-top-30">
               <div class="box">
                 <div class="section-20 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
-                  <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h4>
+                  <h4>About Whatslyf</h4>
                 </div>
                 <hr class="divider offset-none">
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <div class="range">
-                    <div class="cell-md-6"><img src="<?php echo base_url(); ?>assets/vendor/img/admin.jpg" width="355" height="355" alt="" class="img-responsive"></div>
+                    <div class="cell-md-6"><img src="<?php echo base_url(); ?>assets/vendor/img/aboutus.png" width="355" height="355" alt="" class="img-responsive thumbnail"></div>
                     <div class="cell-md-6 range">
                       <div class="cell-md-12">
-                        <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </h6>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <h6>Life is more than just a journey, more than just a struggle! </h6>
+                        <p>More than just a quote… it’s the phase to proofread life between the lines of the para!</p>
                       </div>
                       <div class="cell-md-12 cell-md-bottom offset-md-top-20 offset-lg-top-0">
 						<ul class="list-inline-0">
@@ -40,12 +40,30 @@
                 </div>
                 <hr class="divider offset-none">
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book....
+                  <p>We are here with a small initiative and new outlook which can help each other push our limits… to reach and change our profound imaginations into reality!</p>
                   
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    
+                    We are in a mindset to transform our blog into yours by instilling encouragement and connecting our roots through emotions and laying a foundation for a strong and refreshing society, where we’ll convert disappointment, failure, depression, and low grounds into Solitude, Success, Contentment, desires to achieve, to take risks, to tip toe with life …..And feel whatslyf!
                   </p>
+				  <p>
+                    The world is highly depressing with every day’s set of unnumbered challenges in store for us. We are here to relax you and let you find yourself by providing some lively content, where you get to witness world’s most inspiring hero’s beginning’s, breakthroughs, tough times….and how they have outraged each circle to reach the peak of some substance for self and rest to look at.
+                  </p>
+				   <hr class="divider offset-none">
+				  <h5>What we believe in? </h5>
+				  <p>We believe to do something, however small or big to make others happier and better, We ride our self with the highest ambition of being the most elevating hope, which can inspire or change a human being.</p>
+				  <hr class="divider offset-none">
+				  <h5>Bringing change in you…. </h5>
+				  <h6>Copyright Notice: </h6>
+				  <p>We make these videos with the intention of educating others in a motivational/inspirational form. We do not own the clips and music we use in most cases. Our understanding is that it is in correlation to Fair Right Use, however given that it is open to interpretation, if any owners of the content clips would like us to remove the video, we have no problem with that and will do so as fast as possible. Please email us if you have any concerns at whatslyfhelp@gmail.com</p>
+				  <h6>FAIR-USE COPYRIGHT DISCLAIMER</h6>
+				  <p>* Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commenting, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.</p>
+				<ol>
+					<li>This video has no negative impact on the original works (It would actually be positive for them)</li>
+					<li>This video is also for teaching purposes.</li>
+					<li>It is positively transformative in nature.</li>
+					<li> I only used bits and pieces of videos to get the point across where necessary.</li>
+					<li> All the videos are used in this blog are provided the YouTube api if any individual have any problem with the video can directly mail us on whatslyfhelp@gmail.com</li>
+				</ol>
                 
                  
                 </div>

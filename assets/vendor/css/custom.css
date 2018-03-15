@@ -290,6 +290,9 @@ margin-right: 7px;
 	height:40px;
 }
 }
+.thumbnail{
+	border:1px solid #ddd;
+}
 /* notifications */
 .bg-succ{
 	background:#449d44 !important;
