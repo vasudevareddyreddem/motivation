@@ -32,14 +32,31 @@
               <div class="rd-navbar-panel">
                 <!-- RD Navbar Toggle-->
                 <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+				 <span class="md-hide" style="position: absolute;
+    right: 5px;color: #d30f61;font-size: 21px;top:-8px">
+		<form class="navbar-form" role="search">
+							<div class="input-group">
+								<input style="padding:0px 5px;width:250px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
+								<span class="sear-btn"  >
+									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+									</span>
+								</span>
+								<div class="search-bac" id="result1" style="display:none;">
+									<ul class="text-left mar-t10" id="searchresult1">
+									</ul>
+								</div>
+							</div>
+							</form>
+	</span>
               </div>
+			 
               <div class="rd-navbar-nav-wrap">
                 <!-- RD Navbar Brand-->
                 <div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
                 <!-- RD Navbar Nav-->
                 <div class="rd-navbar-nav-outher">
                   <ul class="rd-navbar-nav">
-                    <li class="active">
+                    <li class="active sm-hide">
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
@@ -126,6 +143,31 @@
       </div>
       
     </div>
+  </div> 
+  <!--search modal-->
+  <div class="modal fade" id="searchfun" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+           <form class="navbar-form" role="search">
+							<div class="input-group">
+								<input style="width:100%" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
+								<span class="sear-btn"  >
+									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+									</span>
+								</span>
+								<div class="search-bac" id="result1" style="display:none;">
+									<ul class="text-left mar-t10" id="searchresult1">
+									</ul>
+								</div>
+							</div>
+							</form>
+        </div>
+        
+      </div>
+      
+    </div>
   </div>
   <style>
   .serachide{
@@ -151,6 +193,30 @@
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
+                      
+					}
+				 }
+				});
+				
+		}
+			
+			
+		}
+		// mobile
+		function getsarchdata1(val){
+		if(val!=''){
+				jQuery.ajax({
+					url: "<?php echo base_url('motivation/search');?>",
+					data: {
+						searchdata: val,
+					},
+					dataType: 'json',
+					type: 'POST',
+					success: function (data) {
+						 $('#result1').show();
+						$('#searchresult1').empty();
+						for(i=0; i<data.text.length; i++) {
+						$('#searchresult1').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
                       
 					}
 				 }

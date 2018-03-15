@@ -260,6 +260,24 @@ margin-right: 7px;
 
 
 @media only screen and (max-width: 767px) {
+	.page-content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.owl-prev, .owl-next {
+    position: absolute;
+    height: 45px;
+    width: 35px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font: 400 20px/50px "Material Icons";
+    font-size: 18px;
+    transition: .3s;
+    text-align: center;
+    background-color: #d30f61;
+    color: #fff;
+}
 	.sm-hide{
 	display:none;
 }

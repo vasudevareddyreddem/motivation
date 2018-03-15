@@ -197,7 +197,7 @@
 					$path = $List['p_list'][0]['imgname'];
 					$ext = pathinfo($path, PATHINFO_EXTENSION);
 				if(count($List['p_list'])>=1 && $ext !='png' && $ext !='jpg' && $ext !='jpeg'){ ?>
-				 	<video autoplay src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="620px" type="video/<?php echo $ext; ?>" controls></video>
+				 	<video autoplay src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="100%" type="video/<?php echo $ext; ?>" controls></video>
 
 				<?php }else{ ?>
 					<div class="post-media-wrap">

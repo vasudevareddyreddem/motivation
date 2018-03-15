@@ -39,7 +39,7 @@
 										<?php } ?>
 										<div class="row">
 									<form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-											<ul  class="col-md-1" >
+											<ul  class="col-md-1 col-xs-1 col-sm-1" >
 					
 											<li class="image-upload">
 
@@ -56,7 +56,7 @@
 									<form  id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
 									
 								
-										<ul class="col-md-1">
+										<ul class="col-md-1 col-xs-1 col-sm-1">
 					
 											<li class="image-upload">
 													<label for="videoimages">
