@@ -54,6 +54,41 @@ class Admin extends CI_Controller {
 					redirect('admin');
 				}	
 	}
+	public function forgotpassword()
+	{
+		if(!$this->session->userdata('userdetails'))
+		 {
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+			$this->load->view('html/forgotpassword');
+			$this->load->view('html/footer');
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('motivation/lists');
+		} 
+	}	
+	public function forgotpost()
+	{
+			$post=$this->input->post();
+			$email_check=$this->Motivation_model->email_uniuque($post['email']);
+				if(count($email_check)>0){
+					
+						$this->load->library('email');
+						$this->email->set_newline("\r\n");
+						$this->email->set_mailtype("html");
+						$this->email->from('whatslyfhelp@gmail.com');
+						$this->email->to($post['email']);
+						$this->email->subject('whatslyf - Forgot Password');
+						$html = ' Your Password is <b>'.$email_check['orgpassword'].'</b>'; 
+						$this->email->message($html);
+						$this->email->send();
+						$this->session->set_flashdata('success',"Password Send to your registered Email Address. Please check your registered email once");
+						redirect('admin');
+				}else{
+					$this->session->set_flashdata('error',"Your Entered Email not registered. Plase try again");
+					redirect('admin/forgotpassword');
+				}	
+	}
 	public function singuppostpost()
 	{
 			$post=$this->input->post();
@@ -65,6 +100,7 @@ class Admin extends CI_Controller {
 				'email'=>$post['email'],
 				'mobile'=>$post['mobile'],
 				'password'=>md5($post['confirmpassword']),
+				'orgpassword'=>$post['confirmpassword'],
 				'name'=>$post['name'],
 				'status'=>1,
 				'create_at'=>date('Y-m-d H:i:s')

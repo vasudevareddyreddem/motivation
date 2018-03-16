@@ -121,6 +121,7 @@ class Motivation extends CI_Controller {
 			redirect('');
 		} 
 	}
+	
 	public function changepwdpost()
 	{
 		if($this->session->userdata('userdetails'))
@@ -131,7 +132,8 @@ class Motivation extends CI_Controller {
 					$details=$this->Motivation_model->get_user_details($loginuser_id['id']);
 					if($details['password']== md5($post['oldpassword'])){
 						$udate_details=array(
-						'password'=>md5($post['confirmpassword'])
+						'password'=>md5($post['confirmpassword']),
+						'orgpassword'=>$post['confirmpassword']
 						);
 						$update=$this->Motivation_model->update_user_details($loginuser_id['id'],$udate_details);
 						if(count($update)>0){
@@ -150,12 +152,13 @@ class Motivation extends CI_Controller {
 					$this->session->set_flashdata('error',"Password  and  Confirm password are not matched.");
 					redirect('motivation/changepassword');
 				}
-			echo '<pre>';print_r($post);exit;
+			//echo '<pre>';print_r($post);exit;
 		 }else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('');
 		} 
 	}
+	
 	public function details()
 	{
 		if($this->session->userdata('userdetails'))

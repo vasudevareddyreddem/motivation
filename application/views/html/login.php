@@ -16,6 +16,7 @@
 					<input class="form-control" type="password" id="password" name="password" placeholder="Enter Password " required><br> 
                   
                       <button type="submit" class="btn btn-primary">Login</button>
+                      <a href="<?php echo base_url('admin/forgotpassword'); ?>" class="btn btn-primary">Forgot password</a>
                   </form>
                   <!-- Rd Mailform result field-->
                 </div>

@@ -79,7 +79,7 @@ header("Pragma: no-cache");
              
 					<?php if($this->session->userdata('userdetails'))
 						{ ?>
-                    <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">List</a></li>
+                    <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">My Posts</a></li>
                     <li class="<?php if($currentURL==base_url('motivation/changepassword')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/changepassword'); ?>">Change Password</a></li>
 					 <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
 
