@@ -58,7 +58,12 @@
 					</td>
 					<td><?php echo $list['create_at']; ?></td>
 					<td><?php echo $list['status_text']; ?></td>
-					<td><a href="<?php echo base_url('motivation/status/'.base64_encode($list['p_id']).'/'.base64_encode($list['pstatus'])); ?>">Status change</a> | <a href="<?php echo base_url('motivation/deletes/'.base64_encode($list['p_id'])); ?>">Delete</a></td>
+					<td>
+					<a href="<?php echo base_url('motivation/status/'.base64_encode($list['p_id']).'/'.base64_encode($list['pstatus'])); ?>">Status change</a> | 
+					<a href="<?php echo base_url('motivation/deletes/'.base64_encode($list['p_id'])); ?>">Delete</a> |
+					<a href="<?php echo base_url('motivation/details/'.base64_encode($list['p_id'])); ?>">Edit</a>
+
+					</td>
 				   
 				</tr>
 			<?php } ?>

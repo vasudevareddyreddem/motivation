@@ -36,13 +36,28 @@ class Motivation_model extends CI_Model
 		$this->db->where('user_id', $user_id);
 		return $this->db->get()->result_array();
 	}
+	public function get_alledit_post_images_list($user_id,$post_id){
+		$this->db->select('*')->from('posts');		
+		$this->db->where('user_id', $user_id);
+		$this->db->where('post_id', $post_id);
+		return $this->db->get()->result_array();
+	}
 	public function get_images_details_list($id){
 		$this->db->select('*')->from('temp');		
 		$this->db->where('id', $id);
 		return $this->db->get()->row_array();
 	}
+	public function get_edit_images_details_list($id){
+		$this->db->select('*')->from('posts');		
+		$this->db->where('img_id', $id);
+		return $this->db->get()->row_array();
+	}
 	public function delete_attachement($id){
 		$sql1="DELETE FROM temp WHERE id = '".$id."'";
+		return $this->db->query($sql1);
+	}
+	public function delete_editattachement($id){
+		$sql1="DELETE FROM posts WHERE img_id = '".$id."'";
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_list($user_id){
@@ -124,6 +139,7 @@ class Motivation_model extends CI_Model
 			return $data;
 			
 	}
+	
 	public function get_all_post_lists(){
 		$this->db->select('post_count.*,,admin.name')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
@@ -148,7 +164,7 @@ class Motivation_model extends CI_Model
 		//echo '<pre>';print_r($lis);
 	}
 	public function get_all_post_imgs($p_id){
-		$this->db->select('posts.name as imgname,posts.org_name,posts.create_at,admin.name')->from('posts');		
+		$this->db->select('posts.name as imgname,posts.img_id,posts.org_name,posts.create_at,admin.name')->from('posts');		
 		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
 		$this->db->where('posts.post_id', $p_id);
 		$this->db->order_by("posts.create_at", "DESC");
@@ -211,6 +227,18 @@ class Motivation_model extends CI_Model
 		$this->db->order_by("temp.create_at", "DESC");		
 		return $this->db->get()->row_array();
 	}
+	public function editfilesdata($pid,$user_id){
+		$this->db->select('*')->from('posts');
+		 $this->db->where('posts.post_id',$pid);
+		 $this->db->where('posts.user_id',$user_id);
+		return $this->db->get()->row_array();
+	}
+	public function update_post_count_details($pid,$user_id,$data){
+		 $this->db->where('post_count.p_id',$pid);
+		 $this->db->where('post_count.user_id',$user_id);
+		return $this->db->update('post_count', $data);
+	}
+	
 	
 	
 }

@@ -43,10 +43,10 @@
          <div class="post post-variant-1 post-variant-1-short box post-variant-1-equal-height">
             <div>
                <div class="post-media-wrap">
-			   <a href="#">
+			   <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>">
 			   
 				 <img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/>
-			</a>
+			
                </div>
                <div class="post-content-wrap">
                   <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
@@ -67,7 +67,7 @@
                      <li><a href="javascript:void(0)" class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                   </ul>
                </div>
-            </div>
+            </div></a>
          </div>
       </div>
       <?php } ?>
@@ -85,7 +85,7 @@
                   <div class="post-content-wrap">
                      <a href="#"><h4>
                      
-                        <?php echo isset($List['text'])?$List['text']:''; ?>
+                         <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?></a>
                         </h4></a>
                         <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                      <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
@@ -119,8 +119,8 @@
       <div class="modal-content">
         
         <div class="modal-body">
-           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput" onkeyup="myFunction()"><br>
-			  <ul class="" id="myUL">
+           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+			  <ul class="" id="myUL1">
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4">	
@@ -206,7 +206,7 @@
 				<?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
-                     <h4><a href="#"><?php echo isset($List['text'])?$List['text']:''; ?></a></h4>
+                     <h4> <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?></a></h4>
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
@@ -238,8 +238,8 @@
       <div class="modal-content">
         
         <div class="modal-body">
-           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput" onkeyup="myFunction()"><br>
-			  <ul class="" id="myUL">
+           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+			  <ul class="" id="myUL1">
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4">	
@@ -391,6 +391,20 @@ function likecount(id){
        input = document.getElementById("myInput");
        filter = input.value.toUpperCase();
        ul = document.getElementById("myUL");
+       li = ul.getElementsByTagName("li");
+       for (i = 0; i < li.length; i++) {
+           if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+               li[i].style.display = "";
+           } else {
+               li[i].style.display = "none";
+           }
+       }
+   } 
+   function myFunction1() {
+       var input, filter, ul, li, a, i;
+       input = document.getElementById("myInput1");
+       filter = input.value.toUpperCase();
+       ul = document.getElementById("myUL1");
        li = ul.getElementsByTagName("li");
        for (i = 0; i < li.length; i++) {
            if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {

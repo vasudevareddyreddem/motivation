@@ -53,8 +53,8 @@
       <div class="modal-content">
         
         <div class="modal-body">
-           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput" onkeyup="myFunction()"><br>
-			  <ul class="" id="myUL">
+           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+			  <ul class="" id="myUL1">
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4">	
@@ -229,4 +229,18 @@ function likecount(id){
 				});
 			}
 }
+   function myFunction1() {
+       var input, filter, ul, li, a, i;
+       input = document.getElementById("myInput1");
+       filter = input.value.toUpperCase();
+       ul = document.getElementById("myUL1");
+       li = ul.getElementsByTagName("li");
+       for (i = 0; i < li.length; i++) {
+           if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+               li[i].style.display = "";
+           } else {
+               li[i].style.display = "none";
+           }
+       }
+   }
 </script>

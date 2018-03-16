@@ -117,6 +117,26 @@ exit;
 			redirect('');
 		} 
 	}
+	public function details()
+	{
+		if($this->session->userdata('userdetails'))
+		 {
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+			$post_id=base64_decode($this->uri->segment(3));
+			$loginuser_id=$this->session->userdata('userdetails');
+			$data['temp_image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
+			$data['image_list']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			$data['post_id']=base64_decode($this->uri->segment(3));
+			//echo $this->db->last_query();exit;
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/edit',$data);
+			$this->load->view('html/footer');
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		} 
+	}
 	public function addimage()
 	{
 		if($this->session->userdata('userdetails'))
@@ -198,6 +218,114 @@ exit;
 			redirect('');
 		} 
 	}
+	public function editimage()
+	{
+		if($this->session->userdata('userdetails'))
+		 {
+				$post=$this->input->post();
+				//echo '<pre>';print_r($post);exit;
+				$loginuser_id=$this->session->userdata('userdetails');
+				if(isset($_FILES['images2']['name']) && $_FILES['images2']['name']!=''){
+							$pic=$_FILES['images2']['name'];
+							$picname = str_replace(" ", "", $pic);
+							$imagename=microtime().basename($picname);
+							$imgname = str_replace(" ", "", $imagename);
+							if(move_uploaded_file($_FILES['images2']['tmp_name'], "assets/temp/" . $imgname)){
+							$filedata=array(
+								'user_id'=>$loginuser_id['id'],
+								'name'=>$imgname,
+								'org_name'=>$_FILES['images2']['name'],
+								'create_at'=>date('Y-m-d H:i:s')				
+								);
+								$addfile = $this->Motivation_model->save_userfile($filedata);
+							if(count($addfile)>0){
+								$this->session->set_flashdata('success',"File successfully Select");
+								redirect('motivation/details/'.base64_encode($post['post_id'])); 	
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('motivation/details/'.base64_encode($post['post_id'])); 	
+								}
+							}
+				}if(isset($_FILES['images3']['name']) && $_FILES['images3']['name']!=''){
+							$pic=$_FILES['images3']['name'];
+							$picname = str_replace(" ", "", $pic);
+							$imagename=microtime().basename($picname);
+							$imgname = str_replace(" ", "", $imagename);
+							if(move_uploaded_file($_FILES['images3']['tmp_name'], "assets/temp/" . $imgname)){
+							$filedata=array(
+								'user_id'=>$loginuser_id['id'],
+								'name'=>$imgname,
+								'org_name'=>$_FILES['images3']['name'],
+								'create_at'=>date('Y-m-d H:i:s')				
+								);
+								$addfile = $this->Motivation_model->save_userfile($filedata);
+							if(count($addfile)>0){
+								$this->session->set_flashdata('success',"File successfully Select");
+								redirect('motivation/details/'.base64_encode($post['post_id'])); 	
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('motivation/details/'.base64_encode($post['post_id'])); 		
+								}
+							}
+				}
+					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('motivation/details/'.base64_encode($post['post_id'])); 		
+		
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		} 
+	}
+	
+	public function editimagepost()
+	{
+		if($this->session->userdata('userdetails'))
+		 {
+				$post=$this->input->post();
+				
+				//echo '<pre>';print_r($post);
+				$loginuser_id=$this->session->userdata('userdetails');
+				//echo '<pre>';print_r($loginuser_id);exit;
+				$image_list=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
+				$editimage_list=$this->Motivation_model->get_alledit_post_images_list($loginuser_id['id'],$post['post_id']);
+				//echo '<pre>';print_r($editimage_list);
+				$data=array(
+				'user_id'=>$loginuser_id['id'],
+				'title'=>$post['title'],
+				'text'=>$post['content'],
+				'image_count'=>count($image_list) + count($editimage_list),
+				'create_at'=>date('Y-m-d H:i:s')
+				);
+				$post_count=$this->Motivation_model->update_post_count_details($post['post_id'],$loginuser_id['id'],$data);
+				
+				foreach($image_list as $list){
+					rename("assets/temp/".$list['name'], "assets/files/".$list['name']);
+					$filedata=array(
+								'user_id'=>$loginuser_id['id'],
+								'post_id'=>$post['post_id'],
+								'name'=>$list['name'],
+								'org_name'=>$list['org_name'],
+								'create_at'=>date('Y-m-d H:i:s'),				
+								'status'=>1				
+								 );
+				$addfile = $this->Motivation_model->save_filepost($filedata);
+				}
+				if(count($addfile)>0 || count($post_count)>0){
+					foreach($image_list as $list){
+						$this->Motivation_model->delete_attachement($list['id']);
+					}
+					$this->session->set_flashdata('success',"File successfully Upload");
+					redirect('motivation/lists'); 
+				}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+					redirect('motivation/details/'.base64_encode($post['post_id'])); 	
+				}		
+		
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		} 
+	}
 	
 	
 	public function attchements(){
@@ -208,6 +336,24 @@ exit;
 			$details=$this->Motivation_model->get_images_details_list($images['attachmentid']);
 			$removedattch = $this->Motivation_model->delete_attachement($images['attachmentid']);
 			unlink("assets/temp/".$details['name']);
+			if(count($removedattch) > 0)
+					{
+					$data['msg']=1;
+					echo json_encode($data);	
+					}
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		} 
+	}	
+	public function editattchements(){
+		if($this->session->userdata('userdetails'))
+		 {
+			
+			$images=$this->input->post();
+			$details=$this->Motivation_model->get_edit_images_details_list($images['attachmentid']);
+			$removedattch = $this->Motivation_model->delete_editattachement($images['attachmentid']);
+			unlink("assets/files/".$details['name']);
 			if(count($removedattch) > 0)
 					{
 					$data['msg']=1;
@@ -464,6 +610,22 @@ exit;
 	}
 	public function getfiledata(){
 		$details=$this->Motivation_model->filesdata();
+		if(count($details) > 0)
+				{
+				$path = $details['name'];
+				$ext = pathinfo($path, PATHINFO_EXTENSION);
+				$data['msg']=$ext;
+				echo json_encode($data);	
+				}else{
+				$data['msg']='';
+				echo json_encode($data);
+				}
+		
+	}
+	public function editgetfiledata(){
+		$post=$this->input->post();
+		$loginuser_id=$this->session->userdata('userdetails');
+		$details=$this->Motivation_model->filesdata($post['attachmentid'],$loginuser_id['id']);
 		if(count($details) > 0)
 				{
 				$path = $details['name'];
