@@ -62,20 +62,7 @@ class Motivation extends CI_Controller {
 
 		// display view
 	}
-	public function success	()
-	{
-			$url = 'http://facebook.com/sharer.php';
-
-			echo $facebook_shares    = $this->socialstats->get_fb_shares($url);
-			$googleplus_shares  = $this->socialstats->get_plusones($url);
-			$pinterest_shares   = $this->socialstats->get_pins($url);
-			$linkedin_shares    = $this->socialstats->get_in_shares($url);
-			$stumbleupon_shares = $this->socialstats->get_stumble_views($url);
-			$tumblr_shares      = $this->socialstats->get_tumblr_shares($url);
-
-
-exit;
-	}
+	
 	public function aboutus()
 	{
 			$header['currentURL'] = current_url();
@@ -114,6 +101,20 @@ exit;
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('html/admin',$data);
+			$this->load->view('html/footer');
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		} 
+	}
+	public function changepassword()
+	{
+		if($this->session->userdata('userdetails'))
+		 {
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+			$loginuser_id=$this->session->userdata('userdetails');
+			$this->load->view('html/changespassword');
 			$this->load->view('html/footer');
 		 }else{
 			$this->session->set_flashdata('loginerror','Please login to continue');

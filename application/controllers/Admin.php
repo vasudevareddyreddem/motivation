@@ -57,6 +57,7 @@ class Admin extends CI_Controller {
 	public function singuppostpost()
 	{
 			$post=$this->input->post();
+			if(md5($post['password'])==md5($post['confirmpassword'])){
 			$email_check=$this->Motivation_model->email_uniuque($post['email']);
 			$mobile_check=$this->Motivation_model->mobile_uniuque($post['mobile']);
 			if(count($email_check)==0 && count($mobile_check)==0){
@@ -89,8 +90,11 @@ class Admin extends CI_Controller {
 				
 				redirect('admin/signup');
 			}
+			}else{
+				$this->session->set_flashdata('error',"Password  and  Confirm password are not matched.");
+				redirect('admin/signup');
+			}
 
-			echo '<pre>';print_r($post);exit;
 				
 	}
 	
