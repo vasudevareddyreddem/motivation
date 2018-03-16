@@ -61,13 +61,12 @@ class Motivation_model extends CI_Model
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_list($user_id){
-		$this->db->select('COUNT(img_id) as count,post_count.p_id,post_count.pstatus,posts.create_at,posts.create_at,admin.name,status.status_text')->from('posts');		
-		$this->db->join('post_count', 'post_count.p_id = posts.post_id', 'left');
-		$this->db->join('admin', 'admin.id = posts.user_id', 'left');
+		$this->db->select('post_count.p_id,post_count.text,post_count.title,post_count.pstatus,posts.create_at,posts.create_at,admin.name,status.status_text')->from('post_count');		
+		$this->db->join('posts', 'posts.post_id = post_count.p_id', 'left');
+		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
 		$this->db->join('status', 'status.id = post_count.pstatus', 'left');
 		$this->db->where('post_count.user_id', $user_id);
 		//$this->db->where('post_count.pstatus', 1);
-		 $this->db->group_by('posts.post_id');
 		$this->db->order_by("post_count.create_at", "DESC");
 		$return=$this->db->get()->result_array();
 		foreach($return as $list){
@@ -82,6 +81,8 @@ class Motivation_model extends CI_Model
 		return $lis;
 		}
 	}
+		
+	
 	public function update_post_details($pid){
 		$this->db->select('*')->from('posts');		
 		 $this->db->where('posts.post_id',$pid);
@@ -243,6 +244,29 @@ class Motivation_model extends CI_Model
 		 $this->db->where('post_count.p_id',$pid);
 		 $this->db->where('post_count.user_id',$user_id);
 		return $this->db->update('post_count', $data);
+	}
+	
+	
+	/*
+	singup*/
+	public function email_uniuque($email){
+		$this->db->select('*')->from('admin');		
+		$this->db->where('email', $email);
+		return $this->db->get()->row_array();
+	}
+	public function mobile_uniuque($mobile){
+		$this->db->select('*')->from('admin');		
+		$this->db->where('mobile', $mobile);
+		return $this->db->get()->row_array();
+	}
+	public function save_user($data){
+			$this->db->insert('admin', $data);
+		return $insert_id = $this->db->insert_id();
+	}
+	public function get_user_details($id){
+		$this->db->select('*')->from('admin');
+		 $this->db->where('id',$id);
+		return $this->db->get()->row_array();
 	}
 	
 	

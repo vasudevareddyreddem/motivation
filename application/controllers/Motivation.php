@@ -420,6 +420,7 @@ exit;
 			{
 				$loginuser_id=$this->session->userdata('userdetails');
 				$data['image_list']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
+				//echo $this->db->last_query();
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('html/list',$data);
 			}else{

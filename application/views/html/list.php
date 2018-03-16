@@ -27,7 +27,9 @@
         <thead>
             <tr>
                  <th>Posted By</th>
-                 <th>Image Count</th>
+                 <th>Title</th>
+				 <th>text</th>
+				 <th>Image Count</th>
 				 <th>Images</th>
                 <th>Date</th>
 				 <th>Status</th>
@@ -37,7 +39,9 @@
         <tfoot>
             <tr>
                 <th>Posted By</th>
-				<th>Image Count</th>
+				<th>Title</th>
+				 <th>text</th>
+				 <th>Image Count</th>
 				<th>Images</th>
                 <th>Date</th>
                 <th>Status</th>
@@ -49,10 +53,20 @@
 			<?php foreach($image_list as $list){ ?>
 				<tr>
 					<td><?php echo $list['name']; ?></td>
-					<td><?php echo $list['count']; ?></td>
+					<td><?php echo $list['title']; ?></td>
+					<td><?php echo $list['text']; ?></td>
+					<td><?php echo count($list['p_list']); ?></td>
 					<td width="20%">
 					<?php foreach($list['p_list'] as $li){ ?>
-					<img src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" height="auto" width="100px">
+					 <?php $path =isset($li['imgname'])?$li['imgname']:'';
+					$ext = pathinfo($path, PATHINFO_EXTENSION);  ?>
+				
+					<?php if(count($list['p_list'])>1 && $ext =='png' || $ext =='jpg' || $ext =='jpeg'){ ?>
+						<img src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" height="auto" width="100px">
+					<?php }else{ ?>
+						<video  src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" width="100%" type="" controls></video>
+
+					<?php } ?>
 					<?php } ?>
 					
 					</td>
