@@ -268,6 +268,10 @@ class Motivation_model extends CI_Model
 		 $this->db->where('id',$id);
 		return $this->db->get()->row_array();
 	}
+	public function update_user_details($id, $data){
+		 $this->db->where('id',$id);
+		return $this->db->update('admin',$data);
+	}
 	
 	
 	
