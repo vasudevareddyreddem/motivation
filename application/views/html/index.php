@@ -33,7 +33,7 @@
    <div id="fb-root"></div>
    <!-- Owl Carousel-->
   
-   <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="false" data-margin="30px" class="owl-carousel owl-carousel-flex offset-top-0">
+   <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="false" data-margin="30px" class="owl-carousel owl-carousel-flex offset-top-0" data-ride="carousel">
       <?php foreach($post_images as $List){
 				$path =isset($List['p_list'][0]['imgname'])?$List['p_list'][0]['imgname']:'';
 				$ext = pathinfo($path, PATHINFO_EXTENSION);  ?>

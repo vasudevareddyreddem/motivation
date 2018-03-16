@@ -11,9 +11,9 @@
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                  
                
-                  <form  method="POST" action="<?php echo base_url('admin/loginpost'); ?>">
+                  <form  method="POST" action="<?php echo base_url('admin/singuppostpost'); ?>">
                     <input class="form-control" type="text" id="email" name="email"  placeholder="Email Adress" required><br> 
-                    <input class="form-control" type="text" id="mobile" name="mobile"  placeholder="Email Mobile" required><br> 
+                    <input class="form-control" type="text" id="mobile" name="mobile"  placeholder="Enter Mobile" required><br> 
 					<input class="form-control" type="password" id="password" name="password" placeholder="Enter Password " required><br> 
 					<input class="form-control" type="password" id="confirmpassword" name="confirmpassword" placeholder="Enter Confirm Password " required><br> 
                   
