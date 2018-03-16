@@ -20,7 +20,7 @@
 					$path = isset($post_images['p_list'][0]['imgname'])?$post_images['p_list'][0]['imgname']:'';
 					$ext = pathinfo($path, PATHINFO_EXTENSION);
 				if(count($post_images['p_list'])>=1 && $ext !='png' && $ext !='jpg'&& $ext !='jpeg'){ ?>
-				 	<video autoplay src="<?php echo base_url('assets/files/'.$post_images['p_list'][0]['imgname']); ?>" width="100%" type="video/<?php echo $ext; ?>" controls></video>
+				 	<video autoplay src="<?php echo base_url('assets/files/'.$post_images['p_list'][0]['imgname']); ?>" width="100%" type="video/<?php echo $ext; ?>" controls controlsList="nodownload"></video>
 
 				<?php }else{ ?>
 						 <div id="gallery<?php echo $post_images['p_id']; ?>" ></div>

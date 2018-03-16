@@ -145,9 +145,8 @@ class Motivation_model extends CI_Model
 		$this->db->select('post_count.*,,admin.name')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
 		$this->db->join('like_count', 'like_count.post_id = post_count.p_id', 'left');
-		//$this->db->where('post_count.user_id', $user_id);
 		$this->db->group_by('post_count.p_id');
-		$this->db->order_by("post_count.create_at DESC","like_count.like DESC","like_count.comment_count DESC");
+		$this->db->order_by("post_count.create_at, like_count.comment_count,like_count.comment_count DESC");
 		$this->db->where('post_count.pstatus', 1);
 		$return= $this->db->get()->result_array();
 		foreach($return as $list){

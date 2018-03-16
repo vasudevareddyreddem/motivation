@@ -153,7 +153,7 @@ function remove_imagetemp(id){
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		if(ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
 		{
 			
 		}else{
@@ -169,7 +169,7 @@ function remove_imagetemp(id){
 					type: 'POST',
 					success: function (data) {
 						if(data.msg !=''){
-							if(ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ){
+							if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ){
 								
 								$("#addimages").submit();
 							}else{

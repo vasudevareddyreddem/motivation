@@ -1,5 +1,7 @@
  <?php //echo '<pre>';print_r($post_images); 
-		$cnt=1;foreach($post_images as $list){
+		
+		if(isset($post_images) && count($post_images)>0){
+			$cnt=1;foreach($post_images as $list){
 			$path =isset($list['p_list'][0]['imgname'])?$list['p_list'][0]['imgname']:'';
 				$ext = pathinfo($path, PATHINFO_EXTENSION);
 				 if(count($list['p_list'])>0 && $ext =='png' || $ext =='jpg' || $ext =='jpeg'){
@@ -18,6 +20,8 @@
 				 <?php }
 				$cnt++; }
 
+		}
+		
 		}?>
 <?php if($this->session->flashdata('success')): ?>
 				<div class="alert_msg1 animated slideInUp bg-succ">
@@ -209,7 +213,7 @@
 					$path = $List['p_list'][0]['imgname'];
 					$ext = pathinfo($path, PATHINFO_EXTENSION);
 				if(count($List['p_list'])>=1 && $ext !='png' && $ext !='jpg' && $ext !='jpeg'){ ?>
-				 	<video autoplay src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="100%" type="video/<?php echo $ext; ?>" controls></video>
+				 	<video autoplay src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>" width="100%" type="video/<?php echo $ext; ?>" controls controlsList="nodownload"></video>
 
 				<?php }else{ ?>
 					<div class="post-media-wrap">

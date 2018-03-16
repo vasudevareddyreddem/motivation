@@ -64,7 +64,7 @@
 					<?php if(count($list['p_list'])>1 && $ext =='png' || $ext =='jpg' || $ext =='jpeg'){ ?>
 						<img src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" height="auto" width="100px">
 					<?php }else{ ?>
-						<video  src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" width="100%" type="" controls></video>
+						<video  src="<?php echo base_url('assets/files/'.$li['imgname']); ?>" width="100%" type="" controls controlsList="nodownload"></video>
 
 					<?php } ?>
 					<?php } ?>

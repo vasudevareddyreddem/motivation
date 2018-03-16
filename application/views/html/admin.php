@@ -107,11 +107,11 @@
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		if(ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
 		{
 			
 		}
-		var names_arr = ['png','gif','GIF','JPEG','jpeg','jpg'];
+		var names_arr = ['docx','doc','png','gif','GIF','JPEG','jpeg','jpg'];
 		jQuery.ajax({
 					url: "<?php echo site_url('motivation/getfiledata');?>",
 					data: {
