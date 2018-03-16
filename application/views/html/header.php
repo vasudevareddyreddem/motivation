@@ -87,6 +87,8 @@ header("Pragma: no-cache");
 						<li class="<?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
 						<li ><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
 						<li class="<?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+						<li class="<?php if($currentURL==base_url('admin')){ echo "active"; } ?>"><a href="<?php echo base_url('admin'); ?>">Sign In</a></li>
+						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
 						<?php }	?>
                   </ul>
                 </div>

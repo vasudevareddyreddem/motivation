@@ -85,7 +85,19 @@
                   <div class="post-content-wrap">
                      <a href="#"><h4>
                      
-                         <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?></a>
+                      
+						 <?php if(strstr($List['text'], 'www.youtube.com/')==true){ ?>
+						 
+						 
+							<iframe width="100%" src="<?php echo isset($List['text'])?$List['text']:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						 <?php }else if(strstr($List['text'], 'http://')==true){ ?>
+							  <a href="<?php echo isset($List['text'])?$List['text']:''; ?>" target="_blank"><?php echo isset($List['text'])?$List['text']:''; ?>
+						<?php  }else{ ?>
+							   <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?>
+						  <?php } ?>
+				
+						 
+						 </a>
                         </h4></a>
                         <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                      <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
@@ -360,7 +372,13 @@
 </main>
 
 <script>
-
+$('video').each(function(){
+    if ($(this).is(":in-viewport")) {
+        $(this)[0].play();
+    } else {
+        $(this)[0].pause();
+    }
+})
 function showhide(id) {
     var x = document.getElementById("myDIV"+id);
     if (x.style.display === "none") {

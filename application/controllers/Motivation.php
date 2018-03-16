@@ -25,6 +25,7 @@ class Motivation extends CI_Controller {
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
+			//echo $this->db->last_query();exit;
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('html/index',$data);
 			$this->load->view('html/footer',$data);
@@ -488,6 +489,11 @@ exit;
 						 );
 		$comment = $this->Motivation_model->add_comment($commentdata);
 		if(count($comment)>0){
+			$details=$this->Motivation_model->get_comment_count($post['post_id']);
+			$data=array(
+			'comment_count'=>count($details),
+			);
+			$details=$this->Motivation_model->update_like_count($post['post_id'],$data);
 			$this->session->set_flashdata('success',"Comment successfully Added");
 				redirect($this->agent->referrer()); 
 		}else{

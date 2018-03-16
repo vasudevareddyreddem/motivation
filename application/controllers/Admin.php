@@ -29,6 +29,19 @@ class Admin extends CI_Controller {
 				redirect('motivation/admin');
 			}
 	}
+	public function signup()
+	{
+			if(!$this->session->userdata('userdetails'))
+			{ 
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+				$this->load->view('html/signup');
+				$this->load->view('html/footer');
+				
+			}else{
+				redirect('motivation/admin');
+			}
+	}
 	public function loginpost()
 	{
 			$post=$this->input->post();

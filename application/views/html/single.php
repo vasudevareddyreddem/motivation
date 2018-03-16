@@ -26,9 +26,13 @@
 						 <div id="gallery<?php echo $post_images['p_id']; ?>" ></div>
 				<?php  } ?>
 				  
-                  <p>
-                    <?php echo isset($post_images['text'])?$post_images['text']:''; ?>
-                  </p>
+                  <?php if(strstr($post_images['text'], 'www.youtube.com/')==true){ ?>
+							<iframe width="100%" src="<?php echo isset($post_images['text'])?$post_images['text']:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+					<?php  }else{ ?>
+							<p><?php echo isset($post_images['text'])?$post_images['text']:''; ?></p>
+					<?php } ?>
+                  
                   <div class="offset-top-20 reveal-sm-flex range-sm-justify range-xs-middle">
                    
                     <div class="offset-top-15 offset-sm-top-0">

@@ -143,9 +143,10 @@ class Motivation_model extends CI_Model
 	public function get_all_post_lists(){
 		$this->db->select('post_count.*,,admin.name')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
+		$this->db->join('like_count', 'like_count.post_id = post_count.p_id', 'left');
 		//$this->db->where('post_count.user_id', $user_id);
 		$this->db->group_by('post_count.p_id');
-		$this->db->order_by("post_count.create_at", "DESC");
+		$this->db->order_by("post_count.create_at DESC","like_count.like DESC","like_count.comment_count DESC");
 		$this->db->where('post_count.pstatus', 1);
 		$return= $this->db->get()->result_array();
 		foreach($return as $list){
@@ -189,6 +190,11 @@ class Motivation_model extends CI_Model
 		$this->db->select('*')->from('like_count');		
 		$this->db->where('post_id', $post_id);
 		return $this->db->get()->row_array();
+	}
+	public function get_comment_count($post_id){
+		$this->db->select('*')->from('comments');		
+		$this->db->where('post_id', $post_id);
+		return $this->db->get()->result_array();
 	}
 	public function get_search_post($search){
 		$this->db->select('FROM_BASE64(post_count.p_id) ,TO_BASE64(post_count.p_id) as url,post_count.p_id,post_count.title,LEFT(post_count.text, 40) as lit,post_count.create_at,post_count.image_count')->from('post_count');		
