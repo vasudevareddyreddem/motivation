@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var videos = $('video'), // All videos element
 		allVidoesVisenseObj = [];
 	var monitorVideo = function(video){ //Handler for each video element
-		var visibility = VisSense(video, { fullyvisible: 0.75 }),
+		var visibility = VisSense(video, { fullyvisible: 0.80 }),
 			visibility_monitor = visibility.monitor({
 				fullyvisible: function(e) {
 					video.play();

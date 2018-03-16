@@ -89,7 +89,7 @@
 						 <?php if(strstr($List['text'], 'www.youtube.com/')==true){ ?>
 						 
 						 
-							<iframe width="100%" src="<?php echo isset($List['text'])?$List['text']:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							<iframe height="300px" width="100%" src="<?php echo isset($List['text'])?$List['text']:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 						 <?php }else if(strstr($List['text'], 'http://')==true){ ?>
 							  <a href="<?php echo isset($List['text'])?$List['text']:''; ?>" target="_blank"><?php echo isset($List['text'])?$List['text']:''; ?>
 						<?php  }else{ ?>
