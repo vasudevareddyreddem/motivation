@@ -369,7 +369,7 @@ exit;
 		 {
 				$post=$this->input->post();
 				$loginuser_id=$this->session->userdata('userdetails');
-				$image_list=$this->Motivation_model->get_all_images_list(1);
+				$image_list=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 				$data=array(
 				'user_id'=>$loginuser_id['id'],
 				'title'=>$post['title'],

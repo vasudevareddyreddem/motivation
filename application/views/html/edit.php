@@ -17,9 +17,10 @@
 						<div class="col-md-12">
     						<div class="widget-area  blank">
 								<div class="">
+								<div class="row prev">
 								<?php //echo '<pre>';print_r($image_list); ?>
 								<?php if(isset($image_list['p_list']) && count($image_list['p_list'])>0){ ?>
-										<div class="row prev">
+										
 										<?php foreach($image_list['p_list'] as $list){ ?> 
 										
 											<?php $path = $list['imgname'];
@@ -37,9 +38,11 @@
 												<?php } ?>
 												
 										<?php } ?>
-										<?php if(isset($temp_image_list) && count($image_list)>0){ ?>
+											<?php } ?>
+										<?php if(isset($temp_image_list) && count($temp_image_list)>0){ ?>
 										<div class="row prev">
 										<?php foreach($temp_image_list as $list){ ?>
+										
 											<?php $path = $list['name'];
 											$ext = pathinfo($path, PATHINFO_EXTENSION); 
 											if($ext=="mp4" || $ext=="mp3" ||$ext=="3gpp"){  ?>
@@ -58,7 +61,7 @@
 										</div>
 										<?php } ?>
 										</div>
-										<?php } ?>
+									
 										<div class="row">
 									<form id="addimages" name="addimages" action="<?php echo base_url('motivation/editimage'); ?>" method="post" enctype="multipart/form-data">
 											<input type="hidden" name="post_id" id="post_id" value="<?php echo isset($post_id)?$post_id:''; ?>">
@@ -150,12 +153,14 @@ function remove_imagetemp(id){
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+		if(ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
 		{
 			
-		}
-		var names_arr = ['gif','GIF','JPEG','jpeg','jpg'];
-		jQuery.ajax({
+		}else{
+
+		alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
+
+		}jQuery.ajax({
 					url: "<?php echo site_url('motivation/editgetfiledata');?>",
 					data: {
 						attachmentid: id,
@@ -164,12 +169,12 @@ function remove_imagetemp(id){
 					type: 'POST',
 					success: function (data) {
 						if(data.msg !=''){
-							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
+							if(ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ){
 								
 								$("#addimages").submit();
 							}else{
 								
-									alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
+									alert('Your upload only one video at time');return false;
 							
 								}
 							}else{
@@ -177,6 +182,7 @@ function remove_imagetemp(id){
 						}
 					}
 				});
+					
 		
 	
 } 
