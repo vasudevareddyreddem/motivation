@@ -34,8 +34,10 @@ class Motivation extends CI_Controller {
 	{
 		
 			
-			
-			$this->load->view('examples/start');
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+			$this->load->view('index');
+			$this->load->view('html/footer');
 			
 			
 	}

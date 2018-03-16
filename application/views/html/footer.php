@@ -69,7 +69,9 @@
     <script src="<?php echo base_url(); ?>assets/vendor/js/core.min.js"></script>
    <script src="<?php echo base_url(); ?>assets/vendor/js/script.js"></script>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/js/images-grid.js"></script>
- 
+
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/vissense.min.js"></script>
+	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/app.js"></script>
 <script>
 
 <?php if(isset($post_images) && count($post_images)>0){ ?>
