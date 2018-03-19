@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
 			$check_login=$this->Motivation_model->check_login_details($post['email'],md5($post['password']));
 				if(count($check_login)>0){
 					$this->session->set_userdata('userdetails',$check_login);
-					redirect('motivation/lists');
+					redirect('');
 				}else{
 					$this->session->set_flashdata('error',"Login Details are wrong. Plase try again");
 					redirect('admin');
@@ -109,7 +109,7 @@ class Admin extends CI_Controller {
 				if(count($register)>0){
 					$details=$this->Motivation_model->get_user_details($register);
 					$this->session->set_userdata('userdetails',$details);
-					redirect('motivation/lists');
+					redirect('');
 				}else{
 					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 					redirect('admin/signup');

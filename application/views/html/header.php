@@ -77,21 +77,22 @@ header("Pragma: no-cache");
 						
 					</li>
              
+						<li class="<?php if($currentURL==base_url()){ echo "active"; } ?>"><a href="<?php echo base_url(''); ?>">Home</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
+						<li ><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+                  
 					<?php if($this->session->userdata('userdetails'))
 						{ ?>
                     <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">My Posts</a></li>
                     <li class="<?php if($currentURL==base_url('motivation/changepassword')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/changepassword'); ?>">Change Password</a></li>
 					 <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
-
-						<?php }else{ ?>
-						<li class="<?php if($currentURL==base_url()){ echo "active"; } ?>"><a href="<?php echo base_url(''); ?>">Home</a></li>
-						<li class="<?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
-						<li ><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
-						<li class="<?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+					<?php }else{ ?>
 						<li class="<?php if($currentURL==base_url('admin')){ echo "active"; } ?>"><a href="<?php echo base_url('admin'); ?>">Sign In</a></li>
 						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
-						<?php }	?>
-                  </ul>
+                 
+					<?php } ?>
+				  </ul>
                 </div>
               
               </div>

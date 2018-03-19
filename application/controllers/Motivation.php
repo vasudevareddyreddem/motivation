@@ -24,6 +24,7 @@ class Motivation extends CI_Controller {
 			$header['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
+			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
 			//echo $this->db->last_query();exit;
 			//echo '<pre>';print_r($data);exit;
@@ -203,10 +204,10 @@ class Motivation extends CI_Controller {
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
 								$this->session->set_flashdata('success',"File successfully Select");
-								redirect('motivation/admin'); 
+								redirect(''); 
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('motivation/admin'); 	
+									redirect(''); 	
 								}
 							}
 				}if(isset($_FILES['images2']['name']) && $_FILES['images2']['name']!=''){
@@ -224,10 +225,10 @@ class Motivation extends CI_Controller {
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
 								$this->session->set_flashdata('success',"File successfully Select");
-								redirect('motivation/admin'); 
+								redirect(''); 
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('motivation/admin'); 	
+									redirect(''); 	
 								}
 							}
 				}if(isset($_FILES['images3']['name']) && $_FILES['images3']['name']!=''){
@@ -245,18 +246,18 @@ class Motivation extends CI_Controller {
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
 								$this->session->set_flashdata('success',"File successfully Select");
-								redirect('motivation/admin'); 
+								redirect(''); 
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('motivation/admin'); 	
+									redirect(''); 	
 								}
 							}
 				}
 					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('motivation/admin'); 	
+					redirect(''); 	
 		
 		 }else{
-			$this->session->set_flashdata('loginerror','Please login to continue');
+			$this->session->set_flashdata('error','Please login to continue');
 			redirect('');
 		} 
 	}
