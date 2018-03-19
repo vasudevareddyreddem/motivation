@@ -13,6 +13,12 @@ ol li:before {
     content: counter(li, decimal) ".";
     counter-increment: li;
 }
+.user-img img{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	overflow:hidden;
+}
 .sear-sty{
 	border:1px solid #f1f1f1;
 	width:300px !important;
@@ -44,6 +50,12 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 .search-bac li:hover{
 	background:#ddd;	
 }
+.bg-white{
+	background:#fff;
+}
+.border-radius-none{
+	border-radius:none !important;
+}
 .pad-30{
 	padding:0 40px;
 }
@@ -57,7 +69,7 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 .sear-btn{
 	position:absolute;
 	right:10px;
-	z-index:1025;top:5px;
+	z-index:1025;top:0px;
 }
 .owl-item h5{
 	font-size:17px !important;
@@ -110,6 +122,10 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
   align-items: center;
   padding-left: 15%;
   padding-right: 15%;
+}
+.list-icon-s i{
+	font-size:20px;
+	margin-top:4px
 }
 .icon-si img{
 	width:30px;
@@ -262,6 +278,11 @@ margin-right: 7px;
 /* additional */
 
 
+@media only screen and (max-width: 1024px) {
+	.sear-sty{
+		width:250px !important;
+	}
+}
 @media only screen and (max-width: 767px) {
 	.page-content {
     padding-left: 10px;

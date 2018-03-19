@@ -25247,7 +25247,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 }
 
 .rd-navbar-static.rd-navbar-default .rd-navbar-nav, .rd-navbar-fullwidth.rd-navbar-default .rd-navbar-nav {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .rd-navbar-static.rd-navbar-default.rd-navbar--is-stuck .rd-navbar-nav, .rd-navbar-fullwidth.rd-navbar-default.rd-navbar--is-stuck .rd-navbar-nav {
@@ -25361,21 +25361,22 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 }
 
 .rd-navbar-static .rd-navbar-nav > li > .rd-navbar-submenu-toggle:before, .rd-navbar-fullwidth .rd-navbar-nav > li > .rd-navbar-submenu-toggle:before {
-  content: '\e313';
-  font-family: FontAwesome;
-  font-size: 20px;
-  position: absolute;
-  right: -21px;
-  top: 5px;
-  display: inline-block;
-  z-index: 9999999999;
-  cursor: pointer;
-}
+  content: '\f078';
+    font-family: FontAwesome;
+    font-size: 8px;
+    position: absolute;
+    right: -10px;
+    top: 28px !important;
+    display: inline-block;
+    z-index: 9999999999;
+    cursor: pointer;
+    color: #666;
+  }
 
 .rd-navbar-static .rd-navbar-nav > li > a, .rd-navbar-fullwidth .rd-navbar-nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 0 38px;
+  padding: 10px 0 20px;
   color: #fff;
   font-weight: 400;
   font-size: 16px;
@@ -25441,7 +25442,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
   position: absolute;
   text-align: left;
   margin-top: 0;
-  left: 0;
+  right: 0;
   width: 240px;
   background: #eef4fa;
   z-index: 5;
@@ -25723,7 +25724,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 }
 
 .rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown, .rd-navbar-fullwidth .rd-navbar-nav > li > .rd-navbar-dropdown {
-  left: 0;
+  right: 0;
 }
 
 .rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown .rd-navbar-dropdown, .rd-navbar-fullwidth .rd-navbar-nav > li > .rd-navbar-dropdown .rd-navbar-dropdown {
@@ -25736,7 +25737,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 
 .rd-navbar-static .rd-navbar-nav > li > a, .rd-navbar-fullwidth .rd-navbar-nav > li > a {
   display: block;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.3125;
   color: #303043;
 }
@@ -25996,7 +25997,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 }
 
 .rd-navbar-static .rd-navbar-nav > li + li {
-  margin-left: 47px;
+  margin-left: 25px;
 }
 
 .rd-navbar-static .rd-navbar-static--visible {

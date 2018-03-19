@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation smoothscroll scrollTo">
   <head>
     <!-- Site Title-->
     <title>Home</title>
-    <meta name="format-detection" content="telephone=no">
+   
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="utf-8">
@@ -63,7 +62,7 @@ header("Pragma: no-cache");
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;z-index:1024">
+								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;z-index:1024;bottom:8px">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -77,19 +76,45 @@ header("Pragma: no-cache");
 						
 					</li>
              
-						<li class="<?php if($currentURL==base_url()){ echo "active"; } ?>"><a href="<?php echo base_url(''); ?>">Home</a></li>
-						<li class="<?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">About us</a></li>
-						<li ><a href="#" data-toggle="modal" data-target="#modalPoll">Feedback</a></li>
-						<li class="<?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">Contacts</a></li>
+						<li class="list-icon-s <?php if($currentURL==base_url()){ echo "active"; } ?>">
+						<a href="<?php echo base_url(''); ?>">
+						<div class="text-center sm-hide">
+							<i class="fa fa-home" aria-hidden="true"></i>
+						</div>
+						Home</a>
+						</li>
+						<li class="list-icon-s <?php if($currentURL==base_url('motivation/aboutus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/aboutus'); ?>">
+						<div class="text-center sm-hide">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</div>About us</a></li>
+						<li class="list-icon-s" ><a href="#" data-toggle="modal" data-target="#modalPoll">
+						<div class="text-center sm-hide">
+							<i class="fa fa-commenting" aria-hidden="true"></i>
+						</div>Feedback</a></li>
+						<li class="list-icon-s <?php if($currentURL==base_url('motivation/contactus')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/contactus'); ?>">
+						<div class="text-center sm-hide">
+							<i class="fa fa-paper-plane" aria-hidden="true"></i>
+						</div> Contacts</a></li>
+						<li class="rd-navbar--has-dropdown rd-navbar-submenu list-icon-s"><a href="#">
+						<div class="text-center user-img">
+							<img src="<?php echo base_url(); ?>assets/vendor/img/user.png" alt="user">
+						</div>User </a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        
+                        <li><a href="<?php echo base_url('admin'); ?>">Sign In </a></li>
+                        <li><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
+                      </ul>
+                    <span class="rd-navbar-submenu-toggle"></span></li>
                   
-					<?php if($this->session->userdata('userdetails'))
+					<!--<?php if($this->session->userdata('userdetails'))
 						{ ?>
                     <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">My Posts</a></li>
                     <li class="<?php if($currentURL==base_url('motivation/changepassword')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/changepassword'); ?>">Change Password</a></li>
 					 <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
 					<?php }else{ ?>
 						<li class="<?php if($currentURL==base_url('admin')){ echo "active"; } ?>"><a href="<?php echo base_url('admin'); ?>">Sign In</a></li>
-						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
+						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>-->
                  
 					<?php } ?>
 				  </ul>

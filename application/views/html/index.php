@@ -25,18 +25,16 @@
 		}?>
 <?php if($this->session->flashdata('success')): ?>
 				<div class="alert_msg1 animated slideInUp bg-succ">
-				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i>
 				</div>
 			<?php endif; ?>
 			<?php if($this->session->flashdata('error')): ?>
 				<div class="alert_msg1 animated slideInUp bg-warn">
-				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
+				<?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i>
 				</div>
 			<?php endif; ?>
 <main class="page-content offset-top-30" >
    <div id="fb-root"></div>
-   <!-- Owl Carousel-->
-  
    <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="true" data-margin="30px" data-autoplay="true" class="owl-carousel owl-carousel-flex offset-top-0" >
       <?php foreach($post_images as $List){
 				$path =isset($List['p_list'][0]['imgname'])?$List['p_list'][0]['imgname']:'';
@@ -77,79 +75,76 @@
       <?php } ?>
       <?php } ?>
    </div>
-   
-  <!--add post-->
-  <div class="">
-								<?php if(isset($image_list) && count($image_list)>0){ ?>
-										<div class="row prev">
-										<?php foreach($image_list as $list){ ?>
-											<?php $path = $list['name'];
+   <div class="box" style="padding:10px 20px ">
+    <?php if(isset($image_list) && count($image_list)>0){ ?>
+    <div class="row prev">
+        <?php foreach($image_list as $list){ ?>
+        <?php $path = $list['name'];
 											$ext = pathinfo($path, PATHINFO_EXTENSION); 
 											if($ext=="mp4" || $ext=="mp3" ||$ext=="3gpp"){  ?>
-												<div class="col-md-4" style="width:315px;" id="attach_<?php echo $list['id']; ?>">
-												<video  src="<?php echo base_url('assets/temp/'.$list['name']);?>" width="300px"  type="video/<?php echo $ext; ?>" controls></video>
-												<div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
-												</div>
-											 <?php }else{ ?>
-												<div class="col-md-2" id="attach_<?php echo $list['id']; ?>">
-												<img class="img-responsive" src="<?php echo base_url('assets/temp/'.$list['name']);?>">
-												<div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
-											</div>
-											<?php } ?>
-											
-										<?php } ?>
-										</div>
-										<?php } ?>
-										<div class="row">
-									<form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-											<ul  class="col-md-1 col-xs-1 col-sm-1" >
-					
-											<li class="image-upload">
+        <div class="col-md-4" style="width:315px;" id="attach_<?php echo $list['id']; ?>">
+            <video src="<?php echo base_url('assets/temp/'.$list['name']);?>" width="300px" type="video/<?php echo $ext; ?>" controls></video>
+            <div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
+        </div>
+        <?php }else{ ?>
+        <div class="col-md-2" id="attach_<?php echo $list['id']; ?>">
+            <img class="img-responsive" src="<?php echo base_url('assets/temp/'.$list['name']);?>">
+            <div onclick="remove_image(<?php echo $list['id']; ?>);" class="pos-ab-close"><i class="fa fa-close"></i></div>
+        </div>
+        <?php } ?>
 
-													<label for="imagesupload">
+        <?php } ?>
+    </div>
+    <?php } ?>
+    <h4 class="card-title">Share your  photo, video or idea</h4>
+    <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
+
+        <input class="form-control" type="text" placeholder="Title" id="title" name="title" value="" required>
+        <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
+
+        <button style="margin-top:10px;" type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
+
+
+
+    </form>
+	<div class="row" style="margin-top:10px;">
+        <form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+            <ul class="col-md-1 col-xs-1 col-sm-1">
+
+                <li class="image-upload">
+
+                    <label for="imagesupload">
 														<i class="fa fa-camera"></i>
 													</label>
-													 <input type="file"  id="imagesupload" name="images2" onchange="onchangeimage();" />
-												</li>
-											
-											
-										</ul>
-										
-									</form>
-									<form  id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-									
-								
-										<ul class="col-md-1 col-xs-1 col-sm-1">
-					
-											<li class="image-upload">
-													<label for="videoimages">
+                    <input type="file" id="imagesupload" name="images2" onchange="onchangeimage();" />
+                </li>
+
+
+            </ul>
+
+        </form>
+        <form id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+
+
+            <ul class="col-md-1 col-xs-1 col-sm-1">
+
+                <li class="image-upload">
+                    <label for="videoimages">
 														<i class="fa fa-video-camera"></i>
 													</label>
-													 <input type="file"  id="videoimages" name="images3" onchange="onchangevideo();" />
-											</li>
-											
-										</ul>
-										
-									
-								
-									</form>
-									</div>
-									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
+                    <input type="file" id="videoimages" name="images3" onchange="onchangevideo();" />
+                </li>
 
-									<input class="form-control" type="text" placeholder="Title" id="title" name="title" value="" required>
-									<textarea  class="form-control" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
-									
-									<button style="margin-top:10px;"type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
-								
+            </ul>
 
-									
-									</form>
-									
-								</div><!-- Status Upload  -->
-								
-  <!--add post-->
-   <!--Posts-->
-   <div class="shell">
+
+
+        </form>
+    </div>
+
+</div>
+<div class="clearfix">&nbsp;</div>
+	   <div class="shell mar-t30">
       <div class="range">
 	    <?php if(count($post_images)>0){ ?>
          <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0">
