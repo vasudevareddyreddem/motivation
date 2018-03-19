@@ -26265,6 +26265,8 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
   -webkit-transform: translateX(-120%);
   transform: translateX(-120%);
   z-index: 999;
+  height:600px;
+  overflow-y: scroll;
 }
 
 .rd-navbar-fixed .rd-navbar-nav-wrap.active {
