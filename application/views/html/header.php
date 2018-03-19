@@ -96,7 +96,7 @@ header("Pragma: no-cache");
 							<i class="fa fa-paper-plane" aria-hidden="true"></i>
 						</div> Contacts</a></li>
 						<li class="rd-navbar--has-dropdown rd-navbar-submenu list-icon-s"><a href="#">
-						<div class="text-center user-img">
+						<div class="text-center user-img sm-hide">
 							<img src="<?php echo base_url(); ?>assets/vendor/img/user.png" alt="user">
 						</div>User </a>
                       <!-- RD Navbar Dropdown-->
