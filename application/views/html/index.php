@@ -99,7 +99,7 @@
     <h4 class="card-title">Share your  photo, video or idea</h4>
     <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
 
-        <input class="form-control" type="text" placeholder="Title" id="title" name="title" value="" required>
+        <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
         <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
 
         <button style="margin-top:10px;" type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
