@@ -56,6 +56,11 @@ header("Pragma: no-cache");
                 <!-- RD Navbar Brand-->
                 <div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
                 <!-- RD Navbar Nav-->
+				<div class="side-user-img-bac">
+				<div class="side-user-img">
+				<img class="md-hide  img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/admin.jpg" alt="" >
+				</div>
+				</div>
                 <div class="rd-navbar-nav-outher">
                   <ul class="rd-navbar-nav">
                     <li class="active sm-hide">

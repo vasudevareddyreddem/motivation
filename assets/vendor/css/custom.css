@@ -92,6 +92,7 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 .sm-hide{
 	display:block;
 }
+
 .md-hide{
 	display:none;
 }
@@ -318,6 +319,29 @@ margin-right: 7px;
 	.sm-hide{
 	display:none;
 }
+.sear-btn {
+    position: absolute;
+    right: 10px;
+    z-index: 1025;
+    top: 4px;
+}
+.side-user-img-bac{
+	background:#555;
+	padding:15px 0px;
+}
+.side-user-img {
+	height:100px;
+	width:100px;
+	overflow:hidden;
+	margin:0 auto;
+	
+	}
+	.side-user-img img{
+	border-radius:50%;
+	height:95px;
+	width:auto;
+	
+	}
 .md-hide{
 	display:block;
 }
