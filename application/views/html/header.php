@@ -100,23 +100,27 @@ header("Pragma: no-cache");
 							<img src="<?php echo base_url(); ?>assets/vendor/img/user.png" alt="user">
 						</div>User </a>
                       <!-- RD Navbar Dropdown-->
+					  <?php if($this->session->userdata('userdetails'))
+						{ ?>
+                   
                       <ul class="rd-navbar-dropdown">
                         
-                        <li><a href="<?php echo base_url('admin'); ?>">Sign In </a></li>
-                        <li><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">My Posts</a></li>
+						<li class="<?php if($currentURL==base_url('motivation/changepassword')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/changepassword'); ?>">Change Password</a></li>
+						<li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
+					
                       </ul>
+						<?php }else{ ?>
+						<ul class="rd-navbar-dropdown">
+                        
+							<li class="<?php if($currentURL==base_url('admin')){ echo "active"; } ?>"><a href="<?php echo base_url('admin'); ?>">Sign In</a></li>
+						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>
+                 
+						</ul>
+						<?php } ?>
                     <span class="rd-navbar-submenu-toggle"></span></li>
                   
-					<!--<?php if($this->session->userdata('userdetails'))
-						{ ?>
-                    <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/lists'); ?>">My Posts</a></li>
-                    <li class="<?php if($currentURL==base_url('motivation/changepassword')){ echo "active"; } ?>"><a href="<?php echo base_url('motivation/changepassword'); ?>">Change Password</a></li>
-					 <li><a href="<?php echo base_url('motivation/logout'); ?>">Logout</a></li>
-					<?php }else{ ?>
-						<li class="<?php if($currentURL==base_url('admin')){ echo "active"; } ?>"><a href="<?php echo base_url('admin'); ?>">Sign In</a></li>
-						<li class="<?php if($currentURL==base_url('admin/signup')){ echo "active"; } ?>"><a href="<?php echo base_url('admin/signup'); ?>">Sign Up</a></li>-->
-                 
-					<?php } ?>
+					
 				  </ul>
                 </div>
               
