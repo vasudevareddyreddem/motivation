@@ -79,6 +79,7 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 }
 .owl-item h5{
 	font-size:17px !important;
+	width:150px;
 }
 .post-content-wrap h4{
 	font-size:25px !important;
