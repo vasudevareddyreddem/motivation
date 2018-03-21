@@ -61,25 +61,32 @@ class Motivation_model extends CI_Model
 		return $this->db->query($sql1);
 	}
 	public function get_all_post_list($user_id){
-		$this->db->select('post_count.p_id,post_count.text,post_count.title,post_count.pstatus,posts.create_at,posts.create_at,admin.name,status.status_text')->from('post_count');		
-		$this->db->join('posts', 'posts.post_id = post_count.p_id', 'left');
+		$this->db->select('post_count.*,admin.name,status.status_text')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
+		$this->db->join('like_count', 'like_count.post_id = post_count.p_id', 'left');
 		$this->db->join('status', 'status.id = post_count.pstatus', 'left');
+		$this->db->group_by('post_count.p_id');
 		$this->db->where('post_count.user_id', $user_id);
+		$this->db->order_by("post_count.create_at","DESC");
 		//$this->db->where('post_count.pstatus', 1);
-		$this->db->order_by("post_count.create_at", "DESC");
-		$return=$this->db->get()->result_array();
+		$return= $this->db->get()->result_array();
 		foreach($return as $list){
 			$images=$this-> get_all_post_imgs($list['p_id']);
 			$comment=$this-> get_all_comments_imgs($list['p_id']);
 			$like=$this-> get_all_like_imgs($list['p_id']);
 			$lis[$list['p_id']]=$list;
 			$lis[$list['p_id']]['p_list']=$images;
+			$lis[$list['p_id']]['comment_list']=$comment;
+			$lis[$list['p_id']]['like_count']=$like['like'];
 		}
 		if(!empty($lis))
 		{
 		return $lis;
 		}
+		
+		
+		
+		
 	}
 		
 	
@@ -107,7 +114,7 @@ class Motivation_model extends CI_Model
 		$this->db->where('post_count.p_id', $postid);
 		$this->db->group_by('post_count.p_id');
 		$this->db->order_by("post_count.create_at", "DESC");
-		$this->db->where('post_count.pstatus', 1);
+		//$this->db->where('post_count.pstatus', 1);
 		$return= $this->db->get()->row_array();
 			$images=$this-> get_all_post_imgs($return['p_id']);
 			//echo '<pre>';print_R($images);exit;
@@ -146,7 +153,7 @@ class Motivation_model extends CI_Model
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
 		$this->db->join('like_count', 'like_count.post_id = post_count.p_id', 'left');
 		$this->db->group_by('post_count.p_id');
-		$this->db->order_by("post_count.create_at, like_count.comment_count,like_count.comment_count DESC");
+		$this->db->order_by("post_count.create_at","DESC");
 		$this->db->where('post_count.pstatus', 1);
 		$return= $this->db->get()->result_array();
 		foreach($return as $list){

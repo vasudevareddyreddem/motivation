@@ -458,10 +458,13 @@ class Motivation extends CI_Controller {
 	{
 			if($this->session->userdata('userdetails'))
 			{
+				$header['currentURL'] = current_url();
+				$this->load->view('html/header',$header);
 				$loginuser_id=$this->session->userdata('userdetails');
-				$data['image_list']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
+				$data['post_images']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
 				//echo $this->db->last_query();
 				//echo '<pre>';print_r($data);exit;
+					$this->load->view('html/footer',$data);
 				$this->load->view('html/list',$data);
 			}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
