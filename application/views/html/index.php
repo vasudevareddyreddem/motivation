@@ -156,7 +156,7 @@
             </form>
             <div class="row" style="margin-top:10px;">
                <form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-                  <ul class="col-md-1 col-xs-1 col-sm-1">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
                      <li class="image-upload">
                         <label for="imagesupload">
                         <i class="fa fa-camera"></i>
@@ -166,7 +166,7 @@
                   </ul>
                </form>
                <form id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
-                  <ul class="col-md-1 col-xs-1 col-sm-1">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
                      <li class="image-upload">
                         <label for="videoimages">
                         <i class="fa fa-video-camera"></i>
@@ -176,7 +176,7 @@
                   </ul>
                </form>
                <form id="#" name="" action="" method="post" enctype="multipart/form-data">
-                  <ul class="col-md-1 col-xs-1 col-sm-1">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
                      <li class="image-upload">
                         <a style="color:#333;cursor:pointer" data-toggle="modal" data-target="#linkmodal">
                         <i class=" fa fa-link" ></i>
