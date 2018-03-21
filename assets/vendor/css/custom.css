@@ -13,6 +13,279 @@ ol li:before {
     content: counter(li, decimal) ".";
     counter-increment: li;
 }
+/* profile css */
+
+
+.card .card-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: -2px 4px 30px 0px rgba(103, 122, 141, 0.17);
+}
+
+.card.hovercard .cardheader {
+   
+    background-size: cover;
+    height: 135px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -65px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.col-md-offset-12{
+        margin-left:100%
+    }
+    .col-md-offset-11{
+        margin-left:91.66666667%
+    }
+    .col-md-offset-10{
+        margin-left:83.33333333%
+    }
+    .col-md-offset-9{
+        margin-left:75%
+    }
+    .col-md-offset-8{
+        margin-left:66.66666667%
+    }
+    .col-md-offset-7{
+        margin-left:58.33333333%
+    }
+    .col-md-offset-6{
+        margin-left:50%
+    }
+    .col-md-offset-5{
+        margin-left:41.66666667%
+    }
+    .col-md-offset-4{
+        margin-left:33.33333333%
+    }
+    .col-md-offset-3{
+          margin-left:25%
+    }
+    .col-md-offset-2{
+        margin-left:16.66666667%
+    }
+    .col-md-offset-1{
+        margin-left:8.33333333%
+    }
+    .col-md-offset-0{
+        margin-left:0
+    }
+	.post-meta a{
+		font-size:18px;
+	} 
+.affix {
+      top:100px;
+      z-index: 9999 !important;
+	  width:20%;
+  }
+  .profile-usermenu{
+	  text-align:left;
+  }
+  .profile-usermenu a{
+	  color:#333;
+  }
+  .profile-usermenu a:hover{
+	  color:#d30f61;
+	  border-left:2px solid #d30f61;
+  }
+  .sidemenu-active-help .active{
+	  background:#ddd;
+	  border-left:2px solid #d30f61;
+	  }
+	  .sidemenu-active-help .active > a{
+	  color:#d30f61;
+	  }
+  .sidemenu-active-help .fa{
+	  padding-right:8px;
+  }
+
+
+
+/* profile css end*/
 .user-img img{
 	width:20px;
 	height:20px;
@@ -65,9 +338,18 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 .pad-30{
 	padding:0 40px;
 }
+.pad-20{
+	padding:20px;
+}
+.pad-5{
+	padding-top:10px;
+	padding-bottom:5px;
+	color:#aaa;
+}
 .title {
     font-size: 14px;
     font-weight:bold;
+	margin-bottom:5px;
 }
 .komen {
     font-size:14px;
@@ -110,8 +392,8 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
   width:50px;
 }
 .page-content{
-	padding-left:15%;
-	padding-right:15%;
+	padding-left:5%;
+	padding-right:5%;
 }
  .comm-img img{
 	 width:50px;
@@ -128,8 +410,8 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .list-icon-s i{
 	font-size:20px;

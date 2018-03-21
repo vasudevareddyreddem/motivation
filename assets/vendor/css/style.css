@@ -1995,8 +1995,8 @@ fieldset[disabled] .btn-success.focus {
 
 .btn-info {
   color: #fff;
-  background-color: #c7e1fb;
-  border-color: #c7e1fb;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-info:focus, .btn-info.focus {
@@ -2036,12 +2036,12 @@ fieldset[disabled] .btn-success.focus {
 fieldset[disabled] .btn-info:hover,
 fieldset[disabled] .btn-info:focus,
 fieldset[disabled] .btn-info.focus {
-  background-color: #c7e1fb;
-  border-color: #c7e1fb;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-info .badge {
-  color: #c7e1fb;
+  color: #6c757d;
   background-color: #fff;
 }
 
@@ -4538,7 +4538,7 @@ a.label:hover, a.label:focus {
 }
 
 .label-info {
-  background-color: #c7e1fb;
+  background-color: #6c757d;
 }
 
 .label-info[href]:hover, .label-info[href]:focus {
@@ -4862,7 +4862,7 @@ a.thumbnail.active {
 }
 
 .progress-bar-info {
-  background-color: #c7e1fb;
+  background-color: #6c757d;
 }
 
 .progress-striped .progress-bar-info {
@@ -10252,7 +10252,7 @@ code {
 }
 
 .page .text-info {
-  color: #c7e1fb;
+  color: #6c757d;
 }
 
 .page a.text-info:hover,
@@ -10763,7 +10763,7 @@ fieldset[disabled] .btn-gray-dark {
 .icon-reply:before,
 .icon-date:before {
   font-family: FontAwesome;
-  color: #c7e1fb;
+  color: #6c757d;
   padding-right: 9px;
 }
 
@@ -19329,23 +19329,23 @@ audio {
 .post .post-meta-comment:before {
   font-family: FontAwesome;
   padding-right: 9px;
-  color: #c7e1fb;
+  color: #6c757d;
 }
 .post .post-meta-tags:before,
 .post .post-meta-like:before {
   font-family: FontAwesome;
   padding-right: 9px;
-  color: #c7e1fb;
+  color: #6c757d;
 }
 .post .post-meta-tags:before,
 .post .post-meta-share:before {
   font-family: FontAwesome;
   padding-right: 9px;
-  color: #c7e1fb;
+  color: #6c757d;
 }
 
 .post .post-meta-comment:before {
-  content: "\f075";
+  content: "\f27a";
    font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
@@ -19368,7 +19368,7 @@ audio {
 }
 
 .post .post-meta-tags:before {
-  color: #c7e1fb;
+  color: #6c757d;
   content: '\e2c8';
   position: relative;
   top: 2px;
@@ -19761,7 +19761,7 @@ audio {
 }
 
 .facebook-post_icons span:before {
-  color: #c7e1fb;
+  color: #6c757d;
   margin-right: 5px;
   position: relative;
   top: 2px;
@@ -24491,7 +24491,7 @@ img.mfp-img {
 }
 
 .owl-carousel .owl-item img {
-  height: 150px;
+  height: 170px;
   width:auto;
 }
 
@@ -24723,7 +24723,8 @@ img.mfp-img {
 }
 
 .owl-carousel .owl-item .post-variant-1 {
-  max-width: 370px;
+  width: 280px;
+  margin:5px;
 }
 
 .owl-carousel-navigation-variant-1 .owl-prev {
@@ -25737,7 +25738,7 @@ html.lt-ie-10 .owl-carousel-flex .owl-stage .owl-item {
 
 .rd-navbar-static .rd-navbar-nav > li > a, .rd-navbar-fullwidth .rd-navbar-nav > li > a {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.3125;
   color: #303043;
 }

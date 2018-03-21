@@ -1,3 +1,4 @@
+
  <?php //echo '<pre>';print_r($post_images); 
 		
 		if(isset($post_images) && count($post_images)>0){
@@ -35,7 +36,7 @@
 			<?php endif; ?>
 <main class="page-content offset-top-30" >
    <div id="fb-root"></div>
-   <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-nav="true" data-mouse-drag="true" data-margin="30px" data-autoplay="true" class="owl-carousel owl-carousel-flex offset-top-0" >
+   <div data-items="1" data-xs-items="2" data-md-items="3" data-lg-items="4" data-loop="true" data-autoplay="true" data-nav="true" data-mouse-drag="true" data-margin="30px"  class="owl-carousel owl-carousel-flex offset-top-0" >
       <?php foreach($post_images as $List){
 				$path =isset($List['p_list'][0]['imgname'])?$List['p_list'][0]['imgname']:'';
 				$ext = pathinfo($path, PATHINFO_EXTENSION);  ?>
@@ -75,7 +76,90 @@
       <?php } ?>
       <?php } ?>
    </div>
-   <div class="box" style="padding:10px 20px ">
+   
+
+	   <div class="shell ">
+      <div class="range">
+		<div class="cell-md-3">
+            <div class="card hovercardnav ">
+			<div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="500">
+			<div class="box">
+                <div class="section-20 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                  <h4>Login </h4>
+                </div>
+                <hr class="divider offset-none">
+                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                 
+               
+                  <form  method="POST" action="<?php echo base_url('admin/loginpost'); ?>">
+                    <input class="form-control" type="text" id="email" name="email"  placeholder="Email Adress" required><br> 
+					<input class="form-control" type="password" id="password" name="password" placeholder="Enter Password " required> 
+					 <a href="<?php echo base_url('admin/signup'); ?>" class=" pad-5 pull-left">Register</a>
+					 <a href="<?php echo base_url('admin/forgotpassword'); ?>" class="pull-right pad-5">Forgot password?</a>
+					 <br>
+					 <br>
+                  
+                      <button type="submit" class="btn btn-primary btn-sm">Login</button>
+                     
+                  </form>
+                  <!-- Rd Mailform result field-->
+                </div>
+              </div>
+               <!-- <div class="card hovercard pad-20">
+			
+               <div class="cardheader" style="background:#d30f61">
+
+                </div>
+                <div class="avatar">
+                    <img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+                </div>
+                    <div class="title">
+                        <h6>Script Eden</h6>
+                    </div>
+					<div class="profile-usermenu">
+					<ul class="nav sidemenu-active-help">
+						<li class="active">
+							<a href="#">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							Home </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+							My posts </a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							Profile </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="fa fa fa-globe" aria-hidden="true"></i>
+							 Notifications </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="fa fa-cogs" aria-hidden="true"></i>
+							 Settings </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="fa fa-sign-out" aria-hidden="true"></i>
+							 Logout </a>
+						</li>
+					</ul>
+				</div>
+               
+				<div class="clearfix">&nbsp;</div>
+            </div>-->
+            </div>
+            </div>
+			
+         </div>
+	    <?php if(count($post_images)>0){ ?>
+         <div class="cell-sm-6 cell-sm-preffix-2 cell-md-6 cell-md-preffix-0">
+            <div class="box" style="padding:10px 20px ">
     <?php if(isset($image_list) && count($image_list)>0){ ?>
     <div class="row prev">
         <?php foreach($image_list as $list){ ?>
@@ -136,19 +220,25 @@
                 </li>
 
             </ul>
+			</form>
+			<form id="#" name="" action="" method="post" enctype="multipart/form-data">
 
 
+            <ul class="col-md-1 col-xs-1 col-sm-1">
 
-        </form>
+                <li class="image-upload">
+                   <a style="color:#333;cursor:pointer" data-toggle="modal" data-target="#linkmodal">
+					<i class=" fa fa-link" ></i>
+					</a>
+                   
+                </li>
+
+            </ul>
+			</form>
     </div>
 
 </div>
-<div class="clearfix">&nbsp;</div>
-	   <div class="shell mar-t30">
-      <div class="range">
-	    <?php if(count($post_images)>0){ ?>
-         <div class="cell-sm-8 cell-sm-preffix-2 cell-md-8 cell-md-preffix-0">
-            <?php foreach($post_images as $List){?>
+			<?php foreach($post_images as $List){?>
             <?php if(count($List['p_list'])==0){ ?>
             <div class="post post-variant-1 box mar-t30">
                <div>
@@ -171,10 +261,12 @@
                         </h4></a>
                         <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                      <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
+					 
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                          <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
+						<li><a href="#"  class="post-meta-share small"><span id="">10 </span></a></li>
 
                      </ul>
                   </div>
@@ -375,6 +467,7 @@
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
+						<li><a href="#"  class="post-meta-share small"><span id="">10 </span></a></li>
                      
                      </ul>
                   </div>
@@ -555,7 +648,7 @@
             <!--second post-->
          </div>
 		 <?php } ?>
-         <div class="cell-md-4">
+         <div class="cell-md-3">
             <!-- Sidebar-->
             <div class="range offset-top-30 offset-md-top-0">
                <div class="cell-sm-8 cell-sm-preffix-2 cell-md-12 cell-md-preffix-0 ">
@@ -604,7 +697,28 @@
       </div>
    </div>
 </main>
-
+<!-- link modal -->
+  <div class="modal fade" id="linkmodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="/action_page.php">
+			  <div class="form-group">
+				<label for="email">Add Link</label>
+				<input type="text" class="form-control"  >
+			  </div>
+		  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-sm" >Ok</button>
+		  <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <script>
 /*validation starting*/
  
