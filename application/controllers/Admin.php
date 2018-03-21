@@ -26,7 +26,7 @@ class Admin extends CI_Controller {
 				$this->load->view('html/footer');
 				
 			}else{
-				redirect('motivation/admin');
+				redirect('');
 			}
 	}
 	public function signup()
@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 				$this->load->view('html/footer');
 				
 			}else{
-				redirect('motivation/admin');
+				redirect('');
 			}
 	}
 	public function loginpost()
@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 					redirect('');
 				}else{
 					$this->session->set_flashdata('error',"Login Details are wrong. Plase try again");
-					redirect('admin');
+					redirect('');
 				}	
 	}
 	public function forgotpassword()
@@ -64,7 +64,7 @@ class Admin extends CI_Controller {
 			$this->load->view('html/footer');
 		 }else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
-			redirect('motivation/lists');
+			redirect('');
 		} 
 	}	
 	public function forgotpost()

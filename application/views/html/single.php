@@ -1,3 +1,4 @@
+<?php //echo '<pre>';print_r($post_images); exit ; ?>
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -26,8 +27,11 @@
 						 <div id="gallery<?php echo $post_images['p_id']; ?>" ></div>
 				<?php  } ?>
 				  
-                  <?php if(strstr($post_images['text'], 'www.youtube.com/')==true){ ?>
-							<iframe width="100%" src="<?php echo isset($post_images['text'])?$post_images['text']:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <?php if(strstr($post_images['text'], 'www.youtube.com/')==true){ 
+				  
+				  $video_id = explode("?v=", $post_images['text']);
+				  ?>
+							<iframe  height="300px" width="100%" src="https://www.youtube.com/embed/<?php echo $video_id[1]; ?>?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 					<?php  }else{ ?>
 							<p><?php echo isset($post_images['text'])?$post_images['text']:''; ?></p>
@@ -178,7 +182,7 @@
                            <form action="<?php echo base_url('motivation/addcomment'); ?>" method="post">
                               <div class="col-md-8 col-xs-12">
                                  <input type="hidden" id="post_id" name="post_id"  value="<?php echo $post_images['p_id']; ?>">
-                                 <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
+                                 <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1" required></textarea>
                               </div>
                               <div class="col-md-2 col-xs-2 mobi-res">
                                  <div class="file  ">

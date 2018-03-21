@@ -709,7 +709,7 @@ class Motivation extends CI_Controller {
 		$this->session->sess_destroy('userdetails');
 		$this->session->unset_userdata('userdetails');
 		$this->session->set_flashdata('loginerror','Please login to continue');
-        redirect('admin');
+        redirect('');
 		  
 	}
 	
