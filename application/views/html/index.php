@@ -219,7 +219,7 @@
 								$video_id = explode("?v=", $List['text']);
 						   ?>
                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/<?php echo isset($video_id[1])?$video_id[1]:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                           <?php }else if(strstr($List['text'], 'http://')==true){ ?>
+                           <?php }else if(strstr($List['text'], 'http://')==true || strstr($List['text'], 'https://')==true){ ?>
                      <a href="<?php echo isset($List['text'])?$List['text']:''; ?>" target="_blank"><?php echo isset($List['text'])?$List['text']:''; ?>
                      <?php  }else{ ?>
                      <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?>
