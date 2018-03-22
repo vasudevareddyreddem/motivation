@@ -8,6 +8,11 @@ class Motivation_model extends CI_Model
 		parent::__construct();
 		$this->load->database("default");
 	}
+	public function get_customer_details($u_id){
+		$this->db->select('*')->from('admin');		
+		$this->db->where('id', $u_id);
+		return $this->db->get()->row_array();
+	}
 	public function check_login_details($email,$pass){
 		$this->db->select('*')->from('admin');		
 		$this->db->where('email', $email);
@@ -179,7 +184,8 @@ class Motivation_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	public function get_all_comments_imgs($p_id){
-		$this->db->select('*')->from('comments');		
+		$this->db->select('comments.*,admin.name')->from('comments');		
+		$this->db->join('admin', 'admin.id = comments.user_id', 'left');
 		$this->db->where('comments.post_id', $p_id);
 		$this->db->order_by("comments.create_at", "DESC");
 		return $this->db->get()->result_array();

@@ -25,6 +25,7 @@ class Motivation extends CI_Controller {
 			$data['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
+			$data['user_details']=$this->Motivation_model->get_customer_details($loginuser_id['id']);
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
 			//echo $this->db->last_query();exit;
@@ -458,6 +459,7 @@ class Motivation extends CI_Controller {
 				$header['currentURL'] = current_url();
 				$this->load->view('html/header',$header);
 				$loginuser_id=$this->session->userdata('userdetails');
+				$data['user_details']=$this->Motivation_model->get_customer_details($loginuser_id['id']);
 				$data['post_images']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
 				//echo $this->db->last_query();
 				//echo '<pre>';print_r($data);exit;
@@ -523,28 +525,33 @@ class Motivation extends CI_Controller {
 		}
 	}
 	public function addcomment(){
+		if($this->session->userdata('userdetails'))
+			{
 		$post=$this->input->post();
 		//echo '<pre>';print_r($post);exit;
+		$logindetails=$this->session->userdata('userdetails');
 		$commentdata=array(
+						'user_id'=>$logindetails['id'],
 						'post_id'=>$post['post_id'],
 						'comment'=>$post['comment'],
 						'create_at'=>date('Y-m-d H:i:s')				
 						 );
 		$comment = $this->Motivation_model->add_comment($commentdata);
 		if(count($comment)>0){
-			$details=$this->Motivation_model->get_comment_count($post['post_id']);
-			$data=array(
-			'comment_count'=>count($details),
-			);
-			$details=$this->Motivation_model->update_like_count($post['post_id'],$data);
 			$this->session->set_flashdata('success',"Comment successfully Added");
 				redirect($this->agent->referrer()); 
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect($this->agent->referrer()); 
 		}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect($this->agent->referrer());
+		}
 	}
 	public function postrquestcommit(){
+		if($this->session->userdata('userdetails'))
+			{
 		$post=$this->input->post();
 		//echo '<pre>';print_r($post);exit;
 		$commentdata=array(
@@ -571,6 +578,10 @@ class Motivation extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect($this->agent->referrer()); 
+		}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			$this->agent->referrer();
 		}
 	}
 	public function contactpost(){

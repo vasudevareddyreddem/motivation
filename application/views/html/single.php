@@ -208,8 +208,8 @@
 										<div class="range range-xs-justify range-xs-bottom text-xs-left">
 										  <div class="col-sm-10">
 											<ul class="list-inline list-inline-md">
-											  <!--<li class="small">Posted by <a href="">Lorem Ipsum</a>
-											  </li>-->
+											  <li class="small">Posted by <a href=""><?php echo isset($lis['name'])?$lis['name']:''; ?></a>
+											  </li>
 											  <li><span class="icon-date"></span><span class="text-primary small"><?php echo date('M d,  Y',strtotime(htmlentities($lis['create_at'])));?></span></li>
 											</ul>
 										  </div>

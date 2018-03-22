@@ -87,7 +87,7 @@
                         <img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
                      </div>
                      <div class="title">
-                        <h6>Script Eden</h6>
+                        <h6><?php echo isset($user_details['name'])?$user_details['name']:''; ?></h6>
                      </div>
                      <div class="profile-usermenu">
                         <ul class="nav sidemenu-active-help">
@@ -242,12 +242,14 @@
                         <div class="row">
                            <br>
                            <div class="media">
-                              <div class="media-left">
-                                 <img src="http://fakeimg.pl/50x50" class="media-object" style="width:40px">
+                               <div class="media-left">
+                                 <img src="<?php echo base_url('assets/vendor/img/coment-user.png'); ?>" class="media-object" style="width:40px">
                               </div>
                               <div class="media-body">
                                  <h6 class="h6-comments"><?php echo $li['comment']; ?></h6>
-                                 <div class="komen">
+                                  <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0);"><?php echo isset($li['name'])?$li['name']:''; ?></a></span></div>
+
+								 <div class="komen">
                                     <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?>
                                  </div>
                               </div>
@@ -314,11 +316,12 @@
                         <div class="row">
                            <div class="media">
                               <div class="media-left">
-                                 <img src="http://fakeimg.pl/50x50" class="media-object" style="width:40px">
+                                 <img src="<?php echo base_url('assets/vendor/img/coment-user.png'); ?>" class="media-object" style="width:40px">
                               </div>
                               <div class="media-body">
                                  <h6 class="h6-comments"><?php echo $li['comment']; ?></h6>
-                                 <div class="komen">
+                                <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0);"><?php echo isset($li['name'])?$li['name']:''; ?></a></span></div>
+									<div class="komen">
                                     <?php echo date('M d,  Y',strtotime(htmlentities($li['create_at'])));?>
                                  </div>
                               </div>
