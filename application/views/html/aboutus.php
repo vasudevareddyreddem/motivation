@@ -111,7 +111,7 @@
                       <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                       <!-- RD Mailform-->
                      <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
-                        <input style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
+                        <input class="form-control" style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
                         <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                       </form>
                       <!-- Rd Mailform result field-->

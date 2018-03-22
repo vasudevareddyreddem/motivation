@@ -151,18 +151,18 @@ header("Pragma: no-cache");
 			  <ul class="" id="myUL">
 				
 					<div class="row icon-si ">
-						<li><div class="col-md-4">	
+						<li><div class="col-md-4 col-xs-4">	
 								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/whatsup.png">
 								<span>What'sapp</span></a>
 						</div></li>
 						<li>
-						<div class="col-md-4">	
+						<div class="col-md-4 col-xs-4">	
 								<a href="https://www.instagram.com/whats_lyf/" target="_blank""><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/instagram.png">
 								<span>Instagram</span></a>
 
 						</div>
 						</li>
-						<li><div class="col-md-4">	
+						<li><div class="col-md-4 col-xs-4">	
 								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
 								<span>stumbleupon</span></a>
 						</div></li>

@@ -310,19 +310,19 @@
                                  <ul class="" id="myUL1">
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
                                              <span>Google+</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
                                              <span>Twitter</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
                                              <span>Pinterest</span></a>
                                           </div>
@@ -330,19 +330,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.yummly.com/urb/verify?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/yummly.png">
                                              <span>yummly</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://vkontakte.ru/share.php?url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/vk.png">
                                              <span>vk</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.tumblr.com/share/link?url=<?php echo $url; ?>&amp;title=<?php echo $title; ?> Share Buttons','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/tumblr.png">
                                              <span>tumblr</span></a>
                                           </div>
@@ -350,19 +350,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
                                              <span>stumbleupon</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://reddit.com/submit?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/reddit.png">
                                              <span>reddit</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.digg.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/diggit.png">
                                              <span>diggit</span></a>
                                           </div>
@@ -370,19 +370,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://bufferapp.com/add?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/buffer.png">
                                              <span>buffer</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://share.flipboard.com/bookmarklet/popout?v=2&title=<?php echo $title;?>&url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/Flipboard.png">
                                              <span>FlipBoard</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://myspace.com/post?u=<?php echo $url; ?>&amp;&t=<?php echo $title;?>&amp;&c=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/myspace.png">
                                              <span>Myspace</span></a>
                                           </div>
@@ -390,13 +390,13 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.livejournal.com/update.bml?subject=<?php echo $title; ?>&event=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/livejournal.png">
                                              <span>LiveJournal</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://www.blogger.com/blog-this.g?u=<?php echo $url; ?>&amp;&n=<?php echo $title;?>&amp;&t=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/blogger.png">
                                              <span>Blogger</span></a>
                                           </div>
@@ -498,19 +498,19 @@
                                  <ul class="" id="myUL1">
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
                                              <span>Google+</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
                                              <span>Twitter</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
                                              <span>Pinterest</span></a>
                                           </div>
@@ -518,19 +518,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.yummly.com/urb/verify?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/yummly.png">
                                              <span>yummly</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://vkontakte.ru/share.php?url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/vk.png">
                                              <span>vk</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.tumblr.com/share/link?url=<?php echo $url; ?>&amp;title=<?php echo $title; ?> Share Buttons','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/tumblr.png">
                                              <span>tumblr</span></a>
                                           </div>
@@ -538,19 +538,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
                                              <span>stumbleupon</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://reddit.com/submit?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/reddit.png">
                                              <span>reddit</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.digg.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/diggit.png">
                                              <span>diggit</span></a>
                                           </div>
@@ -558,19 +558,19 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://bufferapp.com/add?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/buffer.png">
                                              <span>buffer</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://share.flipboard.com/bookmarklet/popout?v=2&title=<?php echo $title;?>&url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/Flipboard.png">
                                              <span>FlipBoard</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://myspace.com/post?u=<?php echo $url; ?>&amp;&t=<?php echo $title;?>&amp;&c=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/myspace.png">
                                              <span>Myspace</span></a>
                                           </div>
@@ -578,13 +578,13 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('http://www.livejournal.com/update.bml?subject=<?php echo $title; ?>&event=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/livejournal.png">
                                              <span>LiveJournal</span></a>
                                           </div>
                                        </li>
                                        <li>
-                                          <div class="col-md-4">	
+                                          <div class="col-md-4 col-xs-4">	
                                              <a onClick="window.open('https://www.blogger.com/blog-this.g?u=<?php echo $url; ?>&amp;&n=<?php echo $title;?>&amp;&t=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/blogger.png">
                                              <span>Blogger</span></a>
                                           </div>
@@ -662,7 +662,7 @@
                         <h5>Newsletter</h5>
                         <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                         <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
-                           <input style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
+                           <input class="form-control" style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
                            <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                         </form>
                      </div>
