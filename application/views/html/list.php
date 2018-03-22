@@ -91,33 +91,33 @@
                      </div>
                      <div class="profile-usermenu">
                         <ul class="nav sidemenu-active-help">
-                           <li class="active">
-                              <a href="#">
+                           <li class="<?php if($currentURL==base_url('')){ echo "active"; } ?>">
+                              <a href="<?php echo base_url(); ?>">
                               <i class="fa fa-home" aria-hidden="true"></i>
                               Home </a>
                            </li>
-                           <li>
-                              <a href="#">
+                           <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>">
+                              <a href="<?php echo base_url('motivation/lists'); ?>">
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
                            <li>
-                              <a href="#" target="_blank">
+                              <a href="javascript:void(0)">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="javascript:void(0)javascript:void(0)">
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="javascript:void(0)">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Settings </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="<?php echo base_url('motivation/logout'); ?>">
                               <i class="fa fa-sign-out" aria-hidden="true"></i>
                               Logout </a>
                            </li>

@@ -77,7 +77,7 @@
                   <!-- RD Mailform-->
                   <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/contactpost'); ?>" >
             <input type="text" class="form-control" name="name"  placeholder="Your name *" required><br>
-            <input type="text" class="form-control" name="email"  placeholder="Your e-mail *"required><br>
+            <input type="email" class="form-control" name="email"  placeholder="Your e-mail *"required><br>
             <input type="text" class="form-control" name="subjects" placeholder="Subjects"required><br>
             <textarea name="message" class="form-control" placeholder="Message *"required></textarea><br>
             <div class="text-md-left offset-top-30">

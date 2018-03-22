@@ -240,7 +240,7 @@
                   <form data-result-class="rd-mailform-validate-2" data-form-type="contact" method="post" action="<?php echo base_url('motivation/postrquestcommit'); ?>" class="">
                     <input type="hidden" id="post_id" name="post_id" value="<?php echo $post_images['p_id']; ?>" >
                     <input type="text" id="name" name="name" class="form-control"   placeholder="Your name *" required><br>
-                    <input type="text" id="email" name="email" class="form-control"   placeholder="Your e-mail *" required><br>
+                    <input type="email" id="email" name="email" class="form-control"   placeholder="Your e-mail *" required><br>
                     <textarea name="message" id="message" class="form-control"  placeholder="Comments *" required></textarea><br>
                     <div class="text-md-left offset-top-30">
                       <button type="submit" class="btn btn-primary">Submit Comment</button>
@@ -305,6 +305,8 @@
           </div>
         </div>
       </main>
+	  <div id="sucessmsg" style="display:none;"></div>
+
 	  <script>
 function likecount(id){
 	if(id!=''){
@@ -316,7 +318,17 @@ function likecount(id){
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
-						jQuery('#count').empty();
+						$('#sucessmsg').show();
+						if(data.msgs==1){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==2){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ">Successfully liked<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==3){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ">Successfully unliked <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==4){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">technical problem will occurred. Please try again. <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}
+   						jQuery('#count').empty();
 						jQuery('#count').prepend(data.msg);
 					
 				 }

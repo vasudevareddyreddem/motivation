@@ -22,6 +22,7 @@ class Motivation extends CI_Controller {
 	{
 	
 			$header['currentURL'] = current_url();
+			$data['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
@@ -421,11 +422,7 @@ class Motivation extends CI_Controller {
 				'create_at'=>date('Y-m-d H:i:s')
 				);
 				$post_count=$this->Motivation_model->save_image_count($data);
-				$like_data=array(
-								'post_id'=>$post_count,
-								'create_at'=>date('Y-m-d H:i:s')				
-								 );
-				$this->Motivation_model->save_like_count($like_data);
+				
 				foreach($image_list as $list){
 					rename("assets/temp/".$list['name'], "assets/files/".$list['name']);
 					$filedata=array(
@@ -646,18 +643,74 @@ class Motivation extends CI_Controller {
 	}
 	
 	public function likecount(){
-		$post=$this->input->post();
-		$details=$this->Motivation_model->get_like_count($post['postid']);
-		$data=array(
-		'like'=>$details['like']+1,
-		);
-		$details=$this->Motivation_model->update_like_count($post['postid'],$data);
-		$countdetails=$this->Motivation_model->get_like_count($post['postid']);
-		if(count($details) > 0)
-				{
-				$data['msg']=$countdetails['like'];
-				echo json_encode($data);	
+			if($this->session->userdata('userdetails'))
+			{
+				$loginuser_id=$this->session->userdata('userdetails');
+				$post=$this->input->post();
+				$likedetails=$this->Motivation_model->get_like_details($loginuser_id['id'],$post['postid']);
+				if(count($likedetails)>0){
+					$like=$this->Motivation_model->delete_like($likedetails['l_id']);
+					if(count($like)>0){
+						$countdetails=$this->Motivation_model->get_like_count($post['postid']);
+
+						$data['msg']=count($countdetails);
+						$data['msgs']=3;
+							echo json_encode($data);	
+					}else{
+							$data['msgs']=4;
+							echo json_encode($data);	
+					}
+
+				}else{
+
+					$data=array(
+					'post_id'=>$post['postid'],
+					'user_id'=>$loginuser_id['id'],
+					'create_at'=>date('Y-m-d H:i:s')
+					);
+					$details=$this->Motivation_model->update_like_count($data);
+					$countdetails=$this->Motivation_model->get_like_count($post['postid']);
+					if(count($details) > 0)
+							{
+							$data['msg']=count($countdetails);
+							$data['msgs']=2;
+							echo json_encode($data);	
+							}
+						
 				}
+				
+			}else{
+				$data['msgs']=1;
+				echo json_encode($data);
+			}
+		
+	}
+	public function save_link(){
+			if($this->session->userdata('userdetails'))
+			{
+				$loginuser_id=$this->session->userdata('userdetails');
+				$post=$this->input->post();
+				$data=array(
+					'user_id'=>$loginuser_id['id'],
+					'title'=>'',
+					'text'=>$post['linkid'],
+					'create_at'=>date('Y-m-d H:i:s')
+					);
+				$details=$this->Motivation_model->save_image_count($data);
+				if(count($details)>0){
+						$data['msg']=2;
+						echo json_encode($data);
+
+					}else{
+							$data['msg']=3;
+							echo json_encode($data);	
+					}
+
+			
+			}else{
+				$data['msgs']=1;
+				echo json_encode($data);
+			}
 		
 	}
 	public function getfiledata(){

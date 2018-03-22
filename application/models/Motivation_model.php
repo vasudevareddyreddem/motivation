@@ -77,7 +77,7 @@ class Motivation_model extends CI_Model
 			$lis[$list['p_id']]=$list;
 			$lis[$list['p_id']]['p_list']=$images;
 			$lis[$list['p_id']]['comment_list']=$comment;
-			$lis[$list['p_id']]['like_count']=$like['like'];
+			$lis[$list['p_id']]['like_count']=count($like);
 		}
 		if(!empty($lis))
 		{
@@ -124,7 +124,7 @@ class Motivation_model extends CI_Model
 			$lis=$return;
 			$lis['p_list']=$images;
 			$lis['comment_list']=$comment;
-			$lis['like_count']=$like['like'];
+			$lis['like_count']=count($like);
 			//$lis['sharecount']=isset($share['share']['share_count'])?$share['share']['share_count']:'';
 		
 		if(!empty($lis))
@@ -163,7 +163,7 @@ class Motivation_model extends CI_Model
 			$lis[$list['p_id']]=$list;
 			$lis[$list['p_id']]['p_list']=$images;
 			$lis[$list['p_id']]['comment_list']=$comment;
-			$lis[$list['p_id']]['like_count']=$like['like'];
+			$lis[$list['p_id']]['like_count']=count($like);
 		}
 		if(!empty($lis))
 		{
@@ -187,7 +187,17 @@ class Motivation_model extends CI_Model
 	public function get_all_like_imgs($p_id){
 		$this->db->select('*')->from('like_count');		
 		$this->db->where('like_count.post_id', $p_id);
+		return $this->db->get()->result_array();
+	}
+	public function get_like_details($u_id,$p_id){
+		$this->db->select('*')->from('like_count');		
+		$this->db->where('like_count.user_id', $u_id);
+		$this->db->where('like_count.post_id', $p_id);
 		return $this->db->get()->row_array();
+	}
+	public function delete_like($id){
+		$sql1="DELETE FROM like_count WHERE l_id = '".$id."'";
+		return $this->db->query($sql1);
 	}
 	public function add_comment($data){
 		$this->db->insert('comments', $data);
@@ -196,7 +206,7 @@ class Motivation_model extends CI_Model
 	public function get_like_count($post_id){
 		$this->db->select('*')->from('like_count');		
 		$this->db->where('post_id', $post_id);
-		return $this->db->get()->row_array();
+		return $this->db->get()->result_array();
 	}
 	public function get_comment_count($post_id){
 		$this->db->select('*')->from('comments');		
@@ -209,9 +219,9 @@ class Motivation_model extends CI_Model
 		$this->db->or_like('text', $search);
 		return $this->db->get()->result_array();
 	}
-	public function update_like_count($pid,$data){
-		$this->db->where('post_id', $pid);
-		return $this->db->update('like_count', $data);
+	public function update_like_count($data){
+		$this->db->insert('like_count', $data);
+		return $insert_id = $this->db->insert_id();	
 	}
 	public function add_leavecomment($data){
 		$this->db->insert('leave_a_replay', $data);

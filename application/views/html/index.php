@@ -91,33 +91,33 @@
                      </div>
                      <div class="profile-usermenu">
                         <ul class="nav sidemenu-active-help">
-                           <li class="active">
-                              <a href="#">
+                           <li class="<?php if($currentURL==base_url('')){ echo "active"; } ?>">
+                              <a href="<?php echo base_url(); ?>">
                               <i class="fa fa-home" aria-hidden="true"></i>
                               Home </a>
                            </li>
-                           <li>
-                              <a href="#">
+                           <li class="<?php if($currentURL==base_url('motivation/lists')){ echo "active"; } ?>">
+                              <a href="<?php echo base_url('motivation/lists'); ?>">
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
                            <li>
-                              <a href="#" target="_blank">
+                              <a href="javascript:void(0)">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="javascript:void(0)javascript:void(0)">
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="javascript:void(0)">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Settings </a>
                            </li>
                            <li>
-                              <a href="#">
+                              <a href="<?php echo base_url('motivation/logout'); ?>">
                               <i class="fa fa-sign-out" aria-hidden="true"></i>
                               Logout </a>
                            </li>
@@ -148,7 +148,8 @@
             </div>
          </div>
          <div class="cell-sm-6 cell-sm-preffix-2 cell-md-6 cell-md-preffix-0">
-            <h4 class="card-title">Share your  photo, video or idea</h4>
+            <div readonly>
+			<h4 class="card-title">Share your  photo, video or idea</h4>
             <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
                <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
                <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
@@ -184,6 +185,7 @@
                      </li>
                   </ul>
                </form>
+            </div>
             </div>
             <?php if(count($post_images)>0){ ?>
             <div class="box" style="padding:10px 20px ">
@@ -233,7 +235,6 @@
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
-                        <li><a href="#"  class="post-meta-share small"><span id="">10 </span></a></li>
                      </ul>
                   </div>
                   <hr class="divider offset-none"/>
@@ -421,7 +422,6 @@
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
                         <li><a href="javascript:void(0)" onclick="likecount('<?php echo $List['p_id']; ?>');" class="post-meta-like small"><span id="count<?php echo $List['p_id']; ?>"><?php if($List['like_count']>0){ echo $List['like_count']; } ?> </span></a></li>
-                        <li><a href="#"  class="post-meta-share small"><span id="">10 </span></a></li>
                      </ul>
                   </div>
                   <hr class="divider offset-none"/>
@@ -644,25 +644,115 @@
 </main>
 <!-- link modal -->
 <div class="modal fade" id="linkmodal" role="dialog">
-   <div class="modal-dialog modal-sm">
+   <div class="modal-dialog modal-sm" id="linkid">
       <!-- Modal content-->
       <div class="modal-content">
          <div class="modal-body">
             <form action="/action_page.php">
                <div class="form-group">
                   <label for="email">Add Link</label>
-                  <input type="text" class="form-control"  >
+                  <input type="text" name="addlink" id="addlink" value="" class="form-control"  >
                </div>
+			   <div id="errormsgs"></div>
             </form>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-default btn-sm" >Ok</button>
-            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+            <button type="button" onclick="getvideoid();" class="btn btn-default btn-sm" >Ok</button>
+            <button type="button" onclick="getvideoidclose();" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+   <div class="modal-dialog" id="linkplayid" style="display:none;">
+      <!-- Modal content-->
+	  	<button type="button" style="position: absolute;right:5px;top:5px;color: #444;z-index: 1024;" onclick="closepopup();" class="close" aria-label="Close"><span aria-hidden="true">X</span></button>
+
+      <div class="modal-content">
+
+         <div class="modal-body" id="freameslink">
+            <iframe width="560" id="iframefilelink" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+         </div> 
+		 <div class="modal-body" id="normallink" style="display:none;">
+		 <div id="links_id"></div>
+         </div>
+		 <input type="hidden" name="playlink" id="playlink" value="">
+         <div class="modal-footer">
+            <button type="button" onclick="savevideoidclose();" class="btn btn-default btn-sm" >Ok</button>
+            <button type="button" onclick="getvideoidclose();" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
          </div>
       </div>
    </div>
 </div>
+<div id="sucessmsg" style="display:none;"></div>
+
 <script>
+
+function closepopup(){
+	var link=$('#addlink').val('');
+		$('#linkid').show();
+		$('#linkplayid').hide();
+}
+function savevideoidclose(){
+	var link=document.getElementById("playlink").value;
+	if(link!=''){
+   		 jQuery.ajax({
+   					url: "<?php echo site_url('motivation/save_link');?>",
+   					data: {
+   						linkid: link,
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+						$('#sucessmsg').show();
+						if(data.msg==1){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msg==2){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ"> Post Successfully updated<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+							location.reload();
+						}if(data.msg==3){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">technical problem will occurred. Please try again. <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+					
+   					}
+   				 }
+   				});
+   			}
+}
+function getvideoid(){
+	var link=$('#addlink').val();
+		if(link ==''){
+			$('#sucessmsg').show();
+			$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please enter value<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+			return false;
+		}else{
+			$('#linkid').hide();
+			 var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+				var match = link.match(regExp);
+				if (match && match[2].length == 11) {
+						var res = link.split("?v=");
+						var url='https://www.youtube.com/embed/'+res[1];
+						document.getElementById("iframefilelink").src=url;
+						document.getElementById("playlink").value=link;
+						$('#normallink').hide();
+						$('#freameslink').show();
+						$('#linkid').hide();
+						$('#linkplayid').show();
+			
+				}else{
+				 document.getElementById("iframefilelink").src=link;
+				 document.getElementById("playlink").value=link;
+				 document.getElementById("links_id").innerHTML=link;
+				$('#linkid').hide();
+				$('#linkplayid').show();
+				$('#normallink').show();
+				$('#freameslink').hide();
+				}
+		}
+}
+function getvideoidclose(){
+	var link=$('#addlink').val('');
+		$('#linkid').show();
+		$('#linkplayid').hide();
+		
+}
    /*validation starting*/
     
      function onchangeimage(){
@@ -780,6 +870,16 @@
    					dataType: 'json',
    					type: 'POST',
    					success: function (data) {
+						$('#sucessmsg').show();
+						if(data.msgs==1){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==2){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ">Successfully liked<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==3){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ">Successfully unliked <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msgs==4){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">technical problem will occurred. Please try again. <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}
    						jQuery('#count'+id).empty();
    						jQuery('#count'+id).prepend(data.msg);
    					

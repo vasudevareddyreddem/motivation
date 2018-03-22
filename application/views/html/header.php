@@ -18,11 +18,11 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");
  ?>
-	
-  </head>
+</head>
   
   <body>
     <!-- Page-->
+	<div id="loading" class="loading"></div>
     <div class="page text-center ">
       <!-- Page Header-->
       <header class="page-header page-header-with-slider" >
@@ -187,9 +187,12 @@ header("Pragma: no-cache");
   </style>
   
   <script>
-  $('html').click(function(){
-    alert('fgfd')
-});
+  /*loader*/
+  function preloader(){
+            document.getElementById("loading").style.display = "none";
+        }
+        window.onload = preloader;
+		/*loader*/
 	function getsarchdata(val){
 		if(val!=''){
 				jQuery.ajax({
@@ -251,4 +254,6 @@ function myFunction() {
         }
     }
 }
+  
+		
 </script>
