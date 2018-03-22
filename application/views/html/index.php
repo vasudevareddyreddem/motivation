@@ -75,7 +75,7 @@
    <?php } ?>
    <div class="shell ">
       <div class="range">
-         <div class="cell-md-3">
+         <div class="cell-md-3 sm-hide">
             <div class="card hovercardnav ">
                <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="500">
                   <?php if($this->session->userdata('userdetails'))
@@ -149,8 +149,48 @@
          </div>
          <div class="cell-sm-6 cell-sm-preffix-2 cell-md-6 cell-md-preffix-0">
             <div id="divContainer">
+            <div class="box" style="padding:10px;">
 			<?php if(!$this->session->userdata('userdetails')){?>
-			<img onclick="prelogin();" src="<?php echo base_url('assets/postimage.png'); ?>">
+				<div onclick="prelogin();"><div class="mask-for-disable" >
+			<h4 class="card-title">Share your  photo, video or idea</h4>
+            <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
+               <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
+               <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
+               <button style="margin-top:10px;" type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
+            </form>
+            <div class="row" style="margin-top:10px;">
+               <form id="addimages" name="addimages" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
+                     <li class="image-upload">
+                        <label for="imagesupload">
+                        <i class="fa fa-camera"></i>
+                        </label>
+                        <input type="file" id="imagesupload" name="images2" onchange="onchangeimage();" />
+                     </li>
+                  </ul>
+               </form>
+               <form id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
+                     <li class="image-upload">
+                        <label for="videoimages">
+                        <i class="fa fa-video-camera"></i>
+                        </label>
+                        <input type="file" id="videoimages" name="images3" onchange="onchangevideo();" />
+                     </li>
+                  </ul>
+               </form>
+               <form id="#" name="" action="" method="post" enctype="multipart/form-data">
+                  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
+                     <li class="image-upload">
+                        <a style="color:#333;cursor:pointer" data-toggle="modal" data-target="#linkmodal">
+                        <i class=" fa fa-link" ></i>
+                        </a>
+                     </li>
+                  </ul>
+               </form>
+            </div>
+            </div>
+            </div>
 			<?php }else{ ?>
 			
 			
@@ -192,6 +232,7 @@
                </form>
             </div>
 			<?php } ?>
+            </div>
             </div>
             <?php if(count($post_images)>0){ ?>
             <div class="box">
