@@ -602,6 +602,9 @@ margin-right: 7px;
 	.sm-hide{
 	display:none;
 }
+.box h4{
+	font-size:16px !important;
+}
 .col-md-offset-3 {
     margin-left: 0%;
   }
@@ -697,7 +700,8 @@ box-shadow: -2px 6px 39px -8px rgba(0,0,0,0.75);
   left: 0;
   bottom: 0;
   right: 0;
-  color:#fff !important;
+ 
+ z-index:2000;
 }
 .mask-for-disable{
 	pointer-events: none;
@@ -716,6 +720,7 @@ box-shadow: -2px 6px 39px -8px rgba(0,0,0,0.75);
   left: 0;
   width: 100%;
   height: 100%;
+
   background-color: rgba(0,0,0,0.3);
 }
 

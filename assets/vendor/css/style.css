@@ -19572,6 +19572,7 @@ audio {
 .post-variant-1 .post-content-bottom,
 .post-variant-1 .post-content-wrap {
   padding: 15px 10px;
+   word-break: break-all;
 }
 
 .post-variant-1 .post-bottom {
