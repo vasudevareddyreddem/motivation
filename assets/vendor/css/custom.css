@@ -602,6 +602,9 @@ margin-right: 7px;
 	.sm-hide{
 	display:none;
 }
+.mobile-side-margin{
+	margin-bottom:250px !important;
+}
 .box h4{
 	font-size:16px !important;
 }

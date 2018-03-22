@@ -62,7 +62,7 @@ header("Pragma: no-cache");
 				</div>
 				</div>
                 <div class="rd-navbar-nav-outher">
-                  <ul class="rd-navbar-nav">
+                  <ul class="rd-navbar-nav mobile-side-margin">
                     <li class="active sm-hide">
 						
 							<form class="navbar-form" role="search">
