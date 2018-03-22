@@ -148,7 +148,12 @@
             </div>
          </div>
          <div class="cell-sm-6 cell-sm-preffix-2 cell-md-6 cell-md-preffix-0">
-            <div readonly>
+            <div id="divContainer">
+			<?php if(!$this->session->userdata('userdetails')){?>
+			<img onclick="prelogin();" src="<?php echo base_url('assets/postimage.png'); ?>"
+			<?php }else{ ?>
+			
+			
 			<h4 class="card-title">Share your  photo, video or idea</h4>
             <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
                <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
@@ -186,6 +191,7 @@
                   </ul>
                </form>
             </div>
+			<?php } ?>
             </div>
             <?php if(count($post_images)>0){ ?>
             <div class="box" style="padding:10px 20px ">
@@ -685,7 +691,11 @@
 <div id="sucessmsg" style="display:none;"></div>
 
 <script>
+function prelogin(){
+	$('#sucessmsg').show();
+$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
 
+}
 function closepopup(){
 	var link=$('#addlink').val('');
 		$('#linkid').show();
