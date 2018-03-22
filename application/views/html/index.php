@@ -150,7 +150,7 @@
          <div class="cell-sm-6 cell-sm-preffix-2 cell-md-6 cell-md-preffix-0">
             <div id="divContainer">
 			<?php if(!$this->session->userdata('userdetails')){?>
-			<img onclick="prelogin();" src="<?php echo base_url('assets/postimage.png'); ?>"
+			<img onclick="prelogin();" src="<?php echo base_url('assets/postimage.png'); ?>">
 			<?php }else{ ?>
 			
 			
