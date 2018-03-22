@@ -187,12 +187,14 @@ header("Pragma: no-cache");
   </style>
   
   <script>
+ 
   /*loader*/
   function preloader(){
             document.getElementById("loading").style.display = "none";
         }
         window.onload = preloader;
 		/*loader*/
+
 	function getsarchdata(val){
 		if(val!=''){
 				jQuery.ajax({

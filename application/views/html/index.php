@@ -857,14 +857,7 @@ function getvideoidclose(){
    }
    
    /*validationending*/
-   
-   $('video').each(function(){
-       if ($(this).is(":in-viewport")) {
-           $(this)[0].play();
-       } else {
-           $(this)[0].pause();
-       }
-   })
+ 
    function showhide(id) {
        var x = document.getElementById("myDIV"+id);
        if (x.style.display === "none") {
