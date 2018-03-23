@@ -108,7 +108,7 @@
                     <hr class="divider offset-none">
                     <div class="section-xs-size">
                       <h5>Newsletter</h5>
-                      <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
+                      
                       <!-- RD Mailform-->
                      <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
                         <input class="form-control" style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
