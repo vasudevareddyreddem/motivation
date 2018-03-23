@@ -39,6 +39,7 @@ class Motivation_model extends CI_Model
 	public function get_all_images_list($user_id){
 		$this->db->select('*')->from('temp');		
 		$this->db->where('user_id', $user_id);
+		$this->db->order_by("temp.id","DESC");
 		return $this->db->get()->result_array();
 	}
 	public function get_alledit_post_images_list($user_id,$post_id){

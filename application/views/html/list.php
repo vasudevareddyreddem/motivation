@@ -176,19 +176,26 @@
             <div class="post post-variant-1 box mar-t30">
                <div>
                   <div class="post-content-wrap">
-                     <a href="#">
                         <h4>
                            <?php if(strstr($List['text'], 'www.youtube.com/')==true){ 
 								$video_id = explode("?v=", $List['text']);
 						   ?>
                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/<?php echo isset($video_id[1])?$video_id[1]:''; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                            <?php }else if(strstr($List['text'], 'http://')==true || strstr($List['text'], 'https://')==true){ ?>
-                     <a href="<?php echo isset($List['text'])?$List['text']:''; ?>" target="_blank"><?php echo isset($List['text'])?$List['text']:''; ?>
+                     <a href="<?php echo isset($List['text'])?$List['text']:''; ?>" target="_blank"><?php echo isset($List['text'])?$List['text']:''; ?>   </a>
                      <?php  }else{ ?>
-                     <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?>
+					  <?php 
+					  if(strlen($List['text'])>50){
+						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
+					 <?php  }else{
+					  echo $List['text']; 
+					  }
+					  ?>
+					   <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
+
                      <?php } ?>
-                     </a>
-                     </h4></a>
+                  
+                     </h4>
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                         <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span>
                      </div>
@@ -277,7 +284,17 @@
                   <?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
-                     <h4> <a href="<?php echo base_url('motivation/singlepost/'.base64_encode($List['p_id'])); ?>"><?php echo isset($List['text'])?$List['text']:''; ?></a></h4>
+                     <h4> 
+					  <?php 
+					  if(strlen($List['text'])>50){
+						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
+					 <?php  }else{
+					  echo $List['text']; 
+					  }
+					  ?>
+					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
+                     
+					 </h4>
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
@@ -409,6 +426,14 @@
    </div>
 </div>
 <script>
+function readmoreoption(id){
+	$('#readless'+id).hide();
+	$('#readmore'+id).show();
+}
+function readlessoption(id){
+	$('#readless'+id).show();
+	$('#readmore'+id).hide();
+}
    /*validation starting*/
     
      function onchangeimage(){
