@@ -61,7 +61,7 @@
       <div class="modal-content">
         
         <div class="modal-body">
-           <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+           <input class="form-control" type="text" placeholder="Search for Share " id="myInput1" onkeyup="myFunction1()"><br>
 			  <ul class="" id="myUL1">
 					<div class="row icon-si ">
 						<li>

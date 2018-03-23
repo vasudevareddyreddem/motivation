@@ -306,7 +306,7 @@
                         <div class="modal-dialog">
                            <div class="modal-content">
                               <div class="modal-body">
-                                 <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+                                 <input class="form-control" type="text" placeholder="Search for Share " id="myInput1" onkeyup="myFunction1()"><br>
                                  <ul class="" id="myUL1">
                                     <div class="row icon-si ">
                                        <li>
@@ -419,7 +419,7 @@
                                  <input type="hidden" id="post_id" name="post_id"  value="<?php echo $List['p_id']; ?>">
                                  <textarea type="text" id="comment" name="comment" class="form-control pad-lef" placeholder="Enter your Comment" rows="1"></textarea>
                               </div>
-                              <div class="col-md-2 col-xs-2 mobi-res">
+                              <div class="col-md-2 col-xs-2 mobi-res" >
                                  <div class="file  ">
                                     <button class="btn btn-sm btn-primary" type="submit">Send</button>
                                  </div>
@@ -493,8 +493,8 @@
                      <div class="modal fade" id="sharemyModal" role="dialog">
                         <div class="modal-dialog">
                            <div class="modal-content">
-                              <div class="modal-body">
-                                 <input class="form-control" type="text" placeholder="Search for Follow " id="myInput1" onkeyup="myFunction1()"><br>
+                              <div class="modal-body" >
+                                 <input class="form-control" type="text" placeholder="Search for share " id="myInput1" onkeyup="myFunction1()"><br>
                                  <ul class="" id="myUL1">
                                     <div class="row icon-si ">
                                        <li>
@@ -538,7 +538,7 @@
                                     </div>
                                     <div class="row icon-si ">
                                        <li>
-                                          <div class="col-md-4 col-xs-4">	
+                                          <div class="col-md-4 col-xs-4" >	
                                              <a onClick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
                                              <span>stumbleupon</span></a>
                                           </div>

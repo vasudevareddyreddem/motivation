@@ -602,6 +602,23 @@ margin-right: 7px;
 	.sm-hide{
 	display:none;
 }
+.rd-navbar-fixed .rd-navbar-nav .rd-navbar-submenu-toggle::after {
+    content: '\f078';
+    position: absolute;
+    top: 25px;
+	right: 0;
+    padding: 0px 150px;
+    margin-top: -22px;
+    width: 65px;
+    height: 44px;
+    font: 400 14px "FontAwesome";
+    line-height: 42px;
+    text-align: center;
+    transition: 0.4s all ease;
+    z-index: 2;
+    color: #303043;
+}
+
 .mobile-side-margin{
 	margin-bottom:250px !important;
 }

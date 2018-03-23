@@ -100,7 +100,7 @@ header("Pragma: no-cache");
 						<div class="text-center sm-hide">
 							<i class="fa fa-paper-plane" aria-hidden="true"></i>
 						</div> Contacts</a></li>
-						<li class="rd-navbar--has-dropdown rd-navbar-submenu list-icon-s"><a href="#">
+						<li class="rd-navbar--has-dropdown rd-navbar-submenu list-icon-s "><a href="#">
 						<div class="text-center user-img sm-hide">
 							<img src="<?php echo base_url(); ?>assets/vendor/img/user.png" alt="user">
 						</div>User </a>
@@ -118,7 +118,7 @@ header("Pragma: no-cache");
                  
 					  	<?php } ?>
 					  </ul>
-                    <span class="rd-navbar-submenu-toggle"></span></li>
+                    </li>
                   
 				  </ul>
                 </div>
@@ -162,7 +162,7 @@ header("Pragma: no-cache");
 
 						</div>
 						</li>
-						<li><div class="col-md-4 col-xs-4">	
+						<li><div class="col-md-4 col-xs-4" style="word-wrap: break-word;">	
 								<a href="#"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
 								<span>stumbleupon</span></a>
 						</div></li>
