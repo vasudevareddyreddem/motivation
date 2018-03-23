@@ -154,7 +154,7 @@
 				<div onclick="prelogin();"><div class="mask-for-disable" >
 			<h4 class="card-title">Share your  photo, video or idea</h4>
             <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
-               <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
+               <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title"  value="" required>
                <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
                <button style="margin-top:10px;" type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
             </form>
@@ -196,8 +196,8 @@
 			
 			<h4 class="card-title">Share your  photo, video or idea</h4>
             <form id="imagespost" name="imagespost" action="<?php echo base_url('motivation/imagepost'); ?>" method="post" enctype="multipart/form-data">
-               <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" value="" required>
-               <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" id="content" name="content" required></textarea>
+               <input class="form-control border-input-sty" type="text" placeholder="Title" id="title" name="title" onchange="savetext(this.value);" value="<?php echo isset($image_list[0]['title'])?$image_list[0]['title']:''; ?>" required>
+               <textarea style="border-radius:0" class="form-control bg-white border-radius-none" placeholder="What are you doing right now?" onchange="savetitle(this.value);" id="content" name="content" required><?php echo isset($image_list[0]['text'])?$image_list[0]['text']:''; ?></textarea>
                <button style="margin-top:10px;" type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-share"></i> Post</button>
             </form>
             <div class="row" style="margin-top:10px;">
@@ -207,6 +207,8 @@
                         <label for="imagesupload">
                         <i class="fa fa-camera"></i>
                         </label>
+						<input type="hidden" name="formsavetext" id="formsavetext" value="">
+						<input type="hidden" name="formsavetitle" id="formsavetitle" value="">
                         <input type="file" id="imagesupload" name="images2" onchange="onchangeimage();" />
                      </li>
                   </ul>
@@ -217,6 +219,8 @@
                         <label for="videoimages">
                         <i class="fa fa-video-camera"></i>
                         </label>
+						<input type="hidden" id="formsavetext1" name="formsavetext1" value="">
+						<input type="hidden" id="formsavetitle1" name="formsavetitle1" value="">
                         <input type="file" id="videoimages" name="images3" onchange="onchangevideo();" />
                      </li>
                   </ul>
@@ -755,6 +759,14 @@
 <div id="sucessmsg" style="display:none;"></div>
 
 <script>
+function savetext(val){
+	 document.getElementById("formsavetext").value=val;	
+	 document.getElementById("formsavetext1").value=val;	
+}
+function savetitle(val){
+	 document.getElementById("formsavetitle1").value=val;	
+	 document.getElementById("formsavetitle").value=val;	
+}
 function readmoreoption(id){
 	$('#readless'+id).hide();
 	$('#readmore'+id).show();

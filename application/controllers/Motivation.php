@@ -187,7 +187,7 @@ class Motivation extends CI_Controller {
 		if($this->session->userdata('userdetails'))
 		 {
 				$post=$this->input->post();
-				//echo '<pre>';print_r($_FILES);
+				//echo '<pre>';print_r($post);exit;
 				$loginuser_id=$this->session->userdata('userdetails');
 				if(isset($_FILES['images1']['name']) && $_FILES['images1']['name']!=''){
 					
@@ -201,8 +201,11 @@ class Motivation extends CI_Controller {
 								'user_id'=>$loginuser_id['id'],
 								'name'=>$imgname,
 								'org_name'=>$_FILES['images1']['name'],
-								'create_at'=>date('Y-m-d H:i:s')				
+								'create_at'=>date('Y-m-d H:i:s'),				
+								'text'=>$post['formsavetext'],				
+								'title'=>$post['formsavetitle']			
 								);
+								//echo '<pre>';print_r($filedata);exit;
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
 								$this->session->set_flashdata('success',"File successfully Select");
@@ -222,8 +225,11 @@ class Motivation extends CI_Controller {
 								'user_id'=>$loginuser_id['id'],
 								'name'=>$imgname,
 								'org_name'=>$_FILES['images2']['name'],
-								'create_at'=>date('Y-m-d H:i:s')				
+								'create_at'=>date('Y-m-d H:i:s'),
+								'title'=>$post['formsavetext'],				
+								'text'=>$post['formsavetitle']									
 								);
+								//echo '<pre>';print_r($filedata);exit;
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
 								$this->session->set_flashdata('success',"File successfully Select");
@@ -243,7 +249,9 @@ class Motivation extends CI_Controller {
 								'user_id'=>$loginuser_id['id'],
 								'name'=>$imgname,
 								'org_name'=>$_FILES['images3']['name'],
-								'create_at'=>date('Y-m-d H:i:s')				
+								'create_at'=>date('Y-m-d H:i:s'),
+								'title'=>$post['formsavetext1'],				
+								'text'=>$post['formsavetitle1']								
 								);
 								$addfile = $this->Motivation_model->save_userfile($filedata);
 							if(count($addfile)>0){
