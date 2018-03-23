@@ -220,10 +220,9 @@
                         ?>
                      <ul class="list-inline-0">
                      
-					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Status change</a> </li>
+					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
 					 <li><a href="<?php echo base_url('motivation/deletes/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Delete</a>  </li>
 					 <li><a href="<?php echo base_url('motivation/details/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Edit</a> </li>
-					 <li><a href="javascript:void(0);" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
 					</ul>
                      
                   </div>
@@ -305,10 +304,9 @@
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
                     <ul class="list-inline-0">
                      
-					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Status change</a> </li>
+					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
 					 <li><a href="<?php echo base_url('motivation/deletes/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Delete</a>  </li>
 					 <li><a href="<?php echo base_url('motivation/details/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Edit</a> </li>
-					 <li><a href="javascript:void(0);" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
 					</ul>
                   </div>
                   <div class="card-footer"  id="myDIV<?php echo $List['p_id']; ?>"  style="display:none">
