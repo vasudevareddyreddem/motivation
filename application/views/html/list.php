@@ -220,12 +220,8 @@
                         ?>
                      <ul class="list-inline-0">
                      
-					<?php if($List['status_text']='Active'){ ?>
 					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
-					 <?php }else{ ?>
-					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
-						<?php } ?>	
-						<li><a href="<?php echo base_url('motivation/deletes/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Delete</a>  </li>
+					 <li><a href="<?php echo base_url('motivation/deletes/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Delete</a>  </li>
 					 <li><a href="<?php echo base_url('motivation/details/'.base64_encode($List['p_id'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0">Edit</a> </li>
 					</ul>
                      
@@ -307,7 +303,7 @@
                   <hr class="divider offset-none"/>
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
                     <ul class="list-inline-0">
-                     <?php if($List['status_text']='Active'){ ?>
+                     <?php if($List['status_text']=='Active'){ ?>
 					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
 					 <?php }else{ ?>
 					 <li><a href="<?php echo base_url('motivation/status/'.base64_encode($List['p_id']).'/'.base64_encode($List['pstatus'])); ?>" class="btn btn-primary btn-sm offset-top-10 offset-xs-top-0"><?php echo $List['status_text']; ?></a> </li>
