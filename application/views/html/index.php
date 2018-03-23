@@ -90,7 +90,7 @@
                      <div class="title">
                         <h6><?php echo isset($user_details['name'])?$user_details['name']:''; ?></h6>
                      </div>
-                     <div class="profile-usermenu">
+                     <div class="profile-usermenu" >
                         <ul class="nav sidemenu-active-help">
                            <li class="<?php if($currentURL==base_url('')){ echo "active"; } ?>">
                               <a href="<?php echo base_url(); ?>">

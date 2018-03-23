@@ -572,6 +572,15 @@ margin-right: 7px;
 	.sear-sty{
 		width:250px !important;
 	}
+	.pad-5{
+		font-size:10px !important;
+	}
+	
+
+.profile-usermenu{
+	height:150px !important;
+		overflow-y: scroll!important;
+}
 }
 @media only screen and (max-width: 767px) {
 	.page-content {
