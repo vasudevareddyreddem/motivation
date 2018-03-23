@@ -10514,12 +10514,12 @@ fieldset[disabled] .btn-default {
   right: 0;
   border-radius: 4px;
   background: #d30f61;
-  background: -moz-linear-gradient(left, #d30f61 0%, #f4634d 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, #d30f61), color-stop(100%, #f4634d));
-  background: -webkit-linear-gradient(left, #d30f61 0%, #f4634d 100%);
-  background: -o-linear-gradient(left, #d30f61 0%, #f4634d 100%);
-  background: -ms-linear-gradient(left, #d30f61 0%, #f4634d 100%);
-  background: linear-gradient(to right, #d30f61 0%, #f4634d 100%);
+  /* background: -moz-linear-gradient(left, #d30f61 0%, #f4634d 100%); */
+  /* background: -webkit-gradient(left top, right top, color-stop(0%, #d30f61), color-stop(100%, #f4634d)); */
+  /* background: -webkit-linear-gradient(left, #d30f61 0%, #f4634d 100%); */
+  /* background: -o-linear-gradient(left, #d30f61 0%, #f4634d 100%); */
+  /* background: -ms-linear-gradient(left, #d30f61 0%, #f4634d 100%); */
+  /* background: linear-gradient(to right, #d30f61 0%, #f4634d 100%); */
   z-index: -1;
   transition: opacity 0.3s;
 }

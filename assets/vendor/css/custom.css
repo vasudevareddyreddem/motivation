@@ -392,8 +392,8 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
   width:50px;
 }
 .page-content{
-	padding-left:5%;
-	padding-right:5%;
+	padding-left:8%;
+	padding-right:8%;
 }
  .comm-img img{
 	 width:50px;
@@ -410,8 +410,8 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 .list-icon-s i{
 	font-size:20px;
