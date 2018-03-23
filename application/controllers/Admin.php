@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 					redirect('');
 				}else{
 					$this->session->set_flashdata('error',"Login Details are wrong. Plase try again");
-					redirect('');
+					redirect($this->agent->referrer());
 				}	
 	}
 	public function forgotpassword()

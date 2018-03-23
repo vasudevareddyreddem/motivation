@@ -359,8 +359,8 @@ class Motivation extends CI_Controller {
 					foreach($image_list as $list){
 						$this->Motivation_model->delete_attachement($list['id']);
 					}
-					$this->session->set_flashdata('success',"File successfully Upload");
-					redirect('motivation/lists'); 
+					$this->session->set_flashdata('success',"File successfully Updated");
+					redirect(''); 
 				}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 					redirect('motivation/details/'.base64_encode($post['post_id'])); 	
@@ -441,10 +441,10 @@ class Motivation extends CI_Controller {
 						$this->Motivation_model->delete_attachement($list['id']);
 					}
 					$this->session->set_flashdata('success',"File successfully Upload");
-					redirect('motivation/lists'); 
+					redirect(''); 
 				}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-						redirect('motivation/admin'); 	
+						redirect(''); 	
 				}
 		}else{
 			$this->session->set_flashdata('loginerror','Please login to continue');
