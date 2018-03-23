@@ -733,7 +733,8 @@ class Motivation extends CI_Controller {
 		
 	}
 	public function getfiledata(){
-		$details=$this->Motivation_model->filesdata();
+		$loginuser_id=$this->session->userdata('userdetails');
+		$details=$this->Motivation_model->filesdata($loginuser_id['id']);
 		if(count($details) > 0)
 				{
 				$path = $details['name'];
