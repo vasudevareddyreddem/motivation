@@ -777,7 +777,34 @@ class Motivation extends CI_Controller {
 				}
 		
 	}
-	
+	public function uploadvideos(){
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post=$this->input->post();
+			$pic=$_FILES['attachment']['name'];
+			$picname = str_replace(" ", "", $pic);
+			$imagename=microtime().basename($picname);
+			$imgname = str_replace(" ", "", $imagename);
+			if(move_uploaded_file($_FILES['attachment']['tmp_name'], "assets/temp/" . $imgname)){
+			$filedata=array(
+			'user_id'=>$loginuser_id['id'],
+			'name'=>$imgname,
+			'org_name'=>$_FILES['attachment']['name'],
+			'create_at'=>date('Y-m-d H:i:s'),
+			'title'=>$post['text1'],				
+			'text'=>$post['title1']									
+			);
+			//echo '<pre>';print_r($filedata);exit;
+			$addfile = $this->Motivation_model->save_userfile($filedata);
+				if(count($addfile)>0){
+					$data['msg']=1;
+					echo json_encode($data);	
+				}else{
+					$data['msg']=2;
+					echo json_encode($data);
+				}
+			}
+		
+	}
 	public function logout()
 	{
 		$userinfo = $this->session->userdata('userdetails');
