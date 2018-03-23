@@ -73,6 +73,7 @@
       <?php } ?>
    </div>
    <?php } ?>
+   <div id="topscrooling"></div>
    <div class="shell ">
       <div class="range">
          <div class="cell-md-3 sm-hide">
@@ -278,12 +279,12 @@
 					
 					 <?php 
 					  if(strlen($List['text'])>50){
-						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... read more</span> 
+						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
 					 <?php  }else{
 					  echo $List['text']; 
 					  }
 					  ?>
-					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... read Less</span></span>
+					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
                      <?php } ?>
                      
                      </h4>
@@ -480,12 +481,12 @@
                      <h4> 
 					 <?php 
 					  if(strlen($List['text'])>50){
-						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... read more</span> 
+						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
 					 <?php  }else{
 					  echo $List['text']; 
 					  }
 					  ?>
-					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... read Less</span></span>
+					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
                      
 					 
 					 
@@ -684,7 +685,6 @@
                      <hr class="divider offset-none">
                      <div class="section-xs-size">
                         <h5>Newsletter</h5>
-                        <p>Sign up for the latest news on this startup further process and when the product will be released!</p>
                         <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
                            <input class="form-control" style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
                            <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>

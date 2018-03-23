@@ -18,6 +18,7 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");
  ?>
+ 
 </head>
   
   <body>
@@ -194,7 +195,7 @@ header("Pragma: no-cache");
         }
         window.onload = preloader;
 		/*loader*/
-
+document.getElementById("topscrooling").focus();
 	function getsarchdata(val){
 		if(val!=''){
 				jQuery.ajax({
