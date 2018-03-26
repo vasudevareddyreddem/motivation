@@ -30,11 +30,11 @@ CREATE TABLE `admin` (
   `status` int(11) DEFAULT '1',
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`id`,`email`,`mobile`,`password`,`orgpassword`,`name`,`status`,`create_at`) values (1,'admin@gmail.com',NULL,'e10adc3949ba59abbe56e057f20f883e',NULL,'admin',1,NULL);
+insert  into `admin`(`id`,`email`,`mobile`,`password`,`orgpassword`,`name`,`status`,`create_at`) values (1,'admin@gmail.com',NULL,'e10adc3949ba59abbe56e057f20f883e',NULL,'admin',1,NULL),(2,'vasu@gmail.com',NULL,'e10adc3949ba59abbe56e057f20f883e','123456','vaasudevareddy',1,NULL);
 
 /*Table structure for table `ci_sessions` */
 
@@ -62,11 +62,11 @@ CREATE TABLE `comments` (
   `comment` text,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `comments` */
 
-insert  into `comments`(`c_id`,`user_id`,`post_id`,`comment`,`create_at`) values (16,1,28,'ghdfghdfg','2018-03-21 18:52:53'),(17,1,30,'testing','2018-03-21 19:00:50'),(18,1,43,'kyuiyuuyiyu','2018-03-22 15:28:35'),(19,1,43,'tyertrt','2018-03-22 15:29:07'),(20,1,43,'tyertrt','2018-03-22 15:29:40'),(21,1,43,'gfhjh','2018-03-22 15:35:34'),(22,1,42,'fgfdgdfgf','2018-03-22 15:45:14');
+insert  into `comments`(`c_id`,`user_id`,`post_id`,`comment`,`create_at`) values (16,1,28,'ghdfghdfg','2018-03-21 18:52:53'),(17,1,30,'testing','2018-03-21 19:00:50'),(18,1,43,'kyuiyuuyiyu','2018-03-22 15:28:35'),(19,1,43,'tyertrt','2018-03-22 15:29:07'),(20,1,43,'tyertrt','2018-03-22 15:29:40'),(21,1,43,'gfhjh','2018-03-22 15:35:34'),(22,1,42,'fgfdgdfgf','2018-03-22 15:45:14'),(23,1,47,'dfsdf','2018-03-23 17:02:23'),(24,1,47,'fgfdgfd','2018-03-23 17:02:51');
 
 /*Table structure for table `contactus` */
 
@@ -125,11 +125,11 @@ CREATE TABLE `like_count` (
   `user_id` int(11) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`l_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1;
 
 /*Data for the table `like_count` */
 
-insert  into `like_count`(`l_id`,`post_id`,`user_id`,`create_at`) values (99,31,1,'2018-03-22 11:01:48'),(100,28,1,'2018-03-22 11:01:55'),(103,39,1,'2018-03-22 12:33:52');
+insert  into `like_count`(`l_id`,`post_id`,`user_id`,`create_at`) values (99,31,1,'2018-03-22 11:01:48'),(100,28,1,'2018-03-22 11:01:55'),(103,39,1,'2018-03-22 12:33:52'),(104,28,2,'2018-03-23 18:46:01');
 
 /*Table structure for table `newsletter` */
 
@@ -157,11 +157,11 @@ CREATE TABLE `post_count` (
   `create_at` datetime DEFAULT NULL,
   `pstatus` int(11) DEFAULT '1',
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 /*Data for the table `post_count` */
 
-insert  into `post_count`(`p_id`,`user_id`,`title`,`text`,`image_count`,`create_at`,`pstatus`) values (28,1,'demo','https://www.youtube.com/watch?v=u-YD1zpKXls','0','2018-03-21 17:38:41',1),(42,1,'op','demo','2','2018-03-22 12:36:17',1),(43,1,'testing','likethis','0','2018-03-22 14:43:21',1);
+insert  into `post_count`(`p_id`,`user_id`,`title`,`text`,`image_count`,`create_at`,`pstatus`) values (28,1,'     strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)     stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)     strripos() - Finds the p','https://www.youtube.com/watch?v=u-YD1zpKXls','0','2018-03-23 12:51:09',1),(42,1,'op','\r\n    strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)\r\n    stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)\r\n    strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)\r\n','2','2018-03-23 12:40:49',1),(43,1,'testing','likethis   gfhdfgh     sdhghsdh bfghhhhhhhhhhh hhhhhhhhh fgfgg','0','2018-03-23 12:15:45',1),(44,1,'testingjhgjghj','I have a catch-all Apache virtual host in /var/www/. In it, I have a index.php that handles all the code for pages, and subfolders holding the resources for each site (images, css, etc).\r\n\r\nI want a rewrite that uses the images for the appropriate domain in their subfolder if they exists, and hands off to index.php if they don\'t. I also don\'t want to be able to access these subfolders directly','0','2018-03-23 11:51:35',1),(45,1,'uiyui','yuityui','0','2018-03-23 11:53:40',1),(46,1,'test','https://www.phpflow.com/php/create-a-dynamic-read-more-link-using-php/','0','2018-03-23 12:20:12',1),(47,2,'t','title','1','2018-03-23 13:35:12',1),(48,2,'yutyu','tyutryutyuyt','0','2018-03-23 17:52:53',0),(49,2,'oio','iouiouio','0','2018-03-26 15:47:18',1),(50,2,'title','share','1','2018-03-26 15:48:03',1);
 
 /*Table structure for table `posts` */
 
@@ -176,11 +176,11 @@ CREATE TABLE `posts` (
   `create_at` datetime DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`img_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `posts` */
 
-insert  into `posts`(`img_id`,`user_id`,`post_id`,`name`,`org_name`,`create_at`,`status`) values (31,1,42,'0.981224001521702364vasuimage.jpg','vasuimage.jpg','2018-03-22 12:36:17',1),(32,1,42,'0.915018001521702371pancard.jpg','pan card.jpg','2018-03-22 12:36:18',1);
+insert  into `posts`(`img_id`,`user_id`,`post_id`,`name`,`org_name`,`create_at`,`status`) values (31,1,42,'0.981224001521702364vasuimage.jpg','vasuimage.jpg','2018-03-22 12:36:17',1),(32,1,42,'0.915018001521702371pancard.jpg','pan card.jpg','2018-03-22 12:36:18',1),(33,2,47,'0.4658100015217922970.009835001520590332vasuimage.jpg','0.009835001520590332vasuimage.jpg','2018-03-23 13:35:12',1),(34,2,50,'0.813605001522059474pancard.jpg','pan card.jpg','2018-03-26 15:48:03',1);
 
 /*Table structure for table `status` */
 
@@ -202,12 +202,14 @@ DROP TABLE IF EXISTS `temp`;
 
 CREATE TABLE `temp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT '1',
+  `user_id` int(11) DEFAULT NULL,
   `name` varchar(250) DEFAULT NULL,
   `org_name` varchar(250) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
+  `text` varchar(250) DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `temp` */
 
