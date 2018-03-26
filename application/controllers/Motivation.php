@@ -29,7 +29,7 @@ class Motivation extends CI_Controller {
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
 			//echo $this->db->last_query();exit;
-			//echo '<pre>';print_r($data);exit;
+			//\\echo '<pre>';print_r($data);exit;
 			$this->load->view('html/index',$data);
 			$this->load->view('html/footer',$data);
 	}

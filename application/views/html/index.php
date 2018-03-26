@@ -1,4 +1,5 @@
-<?php //echo '<pre>';print_r($post_images); 
+
+<span onclick="hideshow()"><?php //echo '<pre>';print_r($post_images); 
    if(isset($post_images) && count($post_images)>0){
    	$cnt=1;foreach($post_images as $list){
    	$path =isset($list['p_list'][0]['imgname'])?$list['p_list'][0]['imgname']:'';
@@ -759,6 +760,7 @@
 <div id="sucessmsg" style="display:none;"></div>
 
 <script>
+
 function savetext(val){
 	 document.getElementById("formsavetext").value=val;	
 	 document.getElementById("formsavetext1").value=val;	
@@ -1043,3 +1045,4 @@ function getvideoidclose(){
           }
       }
 </script>
+</span>

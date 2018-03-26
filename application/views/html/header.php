@@ -18,7 +18,13 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");
  ?>
+ <script>
+$(window).click(function(e) {
+    alert(e.???);
+});
+ </script>
  
+
 </head>
   
   <body>
@@ -39,7 +45,7 @@ header("Pragma: no-cache");
     left:65px;color: #d30f61;font-size: 21px;top:-3px">
 		<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input style="padding:0px 5px;width:250px;height:40px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
+								<input style="padding:0px 5px;width:250px;height:40px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" id="q" style="background:#fff;z-index:1024">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -68,7 +74,7 @@ header("Pragma: no-cache");
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;z-index:1024;bottom:8px">
+								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" id="searchq" style="background:#fff;z-index:1024;bottom:8px">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -195,6 +201,10 @@ header("Pragma: no-cache");
         }
         window.onload = preloader;
 		/*loader*/
+		function hideshow(){
+			document.getElementById("searchq").value='';
+			$('#searchresult').hide();
+		}
 	function getsarchdata(val){
 		if(val!=''){
 				jQuery.ajax({
