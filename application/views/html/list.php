@@ -177,6 +177,7 @@
             <div class="post post-variant-1 box mar-t30">
                <div>
                   <div class="post-content-wrap">
+				  <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
                         <h4>
                            <?php if(strstr($List['text'], 'www.youtube.com/')==true){ 
 								$video_id = explode("?v=", $List['text']);
@@ -284,7 +285,8 @@
                   <?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
-                     <h4> 
+                     					 <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
+					 <h4> 
 					  <?php 
 					  if(strlen($List['text'])>50){
 						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 

@@ -52,10 +52,10 @@
                <div class="small text-gray-dark post-meta-author"><span style="color:#444;">Posted</span> <span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
                <h5><a href="#">
                <?php 
-                  if(strlen($List['text'])>50){
-                     echo   substr($List['text'], 0, 50).'...'; 
+                  if(strlen($List['title'])>50){
+                     echo   substr($List['title'], 0, 50).'...'; 
                   }else{
-                  echo $List['text']; 
+                  echo $List['title']; 
                   }
                   ?>
                </a></h5>

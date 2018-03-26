@@ -97,6 +97,15 @@
 									
 								
 									</form>
+									 <form id="#" name="" action="" method="post" enctype="multipart/form-data">
+										  <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
+											 <li class="image-upload">
+												<a style="color:#333;cursor:pointer" data-toggle="modal" data-target="#linkmodal">
+												<i class=" fa fa-link" ></i>
+												</a>
+											 </li>
+										  </ul>
+									   </form>
 									</div>
 									<form  id="imagespost" name="imagespost" action="<?php echo base_url('motivation/editimagepost'); ?>" method="post" enctype="multipart/form-data">
 											<input type="hidden" name="post_id" id="post_id" value="<?php echo isset($post_id)?$post_id:''; ?>">
@@ -126,9 +135,268 @@
         
         
       </main>
-	  
+	  <div class="modal fade" id="linkmodal" role="dialog">
+   <div class="modal-dialog modal-sm" id="linkid">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-body">
+            <form action="/action_page.php">
+               <div class="form-group">
+                  <label for="email">Add Link</label>
+                  <input type="text" name="addlink" id="addlink" value="" class="form-control"  >
+               </div>
+			   <div id="errormsgs"></div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" onclick="getvideoid();" class="btn btn-default btn-sm" >Ok</button>
+            <button type="button" onclick="getvideoidclose();" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+   <div class="modal-dialog" id="linkplayid" style="display:none;">
+      <!-- Modal content-->
+	  	<button type="button" style="position: absolute;right:5px;top:5px;color: #444;z-index: 1024;" onclick="closepopup();" class="close" aria-label="Close"><span aria-hidden="true">X</span></button>
+
+      <div class="modal-content">
+
+         <div class="modal-body" id="freameslink">
+            <iframe width="560" id="iframefilelink" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+         </div> 
+		 <div class="modal-body" id="normallink" style="display:none;">
+		 <div id="links_id"></div>
+         </div>
+		 <input type="hidden" name="playlink" id="playlink" value="">
+         <div class="modal-footer">
+            <button type="button" onclick="savevideoidclose();" class="btn btn-default btn-sm" >Ok</button>
+            <button type="button" onclick="getvideoidclose();" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="sucessmsg" style="display:none;"></div>
+
   <script>
  
+function savetext(val){
+	 document.getElementById("formsavetext").value=val;	
+	 document.getElementById("formsavetext1").value=val;	
+}
+function savetitle(val){
+	 document.getElementById("formsavetitle1").value=val;	
+	 document.getElementById("formsavetitle").value=val;	
+}
+function readmoreoption(id){
+	$('#readless'+id).hide();
+	$('#readmore'+id).show();
+}
+function readlessoption(id){
+	$('#readless'+id).show();
+	$('#readmore'+id).hide();
+}
+function prelogin(){
+	$('#sucessmsg').show();
+$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+
+}
+function closepopup(){
+	var link=$('#addlink').val('');
+		$('#linkid').show();
+		$('#linkplayid').hide();
+}
+function savevideoidclose(){
+	var link=document.getElementById("playlink").value;
+	if(link!=''){
+   		 jQuery.ajax({
+   					url: "<?php echo site_url('motivation/save_link');?>",
+   					data: {
+   						linkid: link,
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+						$('#sucessmsg').show();
+						if(data.msg==1){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please login to continue<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+						}if(data.msg==2){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-succ"> Post Successfully updated<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+							location.reload();
+						}if(data.msg==3){
+							$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">technical problem will occurred. Please try again. <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+					
+   					}
+   				 }
+   				});
+   			}
+}
+function getvideoid(){
+	var link=$('#addlink').val();
+		if(link ==''){
+			$('#sucessmsg').show();
+			$('#sucessmsg').html('<div class="alert_msg1 animated slideInUp bg-warn">Please enter value<i class="fa fa-check text-success ico_bac" aria-hidden="true"></i></div>');  
+			return false;
+		}else{
+			$('#linkid').hide();
+			 var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+				var match = link.match(regExp);
+				if (match && match[2].length == 11) {
+						var res = link.split("?v=");
+						var url='https://www.youtube.com/embed/'+res[1];
+						document.getElementById("iframefilelink").src=url;
+						document.getElementById("playlink").value=link;
+						$('#normallink').hide();
+						$('#freameslink').show();
+						$('#linkid').hide();
+						$('#linkplayid').show();
+			
+				}else{
+				 document.getElementById("iframefilelink").src=link;
+				 document.getElementById("playlink").value=link;
+				 document.getElementById("links_id").innerHTML=link;
+				$('#linkid').hide();
+				$('#linkplayid').show();
+				$('#normallink').show();
+				$('#freameslink').hide();
+				}
+		}
+}
+function getvideoidclose(){
+	var link=$('#addlink').val('');
+		$('#linkid').show();
+		$('#linkplayid').hide();
+		
+}
+   /*validation starting*/
+    
+     function onchangeimage(){
+   	
+   		var fup= document.getElementById('imagesupload');
+   		
+   		var fileName = fup.value;
+   		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+   		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+   		{
+   			
+   		}
+   		var names_arr = ['docx','doc','png','gif','GIF','JPEG','jpeg','jpg'];
+   		jQuery.ajax({
+   					url: "<?php echo site_url('motivation/getfiledata');?>",
+   					data: {
+   						attachmentid: '',
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+   						if(data.msg !=''){
+   							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
+   								
+   								$('#loading').show();
+									var file_data    = $('#imagesupload').prop('files')[0];
+									var form_data    = new FormData();
+										form_data.append('attachment', file_data);form_data.append('imagesupload', file_data);
+										form_data.append('text1', jQuery("#formsavetext").val());
+										form_data.append('title1', jQuery("#formsavetitle").val());
+											jQuery.ajax({
+											dataType: 'json',
+											cache: false,
+											contentType: false,
+											processData: false,
+											url: "<?php echo base_url('motivation/uploadvideos');?>",
+											data: form_data,
+											type: 'POST',
+											success: function (data) {
+														if(data.msg==1){
+														location.reload();
+															}
+												}
+											});
+								
+								
+								
+								
+								
+   							}else{
+   								
+   									alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
+   							
+   								}
+   							}else{
+   							$("#addimages").submit();
+   						}
+   					}
+   				});
+   		
+   	
+   } 
+   function onchangevideo(){
+   	var fup= document.getElementById('attachment');
+   		var fileName = fup.value;
+   		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+   		var blockedTile = new Array("mp4", "mp3", "3gpp");
+   		jQuery.ajax({
+   					url: "<?php echo site_url('motivation/getfiledata');?>",
+   					data: {
+   						attachmentid: '',
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+   						if(data.msg !=''){
+   							alert('Your upload only one video at time');return false;
+   						}else{
+   							if(ext == "mp4" || ext == "3gpp" || ext == "mp3")
+   								{
+									$('#loading').show();
+									var file_data    = $('#attachment').prop('files')[0];
+									var form_data    = new FormData();
+										form_data.append('attachment', file_data);form_data.append('attachment', file_data);
+										form_data.append('text1', jQuery("#formsavetext1").val());
+										form_data.append('title1', jQuery("#formsavetitle1").val());
+											jQuery.ajax({
+											dataType: 'json',
+											cache: false,
+											contentType: false,
+											processData: false,
+											url: "<?php echo base_url('motivation/uploadvideos');?>",
+											data: form_data,
+											type: 'POST',
+											success: function (data) {
+														if(data.msg==1){
+														location.reload();
+															}
+												}
+											});
+   								} else
+   									{
+   										alert("Upload mp4,mp3 ,3gpp videos only");return false;
+   								}
+   						}
+   					}
+   				});
+   		
+   } 
+   
+   
+   function remove_image(id){
+   	if(id!=''){
+   		 jQuery.ajax({
+   					url: "<?php echo site_url('motivation/attchements');?>",
+   					data: {
+   						attachmentid: id,
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+   					if(data.msg==1){
+   					$('#modalwindow').modal('hide');
+   						jQuery('#attach_'+id).hide();
+   					}
+   				 }
+   				});
+   			}
+   }
+   
+   /*validationending*/
 function remove_imagetemp(id){
 	if(id!=''){
 		 jQuery.ajax({
