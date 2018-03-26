@@ -1,3 +1,4 @@
+<span onclick="hideshow()">
 <?php if($this->session->flashdata('success')): ?>
 				<div class="alert_msg1 animated slideInUp bg-succ">
 				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i>
@@ -47,3 +48,4 @@
           <div class="rd-mailform-validate-2"></div>
         </section>
       </main>
+	  </span>

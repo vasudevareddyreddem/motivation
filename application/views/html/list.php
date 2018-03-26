@@ -1,3 +1,4 @@
+<span onclick="hideshow()">
 <?php //echo '<pre>';print_r($post_images); 
    if(isset($post_images) && count($post_images)>0){
    	$cnt=1;foreach($post_images as $list){
@@ -588,3 +589,4 @@ function readlessoption(id){
           }
       }
 </script>
+</span>
