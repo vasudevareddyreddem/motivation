@@ -206,12 +206,19 @@ document.getElementById("topscrooling").focus();
 					dataType: 'json',
 					type: 'POST',
 					success: function (data) {
+						if(data.msg==1){
 						 $('#result').show();
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
                       
-					}
+						}
+						}else{
+						 $('#result').show();
+							$('#searchresult').empty();						 
+						 $('#searchresult').append("No result found");                      
+
+						}
 				 }
 				});
 				
