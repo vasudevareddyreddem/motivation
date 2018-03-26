@@ -217,12 +217,12 @@
                <form id="addimages1" name="addimages1" action="<?php echo base_url('motivation/addimage'); ?>" method="post" enctype="multipart/form-data">
                   <ul class="col-md-1 col-xs-1 col-sm-1" style="width:80px;">
                      <li class="image-upload">
-                        <label for="videoimages">
+                        <label for="attachment">
                         <i class="fa fa-video-camera"></i>
                         </label>
 						<input type="hidden" id="formsavetext1" name="formsavetext1" value="">
 						<input type="hidden" id="formsavetitle1" name="formsavetitle1" value="">
-                        <input type="file" id="videoimages" name="images3" onchange="onchangevideo();" />
+                        <input type="file" id="attachment" name="images3" onchange="onchangevideo();" />
                      </li>
                   </ul>
                </form>
@@ -871,7 +871,31 @@ function getvideoidclose(){
    						if(data.msg !=''){
    							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
    								
-   								$("#addimages").submit();
+   								$('#loading').show();
+									var file_data    = $('#imagesupload').prop('files')[0];
+									var form_data    = new FormData();
+										form_data.append('attachment', file_data);form_data.append('imagesupload', file_data);
+										form_data.append('text1', jQuery("#formsavetext").val());
+										form_data.append('title1', jQuery("#formsavetitle").val());
+											jQuery.ajax({
+											dataType: 'json',
+											cache: false,
+											contentType: false,
+											processData: false,
+											url: "<?php echo base_url('motivation/uploadvideos');?>",
+											data: form_data,
+											type: 'POST',
+											success: function (data) {
+														if(data.msg==1){
+														location.reload();
+															}
+												}
+											});
+								
+								
+								
+								
+								
    							}else{
    								
    									alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only or  mp4,mp3 ,3gpp videos only');return false;
@@ -886,8 +910,7 @@ function getvideoidclose(){
    	
    } 
    function onchangevideo(){
-   	
-   		var fup= document.getElementById('videoimages');
+   	var fup= document.getElementById('attachment');
    		var fileName = fup.value;
    		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
    		var blockedTile = new Array("mp4", "mp3", "3gpp");
@@ -904,7 +927,26 @@ function getvideoidclose(){
    						}else{
    							if(ext == "mp4" || ext == "3gpp" || ext == "mp3")
    								{
-   									$("#addimages1").submit();
+									$('#loading').show();
+									var file_data    = $('#attachment').prop('files')[0];
+									var form_data    = new FormData();
+										form_data.append('attachment', file_data);form_data.append('attachment', file_data);
+										form_data.append('text1', jQuery("#formsavetext1").val());
+										form_data.append('title1', jQuery("#formsavetitle1").val());
+											jQuery.ajax({
+											dataType: 'json',
+											cache: false,
+											contentType: false,
+											processData: false,
+											url: "<?php echo base_url('motivation/uploadvideos');?>",
+											data: form_data,
+											type: 'POST',
+											success: function (data) {
+														if(data.msg==1){
+														location.reload();
+															}
+												}
+											});
    								} else
    									{
    										alert("Upload mp4,mp3 ,3gpp videos only");return false;
@@ -912,9 +954,7 @@ function getvideoidclose(){
    						}
    					}
    				});
-   				
    		
-   	
    } 
    
    
