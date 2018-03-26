@@ -18,12 +18,6 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");
  ?>
- <script>
-$(window).click(function(e) {
-    alert(e.???);
-});
- </script>
- 
 
 </head>
   
@@ -61,13 +55,15 @@ $(window).click(function(e) {
 			 
               <div class="rd-navbar-nav-wrap">
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
+                <span onclick="hideshow()">
+				<div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
                 <!-- RD Navbar Nav-->
 				<div class="side-user-img-bac">
 				<div class="side-user-img">
 				<img class="md-hide  img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/admin.jpg" alt="" >
 				</div>
 				</div>
+				</span>
                 <div class="rd-navbar-nav-outher">
                   <ul class="rd-navbar-nav mobile-side-margin">
                     <li class="active sm-hide">
@@ -135,7 +131,6 @@ $(window).click(function(e) {
           </nav>
         </div>
         <!-- Swiper-->
-        
       </header>
 	  
     <?php if($this->session->flashdata('success')): ?>
@@ -206,6 +201,7 @@ $(window).click(function(e) {
 			$('#searchresult').hide();
 		}
 	function getsarchdata(val){
+		
 		if(val!=''){
 				jQuery.ajax({
 					url: "<?php echo base_url('motivation/search');?>",
@@ -217,6 +213,7 @@ $(window).click(function(e) {
 					success: function (data) {
 						if(data.msg==1){
 						 $('#result').show();
+						 $('#searchresult').show();
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
@@ -224,6 +221,7 @@ $(window).click(function(e) {
 						}
 						}else{
 						 $('#result').show();
+						  $('#searchresult').show();
 							$('#searchresult').empty();						 
 						 $('#searchresult').append("No result found");                      
 
@@ -247,6 +245,7 @@ $(window).click(function(e) {
 					type: 'POST',
 					success: function (data) {
 						 $('#result1').show();
+						  $('#searchresult').show();
 						$('#searchresult1').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult1').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
