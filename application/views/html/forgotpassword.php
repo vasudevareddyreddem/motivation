@@ -1,3 +1,4 @@
+<span onclick="hideshow()">
 <main class="page-content" style="margin-top:50px;">
         <div id="fb-root"></div>
         <div class="shell">
@@ -24,3 +25,4 @@
           </div>
         </div>
       </main>
+	  </span>

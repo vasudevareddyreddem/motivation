@@ -1,4 +1,5 @@
 <?php //echo '<pre>';print_r($post_images); exit ; ?>
+<span onclick="hideshow()">
 <main class="page-content">
         <div id="fb-root"></div>
         <div class="shell">
@@ -349,3 +350,4 @@ function likecount(id){
        }
    }
 </script>
+</span>

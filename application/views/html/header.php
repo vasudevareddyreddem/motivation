@@ -18,7 +18,7 @@
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");
  ?>
- 
+
 </head>
   
   <body>
@@ -39,7 +39,7 @@ header("Pragma: no-cache");
     left:65px;color: #d30f61;font-size: 21px;top:-3px">
 		<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input style="padding:0px 5px;width:250px;height:40px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" style="background:#fff;z-index:1024">
+								<input style="padding:0px 5px;width:250px;height:40px;" type="text" class="form-control " placeholder="Search"  onkeyup="getsarchdata1(this.value);" name="q" id="q" style="background:#fff;z-index:1024">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -55,20 +55,22 @@ header("Pragma: no-cache");
 			 
               <div class="rd-navbar-nav-wrap">
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
+                <span onclick="hideshow()">
+				<div class="rd-navbar-brand"><a href="<?php echo base_url(); ?>" class="brand-name"><img src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="" width="158" height="50"></a></div>
                 <!-- RD Navbar Nav-->
 				<div class="side-user-img-bac">
 				<div class="side-user-img">
 				<img class="md-hide  img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/admin.jpg" alt="" >
 				</div>
 				</div>
+				</span>
                 <div class="rd-navbar-nav-outher">
                   <ul class="rd-navbar-nav mobile-side-margin">
                     <li class="active sm-hide">
 						
 							<form class="navbar-form" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" style="background:#fff;z-index:1024;bottom:8px">
+								<input type="text" class="form-control sear-sty" placeholder="Search"  onkeyup="getsarchdata(this.value);" name="q" id="searchq" style="background:#fff;z-index:1024;bottom:8px">
 								<span class="sear-btn"  >
 									<span  class=" text-danger " type="submit"><i class="fa fa-search" aria-hidden="true"></i>
 									</span>
@@ -129,7 +131,6 @@ header("Pragma: no-cache");
           </nav>
         </div>
         <!-- Swiper-->
-        
       </header>
 	  
     <?php if($this->session->flashdata('success')): ?>
@@ -195,7 +196,12 @@ header("Pragma: no-cache");
         }
         window.onload = preloader;
 		/*loader*/
+		function hideshow(){
+			document.getElementById("searchq").value='';
+			$('#searchresult').hide();
+		}
 	function getsarchdata(val){
+		
 		if(val!=''){
 				jQuery.ajax({
 					url: "<?php echo base_url('motivation/search');?>",
@@ -207,6 +213,7 @@ header("Pragma: no-cache");
 					success: function (data) {
 						if(data.msg==1){
 						 $('#result').show();
+						 $('#searchresult').show();
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
@@ -214,6 +221,7 @@ header("Pragma: no-cache");
 						}
 						}else{
 						 $('#result').show();
+						  $('#searchresult').show();
 							$('#searchresult').empty();						 
 						 $('#searchresult').append("No result found");                      
 
@@ -237,6 +245,7 @@ header("Pragma: no-cache");
 					type: 'POST',
 					success: function (data) {
 						 $('#result1').show();
+						  $('#searchresult').show();
 						$('#searchresult1').empty();
 						for(i=0; i<data.text.length; i++) {
 						$('#searchresult1').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      

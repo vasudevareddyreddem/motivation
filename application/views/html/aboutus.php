@@ -1,4 +1,4 @@
-<?php if($this->session->flashdata('success')): ?>
+<span onclick="hideshow()"><?php if($this->session->flashdata('success')): ?>
 				<div class="alert_msg1 animated slideInUp bg-succ">
 				<?php echo $this->session->flashdata('success');?> &nbsp; <i class="glyphicon glyphicon-ok text-success ico_bac" aria-hidden="true"></i>
 				</div>
@@ -160,3 +160,4 @@
         </div>
       </main>
 	  
+</span>
