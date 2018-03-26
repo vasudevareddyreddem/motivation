@@ -409,7 +409,7 @@ hr {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   color: #303043;
 }
@@ -489,6 +489,7 @@ h4, .h4 {
 
 h5, .h5 {
   font-size: 20px;
+  color:#555;
 }
 
 h6, .h6 {
@@ -20374,7 +20375,7 @@ h4 + * {
 }
 
 h5 + * {
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 h6 + * {

@@ -284,7 +284,7 @@
 					  echo $List['text']; 
 					  }
 					  ?>
-					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
+					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span style="color:#d30f61" id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
                      <?php } ?>
                      
                      </h4>
@@ -478,19 +478,20 @@
                   <?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
-                     <h4> 
+					 <h5>Test Title</h5>
+                     <p> 
 					 <?php 
 					  if(strlen($List['text'])>50){
-						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
+						 echo   substr($List['text'], 0, 150); ?><span style="color:#d30f61;font-size:16px" id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);"> <i>... Read More</i></span> 
 					 <?php  }else{
 					  echo $List['text']; 
 					  }
 					  ?>
-					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
+					  <span  id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span style="color:#d30f61;font-size:16px" id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);"> <i>... Read Less</i></span></span>
                      
 					 
 					 
-					 </h4>
+					 </p>
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
