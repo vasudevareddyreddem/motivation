@@ -877,7 +877,7 @@ function getvideoidclose(){
    						if(data.msg !=''){
    							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
    								
-   								$('#loading').show();
+									$('#loading').show();
 									var file_data    = $('#imagesupload').prop('files')[0];
 									var form_data    = new FormData();
 										form_data.append('attachment', file_data);form_data.append('imagesupload', file_data);

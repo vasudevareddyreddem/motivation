@@ -313,6 +313,7 @@ box-shadow: 0px 0px 58px -16px rgba(0,0,0,0.75);
 	position:absolute;
 	width:100%;
 	z-index:2;
+	word-break: break-all;
 }
 .h6-comments{
 	line-height:5px !important;
