@@ -2,6 +2,7 @@
       
       
     </div>
+	</body>
     
 <!-- Modal: modalPoll -->
 <div class="modal fade right" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
@@ -100,4 +101,5 @@ if(count($List['p_list'])!=0){ ?>
 <?php } ?>
      
       </script> 
+	
 </html>

@@ -149,7 +149,6 @@
 					<ol>
 					<li>This video has no negative impact on the original works (It would actually be positive for them)</li>
 					<li>This video is also for teaching purposes.</li>
-					<li>This video is also for teaching purposes.</li>
 					<li>It is positively transformative in nature.</li>
 					<li>I only used bits and pieces of videos to get the point across where necessary.</li>
 					<li>All the videos are used in this blog are provided the youtube api if any individual have any problem with the video can directly mail us on whatslyfhelp@gmail.com</li>

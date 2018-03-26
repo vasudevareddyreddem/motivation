@@ -195,7 +195,6 @@ header("Pragma: no-cache");
         }
         window.onload = preloader;
 		/*loader*/
-document.getElementById("topscrooling").focus();
 	function getsarchdata(val){
 		if(val!=''){
 				jQuery.ajax({
