@@ -49,7 +49,7 @@
                      <img src="<?php echo base_url('assets/files/'.$List['p_list'][0]['imgname']); ?>"  alt="" class="img-responsive post-image"/>
                </div>
                <div class="post-content-wrap">
-               <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
+               <div class="small text-gray-dark post-meta-author"><span style="color:#444;">Posted</span> <span class="text-primary"> by <a href="#"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
                <h5><a href="#">
                <?php 
                   if(strlen($List['text'])>50){
@@ -268,6 +268,7 @@
             <div class="post post-variant-1 box mar-t30">
                <div>
                   <div class="post-content-wrap">
+				  <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
                         <h4>
                            <?php if(strstr($List['text'], 'www.youtube.com/')==true){ 
 								$video_id = explode("?v=", $List['text']);
@@ -280,19 +281,19 @@
 					
 					 <?php 
 					  if(strlen($List['text'])>50){
-						 echo   substr($List['text'], 0, 150); ?><span id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);">... Read More</span> 
+						 echo   substr($List['text'], 0, 150); ?><span style="color:#d30f61;font-size:16px"  id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);"><i>... Read More</i></span> 
 					 <?php  }else{
 					  echo $List['text']; 
 					  }
 					  ?>
-					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span style="color:#d30f61" id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);">... Read Less</span></span>
+					  <span id="readmore<?php echo $List['p_id']; ?>" style="display:none;"><?php if(strlen($List['text']) >= 160){ echo  substr($List['text'],150); } ?><span style="color:#d30f61;font-size:16px" id="moreless<?php echo $List['p_id']; ?>" onclick="readlessoption(<?php echo $List['p_id']; ?>);"><i>... Read Less</i></span></span>
                      <?php } ?>
                      
                      </h4>
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                         <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span>
                      </div>
-					 					 <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
+					 					 
 
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
