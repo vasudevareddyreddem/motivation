@@ -45,7 +45,7 @@ header("Pragma: no-cache");
 									</span>
 								</span>
 								<div class="search-bac" id="result1" style="display:none;">
-									<ul class="text-left mar-t10" id="searchresult1">
+									<ul class="text-left mar-t10 pad-l-r" id="searchresult1">
 									</ul>
 								</div>
 							</div>
@@ -74,7 +74,7 @@ header("Pragma: no-cache");
 									</span>
 								</span>
 								<div class="search-bac" id="result" style="display:none;">
-									<ul class="text-left mar-t10" id="searchresult">
+									<ul class="text-left mar-t10 pad-l-r" id="searchresult">
 									</ul>
 								</div>
 							</div>

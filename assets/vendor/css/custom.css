@@ -20,7 +20,13 @@ ol li:before {
     padding: 0 20px;
     margin: 0;
 }
-
+.pad-l-r{
+	padding-left:5px;
+	padding-right:5px;
+}
+.pad-l-r li{
+	border-bottom:1px solid #f5f5f5;
+}
 .card .card-heading.simple {
     font-size: 20px;
     font-weight: 300;
