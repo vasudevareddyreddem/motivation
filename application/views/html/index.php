@@ -292,6 +292,8 @@
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by 
                         <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span>
                      </div>
+					 					 <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
+
                      <ul class="post-meta list-inline list-inline-md">
                         <li><a href="#" class="post-meta-date small"><?php echo date('M d,  Y',strtotime(htmlentities($List['create_at'])));?></a></li>
                         <li  onclick="showhide('<?php echo $List['p_id']; ?>');"><a  class="post-meta-comment small"><?php if(count($List['comment_list'])>0){ echo count($List['comment_list']) ; } ?></a></li>
@@ -479,7 +481,7 @@
                   <?php  } ?>
                   <div class="post-content-wrap">
                      <div class="small text-gray-dark post-meta-author">Posted<span class="text-primary"> by <a href="javascript:void(0)"><?php echo isset($List['name'])?$List['name']:''; ?></a></span></div>
-					 <h5>Test Title</h5>
+					 <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
                      <p> 
 					 <?php 
 					  if(strlen($List['text'])>50){
