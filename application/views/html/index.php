@@ -686,7 +686,7 @@
                      <div class="section-xs-size">
                         <h5>Newsletter</h5>
                         <form  method="post" action="<?php echo base_url('motivation/newsletter'); ?>" class="form-inline-flex form-inline reveal-xs-flex ">
-                           <input class="form-control" style="width:90%" type="email" name="email"  placeholder="Your e-mail" required>
+                           <input class="form-control" style="width:70%" type="email" name="email"  placeholder="Your e-mail" required>
                            <button style="font-size:12px;" type="submit" class="btn btn-primary btn-sm offset-top-15 offset-xs-top-0" style=""> Subscribe</button>
                         </form>
                      </div>
