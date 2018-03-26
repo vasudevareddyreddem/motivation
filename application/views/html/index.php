@@ -280,7 +280,7 @@
                      <?php  }else{ ?>
 					
 					 <?php 
-					  if(strlen($List['text'])>50){
+					  if(strlen($List['text'])>150){
 						 echo   substr($List['text'], 0, 150); ?><span style="color:#d30f61;font-size:16px"  id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);"><i>... Read More</i></span> 
 					 <?php  }else{
 					  echo $List['text']; 
@@ -485,7 +485,7 @@
 					 <h5><?php echo isset($List['title'])?$List['title']:''; ?></h5>
                      <p> 
 					 <?php 
-					  if(strlen($List['text'])>50){
+					  if(strlen($List['text'])>150){
 						 echo   substr($List['text'], 0, 150); ?><span style="color:#d30f61;font-size:16px" id="readless<?php echo $List['p_id']; ?>" onclick="readmoreoption(<?php echo $List['p_id']; ?>);"> <i>... Read More</i></span> 
 					 <?php  }else{
 					  echo $List['text']; 
@@ -877,7 +877,7 @@ function getvideoidclose(){
    						if(data.msg !=''){
    							if( data.msg == "png" ||  data.msg == "gif" || data.msg == "GIF" || data.msg == "JPEG" || data.msg == "jpeg" || data.msg == "jpg" || data.msg == "JPG" ){
    								
-									$('#loading').show();
+   								$('#loading').show();
 									var file_data    = $('#imagesupload').prop('files')[0];
 									var form_data    = new FormData();
 										form_data.append('attachment', file_data);form_data.append('imagesupload', file_data);
