@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="utf-8">
     
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="<?php echo base_url(); ?>assets/vendor/css/images-grid.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/fontawesome.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/style.css">
@@ -60,7 +60,7 @@ header("Pragma: no-cache");
                 <!-- RD Navbar Nav-->
 				<div class="side-user-img-bac">
 				<div class="side-user-img">
-				<img class="md-hide  img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/admin.jpg" alt="" >
+				<img class="md-hide  img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/user.png" alt="User" >
 				</div>
 				</div>
 				</span>

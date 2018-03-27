@@ -44,17 +44,19 @@
 					<?php
 					$title=urlencode($post_images['text']);
 					if(count($post_images['p_list'])>0){
-					//$url=urlencode(base_url('assets/files/'.$post_images['p_list'][0]['imgname']));
-					$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
-					}else{
 					$url=urlencode('http://whatslyf.com/');	
+					$image=urlencode(base_url('assets/files/'.$post_images['p_list'][0]['imgname']));
+					//$url=urlencode('http://test.shofus.com/uploads/products/0.83075400%201518082694wallet1.jpg');
+					}else{
+					$url=urlencode('http://whatslyf.com/');
+					$image=urlencode($post_images['text']);					
 					}
 					$summary=urlencode($post_images['text']);
-					$image=$url;
+					
 					?>
-                              <ul class="list-inline-0">
+                     <ul class="list-inline-0">
 						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $url; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
 						<li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
 					</ul>
 					<div class="modal fade" id="sharemyModal" role="dialog">
@@ -80,7 +82,7 @@
 						
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
+								<a onClick="window.open('http://pinterest.com/pin/create/bookmarklet/?url=<?php echo $url; ?>&is_video=false&description=<?php echo $summary;?>&media=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/pinterest.png">
 								<span>Pinterest</span></a>
 						</div>
 						</li>
