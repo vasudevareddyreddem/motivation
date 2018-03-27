@@ -598,7 +598,11 @@ margin-right: 7px;
 	.page-content {
     padding-left: 10px;
     padding-right: 10px;
+	height: 100%;
+min-width: 100%;
+min-height: 100%;
 }
+
 .mobi-res{
 	margin-top:10px;
 	
