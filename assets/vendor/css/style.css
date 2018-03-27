@@ -24721,8 +24721,9 @@ img.mfp-img {
 }
 
 .owl-carousel .owl-item .post-variant-1 {
-  width: 280px;
-  margin:5px;
+  width: 100%;
+  min-width: 270px;
+ 
 }
 
 .owl-carousel-navigation-variant-1 .owl-prev {
