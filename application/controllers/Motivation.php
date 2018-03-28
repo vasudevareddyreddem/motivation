@@ -53,13 +53,43 @@ class Motivation extends CI_Controller {
 		{
 			// User logged in, get user details
 			$user = $this->facebook->request('get', '/me?fields=id,name,email');
-			//echo '<pre>';print_r($user);exit;
+			echo '<pre>';print_r($user);
 			if (!isset($user['error']))
 			{
 				$data['user'] = $user;
 			}
 
 		}
+		$fb = $this->facebook->object();
+//$Tt=$this->facebook->user_upload_request('http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg', ['message' => 'This is a test upload']);
+//$this->facebook->add_to_batch_pool('http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg', 'post', '/me');
+
+$data = [
+  'message' => 'testing purpose.',
+  'link' => 'http://whatslyf.com/',
+  'picture' => 'http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg',
+  'image' => 'http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg',
+];
+
+try {
+  $response = $fb->post('/me/feed', $data);
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Error: ' . $e->getMessage();
+  exit;
+}
+
+$graphNode = $response->getGraphNode();
+
+echo 'Photo ID: ' . $graphNode['id'];
+
+
+
+// Get user info
+$response = $fb->get('/me');
+$usersss     = $response->getDecodedBody();
+
+
+exit;
 		$this->load->view('examples/web', $data);
 	
 
@@ -84,7 +114,7 @@ class Motivation extends CI_Controller {
 	}
 	public function singlepost()
 	{
-			$header['currentURL'] = current_url();
+			$data['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
