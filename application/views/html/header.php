@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="utf-8">
-    
+	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="<?php echo base_url(); ?>assets/vendor/css/images-grid.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/fontawesome.min.css">
@@ -272,6 +272,6 @@ function myFunction() {
         }
     }
 }
-  
+
 		
 </script>

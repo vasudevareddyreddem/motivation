@@ -46,16 +46,20 @@
 					
 					if(count($post_images['p_list'])>0){
 					$url=urlencode($currentURL);
+					$url1=($currentURL);
 					$image=urlencode(base_url('assets/files/'.$post_images['p_list'][0]['imgname']));
+					$image1=(base_url('assets/files/'.$post_images['p_list'][0]['imgname']));
 					}else{
 					$url=urlencode($currentURL);
+					$url1=($currentURL);
 					$image=urlencode($currentURL);					
+					$image1=($currentURL);					
 					}
 					$summary=urlencode($post_images['text']);
 					
-					?> 
-					<ul class="list-inline-0">
-						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo $image; ?>&p[title]=<?php echo $title;?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+					?> 	<ul class="list-inline-0">
+						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo base_url('motivation/shareimage/'.base64_encode($post_images['p_id'])); ?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+				
 						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
 						<li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
 					</ul>

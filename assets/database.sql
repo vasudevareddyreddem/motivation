@@ -157,11 +157,11 @@ CREATE TABLE `post_count` (
   `create_at` datetime DEFAULT NULL,
   `pstatus` int(11) DEFAULT '1',
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 /*Data for the table `post_count` */
 
-insert  into `post_count`(`p_id`,`user_id`,`title`,`text`,`image_count`,`create_at`,`pstatus`) values (28,1,'     strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)     stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)     strripos() - Finds the p','https://www.youtube.com/watch?v=u-YD1zpKXls','0','2018-03-23 12:51:09',1),(42,1,'op','\r\n    strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)\r\n    stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)\r\n    strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)\r\n','2','2018-03-23 12:40:49',1),(43,1,'testing','likethis   gfhdfgh     sdhghsdh bfghhhhhhhhhhh hhhhhhhhh fgfgg','0','2018-03-23 12:15:45',1),(44,1,'testingjhgjghj','I have a catch-all Apache virtual host in /var/www/. In it, I have a index.php that handles all the code for pages, and subfolders holding the resources for each site (images, css, etc).\r\n\r\nI want a rewrite that uses the images for the appropriate domain in their subfolder if they exists, and hands off to index.php if they don\'t. I also don\'t want to be able to access these subfolders directly','0','2018-03-23 11:51:35',1),(45,1,'uiyui','yuityui','0','2018-03-23 11:53:40',1),(46,1,'test','https://www.phpflow.com/php/create-a-dynamic-read-more-link-using-php/','0','2018-03-23 12:20:12',1),(47,2,'t','title','1','2018-03-23 13:35:12',1),(48,2,'yutyu','tyutryutyuyt','0','2018-03-23 17:52:53',0),(49,2,'oio','iouiouio','0','2018-03-26 15:47:18',1),(50,2,'title','share','1','2018-03-26 15:48:03',1);
+insert  into `post_count`(`p_id`,`user_id`,`title`,`text`,`image_count`,`create_at`,`pstatus`) values (28,1,'     strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)     stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)     strripos() - Finds the p','https://www.youtube.com/watch?v=u-YD1zpKXls','0','2018-03-23 12:51:09',1),(42,1,'op','\r\n    strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)\r\n    stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)\r\n    strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)\r\n','2','2018-03-23 12:40:49',1),(43,1,'testing','likethis   gfhdfgh     sdhghsdh bfghhhhhhhhhhh hhhhhhhhh fgfgg','0','2018-03-23 12:15:45',1),(44,1,'testingjhgjghj','I have a catch-all Apache virtual host in /var/www/. In it, I have a index.php that handles all the code for pages, and subfolders holding the resources for each site (images, css, etc).\r\n\r\nI want a rewrite that uses the images for the appropriate domain in their subfolder if they exists, and hands off to index.php if they don\'t. I also don\'t want to be able to access these subfolders directly','0','2018-03-23 11:51:35',1),(45,1,'uiyui','yuityui','0','2018-03-23 11:53:40',1),(46,1,'test','https://www.phpflow.com/php/create-a-dynamic-read-more-link-using-php/','0','2018-03-23 12:20:12',1),(47,2,'t','title','1','2018-03-23 13:35:12',1),(48,2,'yutyu','tyutryutyuyt','0','2018-03-23 17:52:53',0),(49,2,'oio','iouiouio','0','2018-03-26 15:47:18',1),(50,2,'title','share','1','2018-03-26 15:48:03',1),(51,2,'','https://www.youtube.com/watch?v=53smGgdkBcU',NULL,'2018-03-26 17:37:56',1),(52,2,'','https://www.youtube.com/watch?v=53smGgdkBcU',NULL,'2018-03-26 17:40:45',1),(53,2,'uty','yuytu','1','2018-03-26 18:48:52',1),(54,2,'yuty','ytutyu','1','2018-03-26 18:49:04',1),(55,2,'yutyu','yutyu','1','2018-03-26 18:49:16',1),(56,2,'ttt','dddd','1','2018-03-26 18:49:37',1);
 
 /*Table structure for table `posts` */
 
@@ -176,11 +176,11 @@ CREATE TABLE `posts` (
   `create_at` datetime DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`img_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 /*Data for the table `posts` */
 
-insert  into `posts`(`img_id`,`user_id`,`post_id`,`name`,`org_name`,`create_at`,`status`) values (31,1,42,'0.981224001521702364vasuimage.jpg','vasuimage.jpg','2018-03-22 12:36:17',1),(32,1,42,'0.915018001521702371pancard.jpg','pan card.jpg','2018-03-22 12:36:18',1),(33,2,47,'0.4658100015217922970.009835001520590332vasuimage.jpg','0.009835001520590332vasuimage.jpg','2018-03-23 13:35:12',1),(34,2,50,'0.813605001522059474pancard.jpg','pan card.jpg','2018-03-26 15:48:03',1);
+insert  into `posts`(`img_id`,`user_id`,`post_id`,`name`,`org_name`,`create_at`,`status`) values (31,1,42,'0.981224001521702364vasuimage.jpg','vasuimage.jpg','2018-03-22 12:36:17',1),(32,1,42,'0.915018001521702371pancard.jpg','pan card.jpg','2018-03-22 12:36:18',1),(35,2,53,'0.841048001522070328vasuimage.jpg','vasuimage.jpg','2018-03-26 18:48:52',1),(36,2,54,'0.290635001522070340vasuimage.jpg','vasuimage.jpg','2018-03-26 18:49:04',1),(37,2,55,'0.792294001522070351pancard.jpg','pan card.jpg','2018-03-26 18:49:16',1),(38,2,56,'0.350745001522070369vasuimage.jpg','vasuimage.jpg','2018-03-26 18:49:37',1);
 
 /*Table structure for table `status` */
 
@@ -209,7 +209,7 @@ CREATE TABLE `temp` (
   `text` varchar(250) DEFAULT NULL,
   `title` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `temp` */
 

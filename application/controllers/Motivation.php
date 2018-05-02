@@ -35,14 +35,8 @@ class Motivation extends CI_Controller {
 	}
 	public function test()
 	{
-		
-			
 			$header['currentURL'] = current_url();
-			$this->load->view('html/header',$header);
-			$this->load->view('index');
-			$this->load->view('html/footer');
-			
-			
+			$this->load->view('share');
 	}
 	public function web_login()
 	{
@@ -53,43 +47,14 @@ class Motivation extends CI_Controller {
 		{
 			// User logged in, get user details
 			$user = $this->facebook->request('get', '/me?fields=id,name,email');
-			echo '<pre>';print_r($user);
+			//echo '<pre>';print_r($user);
 			if (!isset($user['error']))
 			{
 				$data['user'] = $user;
 			}
 
 		}
-		$fb = $this->facebook->object();
-//$Tt=$this->facebook->user_upload_request('http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg', ['message' => 'This is a test upload']);
-//$this->facebook->add_to_batch_pool('http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg', 'post', '/me');
 
-$data = [
-  'message' => 'testing purpose.',
-  'link' => 'http://whatslyf.com/',
-  'picture' => 'http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg',
-  'image' => 'http://test.shofus.com/uploads/products/0.93176500%201513598256b1.jpg',
-];
-
-try {
-  $response = $fb->post('/me/feed', $data);
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Error: ' . $e->getMessage();
-  exit;
-}
-
-$graphNode = $response->getGraphNode();
-
-echo 'Photo ID: ' . $graphNode['id'];
-
-
-
-// Get user info
-$response = $fb->get('/me');
-$usersss     = $response->getDecodedBody();
-
-
-exit;
 		$this->load->view('examples/web', $data);
 	
 
@@ -115,6 +80,7 @@ exit;
 	public function singlepost()
 	{
 			$data['currentURL'] = current_url();
+			$header['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
@@ -123,6 +89,36 @@ exit;
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('html/single',$data);
 			$this->load->view('html/footer',$footerdata);
+	}
+	public function shareimage()
+	{
+			$post_id=base64_decode($this->uri->segment(3));
+			if($post_id !=''){
+				$data['rurl']=base_url('motivation/singlepost/'.base64_encode($post_id));
+			}else{
+				$data['rurl']=base_url('');
+			}
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post_id=base64_decode($this->uri->segment(3));
+			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			$footerdata['post_images']=$this->Motivation_model->get_all_post_lists($loginuser_id['id']);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/sharing',$data);
+	}
+	public function sharetext()
+	{
+			$post_id=base64_decode($this->uri->segment(3));
+			if($post_id !=''){
+				$data['rurl']=base_url('motivation/singlepost/'.base64_encode($post_id));
+			}else{
+				$data['rurl']=base_url('');
+			}
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post_id=base64_decode($this->uri->segment(3));
+			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			$footerdata['post_images']=$this->Motivation_model->get_all_post_lists($loginuser_id['id']);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/sharetext',$data);
 	}
 	public function admin()
 	{
