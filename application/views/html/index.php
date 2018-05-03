@@ -316,7 +316,7 @@
                         $summary=urlencode($List['text']);
                         ?>
                      <ul class="list-inline-0">
-                        <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/shareimage/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+                        <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/share/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
                         <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
                      </ul>
@@ -519,7 +519,7 @@
                         $summary=urlencode($List['text']);
                         ?>
                      <ul class="list-inline-0">
-                        <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/shareimage/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
+                        <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/share/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
                         <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
                      </ul>

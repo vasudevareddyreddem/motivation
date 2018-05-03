@@ -90,7 +90,7 @@ class Motivation extends CI_Controller {
 			$this->load->view('html/single',$data);
 			$this->load->view('html/footer',$footerdata);
 	}
-	public function shareimage()
+	public function share()
 	{
 			$post_id=base64_decode($this->uri->segment(3));
 			if($post_id !=''){
@@ -100,6 +100,22 @@ class Motivation extends CI_Controller {
 			}
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
+			$data['p_id']=$this->uri->segment(3);
+			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/share',$data);
+	}
+	public function shareimg()
+	{
+			$post_id=base64_decode($this->uri->segment(3));
+			if($post_id !=''){
+				$data['rurl']=base_url('motivation/singlepost/'.base64_encode($post_id));
+			}else{
+				$data['rurl']=base_url('');
+			}
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post_id=base64_decode($this->uri->segment(3));
+			$data['p_id']=$this->uri->segment(3);
 			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
 			$footerdata['post_images']=$this->Motivation_model->get_all_post_lists($loginuser_id['id']);
 			//echo '<pre>';print_r($data);exit;
@@ -113,12 +129,13 @@ class Motivation extends CI_Controller {
 			}else{
 				$data['rurl']=base_url('');
 			}
+			$data['p_id']=$this->uri->segment(3);
 			$loginuser_id=$this->session->userdata('userdetails');
 			$post_id=base64_decode($this->uri->segment(3));
 			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
 			$footerdata['post_images']=$this->Motivation_model->get_all_post_lists($loginuser_id['id']);
 			//echo '<pre>';print_r($data);exit;
-			$this->load->view('html/sharetext',$data);
+			$this->load->view('html/textshare',$data);
 	}
 	public function admin()
 	{
