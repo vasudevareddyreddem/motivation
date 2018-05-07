@@ -255,7 +255,7 @@ class Motivation_model extends CI_Model
 
 	public function filesdata($id){
 		$this->db->select('*')->from('temp');
-		$this->db->where('id', $id);
+		$this->db->where('user_id', $id);
 		$this->db->order_by("temp.create_at", "DESC");		
 		return $this->db->get()->row_array();
 	}

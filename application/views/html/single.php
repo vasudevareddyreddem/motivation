@@ -42,7 +42,7 @@
                    
                     <div class="offset-top-15 offset-sm-top-0">
 					<?php
-					$title=urlencode($post_images['text']);
+					$title=urlencode($post_images['title']);
 					
 					if(count($post_images['p_list'])>0){
 					$url=urlencode($currentURL);
@@ -52,19 +52,19 @@
 					}else{
 					$url=urlencode($currentURL);
 					$url1=($currentURL);
-					$image=urlencode($currentURL);					
-					$image1=($currentURL);					
+					$image='';					
+					$image1='';					
 					}
-					$summary=urlencode($post_images['text']);
+					$summary=$post_images['text'];
 					
-					?> 	<ul class="list-inline-0">
+					?> 
+					<ul class="list-inline-0">
 						<li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo base_url('motivation/share/'.base64_encode($post_images['p_id'])); ?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-
-						<li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
-						<li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
+						<li><a onClick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&description=<?php echo $summary;?>&submitted-image-url=<?php echo $image; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+						<li><a data-toggle="modal" data-target="#sharemyModal23" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
 					</ul>
 					
-					<div class="modal fade" id="sharemyModal" role="dialog">
+					<div class="modal fade" id="sharemyModal23" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         
@@ -74,7 +74,7 @@
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4  col-xs-4 ">	
-								<a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
+								<a onClick="window.open('https://plus.google.com/share?url=<?php echo base_url('motivation/share/'.base64_encode($post_images['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
 								<span>Google+</span></a>
 
 						</div>

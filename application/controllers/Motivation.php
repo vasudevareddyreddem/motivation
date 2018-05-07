@@ -105,6 +105,21 @@ class Motivation extends CI_Controller {
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('html/share',$data);
 	}
+	public function linkedinshare()
+	{
+			$post_id=base64_decode($this->uri->segment(3));
+			if($post_id !=''){
+				$data['rurl']=base_url('motivation/singlepost/'.base64_encode($post_id));
+			}else{
+				$data['rurl']=base_url('');
+			}
+			$loginuser_id=$this->session->userdata('userdetails');
+			$post_id=base64_decode($this->uri->segment(3));
+			$data['p_id']=$this->uri->segment(3);
+			$data['post_images']=$this->Motivation_model->get_all_post_detail_list($post_id);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/linkedinshare',$data);
+	}
 	public function shareimg()
 	{
 			$post_id=base64_decode($this->uri->segment(3));

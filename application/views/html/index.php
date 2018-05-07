@@ -304,20 +304,20 @@
                   <hr class="divider offset-none"/>
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
                      <?php
-                        $title=urlencode($List['text']);
+                        $title=urlencode($List['title']);
 						
                         if(count($List['p_list'])>0){
-                        $image=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
-						$url=$image;
+                        $image=base_url('assets/files/'.$List['p_list'][0]['imgname']);
+						$url=$currentURL;
 						}else{
-                        $image=urlencode($currentURL);
-						$url=$image;						
+                        $image='';
+						$url=$currentURL;						
                         }
                         $summary=urlencode($List['text']);
                         ?>
                      <ul class="list-inline-0">
                         <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/share/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                        <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+                        <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&description=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
                      </ul>
                      <div class="modal fade" id="sharemyModal" role="dialog">
@@ -329,7 +329,7 @@
                                     <div class="row icon-si ">
                                        <li>
                                           <div class="col-md-4 col-xs-4">	
-                                             <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
+                                             <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&description=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
                                              <span>Google+</span></a>
                                           </div>
                                        </li>
@@ -506,21 +506,21 @@
                   <hr class="divider offset-none"/>
                   <div class="post-bottom reveal-xs-flex range-xs-justify range-xs-middle">
                      <?php
-                        $title=urlencode($List['text']);
+                        $title=urlencode($List['title']);
 							
                         if(count($List['p_list'])>0){
 						
                         $image=urlencode(base_url('assets/files/'.$List['p_list'][0]['imgname']));
-                        $url=$image;
+                        $url=$currentURL;
 						}else{
-                        $image=urlencode('http://whatslyf.com/');	
-                        $url=$image;
+                        $image='';	
+                        $url=$currentURL;
 						}
                         $summary=urlencode($List['text']);
                         ?>
                      <ul class="list-inline-0">
                         <li><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php echo base_url('motivation/share/'.base64_encode($List['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-facebook icon-default text-info"></a></li>
-                        <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
+                        <li><a onClick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?>&submitted-image-url=<?php echo $image; ?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&description=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" class="icon icon-circle fa-linkedin icon-default text-info"></a></li>
                         <li><a data-toggle="modal" data-target="#sharemyModal" class="icon icon-circle  fa-plus icon-default text-info"></a></li>
                      </ul>
                      <div class="modal fade" id="sharemyModal" role="dialog">
@@ -532,7 +532,7 @@
                                     <div class="row icon-si ">
                                        <li>
                                           <div class="col-md-4 col-xs-4">	
-                                             <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
+                                             <a onClick="window.open('https://plus.google.com/share?url=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>&title=<?php echo $title;?>&summary=<?php echo $summary;?>&description=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)"><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/gplus.png">
                                              <span>Google+</span></a>
                                           </div>
                                        </li>
@@ -859,7 +859,7 @@ function getvideoidclose(){
    /*validation starting*/
     
      function onchangeimage(){
-   	
+   	//alert();return false;
    		var fup= document.getElementById('imagesupload');
    		
    		var fileName = fup.value;
@@ -867,7 +867,9 @@ function getvideoidclose(){
    		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
    		{
    			
-   		}
+   		}else{
+			alert('Invalid upload  formate. Upload Gif,JPEG,jpeg,jpg,JPG images only');return false;
+		}
    		var names_arr = ['docx','doc','png','gif','GIF','JPEG','jpeg','jpg'];
    		jQuery.ajax({
    					url: "<?php echo site_url('motivation/getfiledata');?>",
@@ -931,6 +933,7 @@ function getvideoidclose(){
    					dataType: 'json',
    					type: 'POST',
    					success: function (data) {
+						
    						if(data.msg !=''){
    							alert('Your upload only one video at time');return false;
    						}else{
