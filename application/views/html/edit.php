@@ -274,11 +274,11 @@ function getvideoidclose(){
    		
    		var fileName = fup.value;
    		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-   		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+   		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "Png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG"  || ext == "PNG" )
    		{
    			
    		}
-   		var names_arr = ['docx','doc','png','gif','GIF','JPEG','jpeg','jpg'];
+   		var names_arr = ['docx','doc','png','PNG','gif','GIF','JPEG','jpeg','jpg','Png','PNG'];
    		jQuery.ajax({
    					url: "<?php echo site_url('motivation/getfiledata');?>",
    					data: {
@@ -421,7 +421,7 @@ function remove_imagetemp(id){
 		
 		var fileName = fup.value;
 		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" )
+		if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "PNG"  || ext == "Png" )
 		{
 			
 		}else{
@@ -437,7 +437,7 @@ function remove_imagetemp(id){
 					type: 'POST',
 					success: function (data) {
 						if(data.msg !=''){
-							if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ){
+							if(ext == "docx" || ext == "doc" || ext == "png" || ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG"  || ext == "PNG"   || ext == "Png" ){
 								
 								$("#addimages").submit();
 							}else{

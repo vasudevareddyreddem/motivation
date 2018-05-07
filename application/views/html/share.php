@@ -9,3 +9,5 @@
   <?php }else{ ?>
   <meta property="og:image"  content="" /> 
   <?php } ?>
+  <meta http-equiv="refresh" content="0; url=http://whatslyf.com/" />
+
