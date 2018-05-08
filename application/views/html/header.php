@@ -217,7 +217,7 @@ header("Pragma: no-cache");
 						 $('#searchresult').show();
 						$('#searchresult').empty();
 						for(i=0; i<data.text.length; i++) {
-						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
+						$('#searchresult').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+" in <b style='color:#d30f61'>"+data.text[i].title+"</b></li></a>");                      
                       
 						}
 						}else{
@@ -249,7 +249,7 @@ header("Pragma: no-cache");
 						  $('#searchresult').show();
 						$('#searchresult1').empty();
 						for(i=0; i<data.text.length; i++) {
-						$('#searchresult1').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+"</li></a>");                      
+						$('#searchresult1').append("<a href='<?php echo base_url("motivation/singlepost/");?>"+data.text[i].url+"'><li>"+data.text[i].lit+" in <b style='color:#d30f61'>"+data.text[i].title+"</b></li></a>");                      
                       
 					}
 				 }

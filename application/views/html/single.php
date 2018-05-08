@@ -80,7 +80,7 @@
 						</div>
 						</li>
 						<li><div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://twitter.com/share?text=<?php echo $title; ?>&url=<?php echo $url;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
+								<a onClick="window.open('http://twitter.com/share?text=<?php echo base_url('motivation/share/'.base64_encode($post_images['p_id'])); ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/twitter.png">
 								<span>Twitter</span></a>
 						</div>
 						</li>
@@ -102,13 +102,13 @@
 						
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://vkontakte.ru/share.php?url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/vk.png">
+								<a onClick="window.open('http://vkontakte.ru/share.php?url=<?php echo $url; ?>&amp;title=<?php echo $summary; ?>&amp;description=<?php echo $summary;?>&amp;summary=<?php echo $summary;?>&amp;image=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/vk.png">
 								<span>vk</span></a>
 						</div>
 						</li>
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://www.tumblr.com/share/link?url=<?php echo $url; ?>&amp;title=<?php echo $title; ?> Share Buttons','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/tumblr.png">
+								<a onClick="window.open('http://www.tumblr.com/share/link?url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;description=<?php echo $summary; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/tumblr.png">
 								<span>tumblr</span></a>
 						</div>
 						</li>
@@ -117,20 +117,20 @@
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
+								<a onClick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>&amp;text=<?php echo $summary;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/stumbleupon.png">
 								<span>stumbleupon</span></a>
 						</div>
 						</li>
 						
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://reddit.com/submit?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/reddit.png">
+								<a onClick="window.open('http://reddit.com/submit?url=<?php echo $url; ?>&amp;title=<?php echo $title;?>&amp;text=<?php echo $summary;?>&amp;image=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/reddit.png">
 								<span>reddit</span></a>
 						</div>
 						</li>
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('http://www.digg.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/diggit.png">
+								<a onClick="window.open('http://www.digg.com/submit?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>&amp;text=<?php echo $summary;?>&amp;image=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/diggit.png">
 								<span>diggit</span></a>
 						</div>
 						</li>
@@ -139,14 +139,14 @@
 					<div class="row icon-si ">
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('https://bufferapp.com/add?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/buffer.png">
+								<a onClick="window.open('https://bufferapp.com/add?url=<?php echo $url; ?>&amp;&title=<?php echo $title;?>&amp;text=<?php echo $summary;?>&amp;image=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/buffer.png">
 								<span>buffer</span></a>
 						</div>
 						</li>
 						
 						<li>
 						<div class="col-md-4  col-xs-4">	
-								<a onClick="window.open('https://share.flipboard.com/bookmarklet/popout?v=2&title=<?php echo $title;?>&url=<?php echo $url; ?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/Flipboard.png">
+								<a onClick="window.open('https://share.flipboard.com/bookmarklet/popout?v=2&title=<?php echo $title;?>&url=<?php echo $url; ?>&text=<?php echo $summary;?>&image=<?php echo $image;?>','sharer','toolbar=0,status=0,width=548,height=325');" href="javascript: void(0)" ><img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/follow/Flipboard.png">
 								<span>FlipBoard</span></a>
 						</div>
 						</li>

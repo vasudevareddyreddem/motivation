@@ -553,9 +553,9 @@ class Motivation extends CI_Controller {
 				//echo $this->db->last_query();exit;
 				if(count($update)>0){
 					if($status==1){
-						$this->session->set_flashdata('success',"Post successfully Deactivate");
+						$this->session->set_flashdata('success',"Post successfully Deactivated");
 					}else{
-						$this->session->set_flashdata('success',"Post successfully activate");
+						$this->session->set_flashdata('success',"Post successfully Activated");
 					}
 						redirect('motivation/lists'); 
 				}else{
@@ -689,7 +689,7 @@ class Motivation extends CI_Controller {
 						 );
 		$feedback = $this->Motivation_model->add_feedback($commentdata);
 		if(count($feedback)>0){
-				$this->session->set_flashdata('success',"Query successfully send");
+				$this->session->set_flashdata('success',"Query successfully sent");
 				redirect($this->agent->referrer()); 
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

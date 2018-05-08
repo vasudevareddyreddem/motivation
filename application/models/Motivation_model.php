@@ -221,7 +221,7 @@ class Motivation_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	public function get_search_post($search){
-		$this->db->select('FROM_BASE64(post_count.p_id) ,TO_BASE64(post_count.p_id) as url,post_count.p_id,post_count.title,LEFT(post_count.text, 40) as lit,post_count.create_at,post_count.image_count')->from('post_count');		
+		$this->db->select('FROM_BASE64(post_count.p_id) ,TO_BASE64(post_count.p_id) as url,post_count.p_id,LEFT(post_count.title, 5) as title, LEFT(post_count.text, 30) as lit,post_count.create_at,post_count.image_count')->from('post_count');		
 		$this->db->like('title',$search);
 		$this->db->or_like('text', $search);
 		$this->db->limit(6);
