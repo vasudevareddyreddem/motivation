@@ -76,7 +76,7 @@
    <?php } ?>
    <div class="shell ">
       <div class="range">
-         <div class="cell-md-3">
+         <div class="cell-md-3 sm-hide">
             <div class="card hovercardnav ">
                <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="500">
                   <?php if($this->session->userdata('userdetails'))

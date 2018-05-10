@@ -580,7 +580,7 @@ margin-right: 7px;
 /* additional */
 
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1080px) {
 	.sear-sty{
 		width:250px !important;
 	}
