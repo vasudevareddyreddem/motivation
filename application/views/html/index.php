@@ -79,7 +79,7 @@
       <div class="range">
          <div class="cell-md-3 sm-hide">
             <div class="card hovercardnav ">
-               <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="500">
+               <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="380">
                   <?php if($this->session->userdata('userdetails'))
                      { ?>
                   <div class="card hovercard pad-20">
