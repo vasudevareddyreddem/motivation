@@ -77,7 +77,7 @@
    <div id="topscrooling"></div>
    <div class="shell ">
       <div class="range">
-         <div class="cell-md-3 sm-hide">
+         <div class="col-md-3 col-lg-3 sm-hide">
             <div class="card hovercardnav ">
                <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="380">
                   <?php if($this->session->userdata('userdetails'))
