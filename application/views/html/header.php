@@ -29,6 +29,7 @@ header("Pragma: no-cache");
       <!-- Page Header-->
       <header class="page-header page-header-with-slider" >
         <!-- RD Navbar-->
+        <div class="">
         <div class="rd-navbar-wrap">
           <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static" class="rd-navbar rd-navbar-default" data-stick-up-offset="50px" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-static">
             <div class="rd-navbar-inner">
@@ -130,6 +131,7 @@ header("Pragma: no-cache");
               </div>
             </div>
           </nav>
+        </div>
         </div>
         <!-- Swiper-->
       </header>
