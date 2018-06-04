@@ -66,6 +66,34 @@ class Motivation_model extends CI_Model
 		$sql1="DELETE FROM posts WHERE img_id = '".$id."'";
 		return $this->db->query($sql1);
 	}
+	public function admin_get_all_post_list($user_id){
+		$this->db->select('post_count.*,admin.name,status.status_text')->from('post_count');
+		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');
+		$this->db->join('like_count', 'like_count.post_id = post_count.p_id', 'left');
+		$this->db->join('status', 'status.id = post_count.pstatus', 'left');
+		$this->db->group_by('post_count.p_id');
+		//$this->db->where('post_count.user_id', $user_id);
+		$this->db->order_by("post_count.create_at","DESC");
+		//$this->db->where('post_count.pstatus', 1);
+		$return= $this->db->get()->result_array();
+		foreach($return as $list){
+			$images=$this-> get_all_post_imgs($list['p_id']);
+			$comment=$this-> get_all_comments_imgs($list['p_id']);
+			$like=$this-> get_all_like_imgs($list['p_id']);
+			$lis[$list['p_id']]=$list;
+			$lis[$list['p_id']]['p_list']=$images;
+			$lis[$list['p_id']]['comment_list']=$comment;
+			$lis[$list['p_id']]['like_count']=count($like);
+		}
+		if(!empty($lis))
+		{
+		return $lis;
+		}
+		
+		
+		
+		
+	}
 	public function get_all_post_list($user_id){
 		$this->db->select('post_count.*,admin.name,status.status_text')->from('post_count');
 		$this->db->join('admin', 'admin.id = post_count.user_id', 'left');

@@ -525,8 +525,16 @@ class Motivation extends CI_Controller {
 				$header['currentURL'] = current_url();
 				$this->load->view('html/header',$header);
 				$loginuser_id=$this->session->userdata('userdetails');
+				
+				//echo '<pre>';print_r($loginuser_id);exit;
 				$data['user_details']=$this->Motivation_model->get_customer_details($loginuser_id['id']);
-				$data['post_images']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
+					if($loginuser_id['role']==1){
+						$data['post_images']=$this->Motivation_model->admin_get_all_post_list($loginuser_id['id']);
+
+					}else{
+					$data['post_images']=$this->Motivation_model->get_all_post_list($loginuser_id['id']);
+
+					}
 				//echo $this->db->last_query();
 				//echo '<pre>';print_r($data);exit;
 					$this->load->view('html/footer',$data);
@@ -574,11 +582,11 @@ class Motivation extends CI_Controller {
 				$pid=base64_decode($this->uri->segment(3));
 				$Delete=$this->Motivation_model->update_post_details($pid);
 				foreach ($Delete as $lis){
-					$this->Motivation_model->delete_post_images($lis['img_id']);
+					$post_delete=$this->Motivation_model->delete_post_images($lis['img_id']);
 					unlink("assets/files/".$lis['name']);
 				}
-				$this->Motivation_model->delete_post($pid);
-				if(count($Delete)>0){
+				$post_delete=$this->Motivation_model->delete_post($pid);
+				if(count($post_delete)>0){
 					$this->session->set_flashdata('success',"Post successfully Deleted");
 						redirect('motivation/lists'); 
 				}else{
