@@ -104,7 +104,7 @@
                               My posts </a>
                            </li>
                            <li>
-                              <a href="javascript:void(0)">
+                              <a href="<?php echo base_url('motivation/profile'); ?>">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
                            </li>
