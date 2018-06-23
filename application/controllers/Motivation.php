@@ -85,6 +85,14 @@ class Motivation extends CI_Controller {
 			$this->load->view('html/edit-profile');
 			$this->load->view('html/footer');
 	}
+	public function users_list()
+	{
+			$header['currentURL'] = current_url();
+			$this->load->view('html/header',$header);
+			$loginuser_id=$this->session->userdata('userdetails');
+			$this->load->view('html/users_list');
+			$this->load->view('html/footer');
+	}
 	public function contactus()
 	{
 			$header['currentURL'] = current_url();

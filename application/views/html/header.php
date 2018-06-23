@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/fontawesome.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/style.css">
 	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/custom.css">
+	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/dataTables.bootstrap4.min.css">
 	     
     <?php header('Cache-Control: no cache');
 header("Cache-Control: no-store, no-cache, must-revalidate");

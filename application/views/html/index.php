@@ -114,9 +114,9 @@
                               Notifications </a>
                            </li>
                            <li>
-                              <a href="javascript:void(0)">
+                              <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
-                              Settings </a>
+                              Users List </a>
                            </li>
                            <li>
                               <a href="<?php echo base_url('motivation/logout'); ?>">

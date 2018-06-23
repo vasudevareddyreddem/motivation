@@ -1,17 +1,32 @@
 <style>
-th,td{
-	border:none !important;
+.pagination > li > a, .pagination > li > span {
+    height: 0;
+    min-width: 0;
+    font-size: 16px;
+	padding:15px;
+    line-height: 49px;
+    vertical-align: middle;
 }
+.pagination > li.next > a:after, .pagination > li.next > span:after {
+    content: '';
+	color:#fff
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-radius: 4px;
+    color: #fff;
+}
+
 </style>
+
 <main class="page-content offset-top-30" >
    <div id="fb-root"></div>
   
    <div id="topscrooling"></div>
    <div class="shell ">
       <div class="range">
-         <div class="col-md-3 col-lg-3 sm-hide">
+         <div class="col-md-3 col-lg-3 sm-hide" >
             <div class="card hovercardnav ">
-               <div class="nav-pills nav-stacked" >
+               <div class="nav-pills nav-stacked" data-spy="affix" data-offset-top="0">
                   <?php if($this->session->userdata('userdetails'))
                      { ?>
                   <div class="card hovercard pad-20">
@@ -35,7 +50,7 @@ th,td{
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
-                           <li class="active">
+                           <li >
                               <a href="<?php echo base_url('motivation/profile'); ?>">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
@@ -45,7 +60,7 @@ th,td{
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
-                           <li>
+                            <li class="active">
                               <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Users List </a>
@@ -67,8 +82,8 @@ th,td{
                      <hr class="divider offset-none">
                      <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                         <form  method="POST" action="<?php echo base_url('admin/loginpost'); ?>">
-                           <input class="form-control" type="text" id="email" name="email"  value="Email Adress" required><br> 
-                           <input class="form-control" type="password" id="password" name="password" value="Enter Password " required> 
+                           <input class="form-control" type="text" id="email" name="email"  placeholder="Email Adress" required><br> 
+                           <input class="form-control" type="password" id="password" name="password" placeholder="Enter Password " required> 
                            <a href="<?php echo base_url('admin/signup'); ?>" class=" pad-5 pull-left">Register</a>
                            <a href="<?php echo base_url('admin/forgotpassword'); ?>" class="pull-right pad-5">Forgot password?</a>
                            <br>
@@ -84,28 +99,97 @@ th,td{
          <div class="cell-sm-9 cell-sm-preffix-2 cell-md-9 cell-md-preffix-0">
            <div class="box">
                 <div class="section-20 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30" style="position:relative">
-                  <h4>Profile</h4>
-                  <a style="position:absolute;right:20px;top:0" class="  btn btn-primary btn-sm" href="">Edit</a>
+                  <h4>Users List</h4>
+                  
                 </div>
                 <hr class="divider offset-none">
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <div class="range">
-                    <div class="cell-md-3">
-					&nbsp;
-					
-					</div>
-                    <div class="cell-md-9 range">
-                      <div class="cell-md-8">
-							<form  method="POST" action="">
-								<input class="form-control" type="text"   value="Bayapureddy" required><br> 
-								<input class="form-control" type="email"   value="bayapureddy004@gmail.com" required><br> 
-								<input class="form-control" type="text"  value="8500226782" required><br> 
-								<input class="form-control" type="text"  value="25/06/2018 " required><br> 
-								<input class="form-control" type="file"   required><br> 
-								
-							  
-								  <button type="submit" class="btn btn-primary">Update</button>
-							 </form>
+                  
+                    <div class="cell-md-12 ">
+                      <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Date of Join</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bayapureddy</td>
+                <td>bayapureddy004@gmail.com</td>
+                <td>8500226782</td>
+                <td>2011/04/25</td>
+				<td>
+					<a href="#" class="btn btn-warning btn-sm">Edit</a>
+					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+				</td>
+                
+            </tr>
+			  <tr>
+                <td>Bayapureddy</td>
+                <td>bayapureddy004@gmail.com</td>
+                <td>8500226782</td>
+                <td>2011/04/25</td>
+				<td>
+					<a href="#" class="btn btn-warning btn-sm">Edit</a>
+					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+				</td>
+                
+            </tr>
+			  <tr>
+                <td>Bayapureddy</td>
+                <td>bayapureddy004@gmail.com</td>
+                <td>8500226782</td>
+                <td>2011/04/25</td>
+				<td>
+					<a href="#" class="btn btn-warning btn-sm">Edit</a>
+					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+				</td>
+                
+            </tr>
+			  <tr>
+                <td>Bayapureddy</td>
+                <td>bayapureddy004@gmail.com</td>
+                <td>8500226782</td>
+                <td>2011/04/25</td>
+				<td>
+					<a href="#" class="btn btn-warning btn-sm">Edit</a>
+					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+				</td>
+                
+            </tr>
+			  <tr>
+                <td>Bayapureddy</td>
+                <td>bayapureddy004@gmail.com</td>
+                <td>8500226782</td>
+                <td>2011/04/25</td>
+				<td>
+					<a href="#" class="btn btn-warning btn-sm">Edit</a>
+					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+				</td>
+                
+            </tr>
+			
+           
+           
+        </tbody>
+        <tfoot>
+            <tr>
+               <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Date of Join</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+
                       </div>
                      
                     </div>
@@ -120,6 +204,8 @@ th,td{
       </div>
    </div>
 </main>
+
+
 
 
 

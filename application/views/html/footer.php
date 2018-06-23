@@ -69,6 +69,14 @@
 <!-- Modal: modalPoll -->
     <script src="<?php echo base_url(); ?>assets/vendor/js/core.min.js"></script>
    <script src="<?php echo base_url(); ?>assets/vendor/js/script.js"></script>
+   <script src="<?php echo base_url(); ?>assets/vendor/js/jquery.dataTables.min.js"></script>
+   <script src="<?php echo base_url(); ?>assets/vendor/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
 	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/js/images-grid.js"></script>
 
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/vissense.min.js"></script>

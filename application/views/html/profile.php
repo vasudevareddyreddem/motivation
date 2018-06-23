@@ -45,10 +45,10 @@ th,td{
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
-                           <li>
-                              <a href="javascript:void(0)">
+                            <li>
+                              <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
-                              Settings </a>
+                              Users List </a>
                            </li>
                            <li>
                               <a href="<?php echo base_url('motivation/logout'); ?>">
