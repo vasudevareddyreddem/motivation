@@ -18,7 +18,12 @@ th,td{
                      <div class="cardheader" style="background:#d30f61">
                      </div>
                      <div class="avatar">
-                        <img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+                         <?php if($details['profile_pic']!=''){ ?>
+						 		<img   src="<?php echo base_url('assets/profile_pic/'.$details['profile_pic']); ?>">
+
+						 <?php }else{  ?>
+								<img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+						 <?php } ?>
                      </div>
                      <div class="title">
                         <h6><?php echo isset($user_details['name'])?$user_details['name']:''; ?></h6>
@@ -35,7 +40,7 @@ th,td{
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
-                           <li class="active">
+							<li class="<?php if($currentURL==base_url('motivation/profile')){ echo "active"; } ?>">
                               <a href="<?php echo base_url('motivation/profile'); ?>">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
@@ -45,11 +50,14 @@ th,td{
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
-                           <li>
+                            <?php  if(isset($details['role']) && $details['role']==1){ ?>
+							<li class="<?php if($currentURL==base_url('motivation/users_list')){ echo "active"; } ?>">
+
                               <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Users List </a>
                            </li>
+						   <?php } ?>
                            <li>
                               <a href="<?php echo base_url('motivation/logout'); ?>">
                               <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -96,15 +104,12 @@ th,td{
 					</div>
                     <div class="cell-md-9 range">
                       <div class="cell-md-8">
-							<form  method="POST" action="">
-								<input class="form-control" type="text"   value="Bayapureddy" required><br> 
-								<input class="form-control" type="email"   value="bayapureddy004@gmail.com" required><br> 
-								<input class="form-control" type="text"  value="8500226782" required><br> 
-								<input class="form-control" type="text"  value="25/06/2018 " required><br> 
-								<input class="form-control" type="file"   required><br> 
-								
-							  
-								  <button type="submit" class="btn btn-primary">Update</button>
+							<form  method="POST" action="<?php echo base_url('motivation/editprofilepost'); ?>"  enctype="multipart/form-data">
+								<input class="form-control" type="text"  name="name"  value="<?php echo isset($details['name'])?$details['name']:''; ?>" placeholder="Enter Name" required><br> 
+								<input class="form-control" type="email"  name="email"  value="<?php echo isset($details['email'])?$details['email']:''; ?>" placeholder="Enter Email" required><br> 
+								<input class="form-control" type="text" name="mobile" value="<?php echo isset($details['mobile'])?$details['mobile']:''; ?>" placeholder="Enter Mobile" required><br> 
+								<input class="form-control" type="file" name="profile_pic"   required><br> 
+								 <button type="submit" class="btn btn-primary">Update</button>
 							 </form>
                       </div>
                      

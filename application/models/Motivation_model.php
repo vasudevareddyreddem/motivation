@@ -327,5 +327,14 @@ class Motivation_model extends CI_Model
 	}
 	
 	
+	/* profile purpose*/
+	public  function get_user_profile($id){
+		$this->db->select('*')->from('admin');
+		 $this->db->where('id',$id);
+		return $this->db->get()->row_array();
+	}
+	/* profile purpose*/
+	
+	
 	
 }

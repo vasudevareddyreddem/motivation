@@ -33,13 +33,18 @@
                      <div class="cardheader" style="background:#d30f61">
                      </div>
                      <div class="avatar">
-                        <img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+                        	  <?php if($details['profile_pic']!=''){ ?>
+						 		<img   src="<?php echo base_url('assets/profile_pic/'.$details['profile_pic']); ?>">
+
+						 <?php }else{  ?>
+								<img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+						 <?php } ?>
                      </div>
                      <div class="title">
                         <h6><?php echo isset($user_details['name'])?$user_details['name']:''; ?></h6>
                      </div>
                      <div class="profile-usermenu" >
-                        <ul class="nav sidemenu-active-help">
+                       <ul class="nav sidemenu-active-help">
                            <li class="<?php if($currentURL==base_url('')){ echo "active"; } ?>">
                               <a href="<?php echo base_url(); ?>">
                               <i class="fa fa-home" aria-hidden="true"></i>
@@ -50,7 +55,7 @@
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
-                           <li >
+                           <li class="<?php if($currentURL==base_url('motivation/profile')){ echo "active"; } ?>">
                               <a href="<?php echo base_url('motivation/profile'); ?>">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
@@ -60,11 +65,14 @@
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
-                            <li class="active">
+						  <?php  if(isset($details['role']) && $details['role']==1){ ?>
+							<li class="<?php if($currentURL==base_url('motivation/users_list')){ echo "active"; } ?>">
+
                               <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Users List </a>
                            </li>
+						   <?php } ?>
                            <li>
                               <a href="<?php echo base_url('motivation/logout'); ?>">
                               <i class="fa fa-sign-out" aria-hidden="true"></i>

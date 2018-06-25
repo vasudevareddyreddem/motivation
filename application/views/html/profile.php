@@ -18,7 +18,12 @@ th,td{
                      <div class="cardheader" style="background:#d30f61">
                      </div>
                      <div class="avatar">
-                        <img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+					  <?php if($details['profile_pic']!=''){ ?>
+						 		<img   src="<?php echo base_url('assets/profile_pic/'.$details['profile_pic']); ?>">
+
+						 <?php }else{  ?>
+								<img alt="user" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png">
+						 <?php } ?>
                      </div>
                      <div class="title">
                         <h6><?php echo isset($user_details['name'])?$user_details['name']:''; ?></h6>
@@ -35,7 +40,7 @@ th,td{
                               <i class="fa fa-clipboard" aria-hidden="true"></i>
                               My posts </a>
                            </li>
-                           <li class="active">
+							<li class="<?php if($currentURL==base_url('motivation/profile')){ echo "active"; } ?>">
                               <a href="<?php echo base_url('motivation/profile'); ?>">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               Profile </a>
@@ -45,11 +50,14 @@ th,td{
                               <i class="fa fa fa-globe" aria-hidden="true"></i>
                               Notifications </a>
                            </li>
-                            <li>
+                              <?php  if(isset($details['role']) && $details['role']==1){ ?>
+							<li class="<?php if($currentURL==base_url('motivation/users_list')){ echo "active"; } ?>">
+
                               <a href="<?php echo base_url('motivation/users_list'); ?>">
                               <i class="fa fa-cogs" aria-hidden="true"></i>
                               Users List </a>
                            </li>
+						   <?php } ?>
                            <li>
                               <a href="<?php echo base_url('motivation/logout'); ?>">
                               <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -91,12 +99,24 @@ th,td{
                 <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
                   <div class="range">
                     <div class="cell-md-3">
+						 <form id="upload_file" action="<?php echo base_url('motivation/save_profile_pic'); ?>" method="post" enctype="multipart/form-data">
+
 						<div class="image-upload">
 						 <label for="imagesupload">
-						<img  style="border-radius:50%" src="<?php echo base_url(); ?>assets/vendor/img/profile.jpg" width="200px" height="auto" alt="" class="img-responsive thumbnail">
+						 <?php if($details['profile_pic']!=''){ ?>
+						 		<img  style="border-radius:50%" src="<?php echo base_url('assets/profile_pic/'.$details['profile_pic']); ?>" width="200px" height="auto" alt="" class="img-responsive thumbnail">
+
+						 <?php }else{  ?>
+								<img style="border-radius:50%" src="<?php echo base_url(); ?>assets/vendor/img/user-profile.png" width="200px" height="auto" alt="" class="img-responsive thumbnail">
+						 <?php } ?>
+
 						 </label>
-						  <input type="file" id="imagesupload" name="images2" onchange="onchangeimage();" />
+							 <input type="file" id="imagesupload" name="profile_pic" onchange="onchangeimage(this.value);" />
+					
+						  
 						</div>
+						
+						</form>
 					
 					</div>
                     <div class="cell-md-9 range">
@@ -104,18 +124,18 @@ th,td{
                         <table class="table">
 							<tr style="border:none;">
 								<th>Name</th>
-								<td>Bayapureddy Cg</td>
+								<td><?php echo isset($details['name'])?$details['name']:''; ?></td>
 							</tr>
 							<tr style="border:none;">
 								<th>Email</th>
-								<td>xxxx@gmail.com</td>
+								<td><?php echo isset($details['email'])?$details['email']:''; ?></td>
 							</tr>
 							<tr style="border:none;">
 								<th>Mobile</th>
-								<td>8500xxxxxx</td>
+								<td><?php echo isset($details['mobile'])?$details['mobile']:''; ?></td>
 							</tr><tr style="border:none;">
 								<th>Join Date</th>
-								<td>24/08/2018</td>
+								<td><?php echo date('d M Y h:i A',strtotime(htmlentities($details['create_at']))); ?></td>
 							</tr>
 						</table>
                       </div>
@@ -132,6 +152,23 @@ th,td{
       </div>
    </div>
 </main>
+
+<script>
+function onchangeimage(val){
+	var fileName =val;
+		var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+		if(ext !=''){
+			if(ext == "png" || ext == "gif" || ext == "Png" || ext == "jpeg" || ext == "jpg")
+			{
+					 document.getElementById("upload_file").submit(); 
+			} else{
+			alert('Uploaded file is not a valid. Only png,gif,Png,jpeg,jpg files are allowed');
+			return false;
+			}
+		}
+}
+
+</script>
 
 
 

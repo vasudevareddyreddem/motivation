@@ -25,6 +25,7 @@ class Motivation extends CI_Controller {
 			$data['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
+			$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
 			$data['user_details']=$this->Motivation_model->get_customer_details($loginuser_id['id']);
 			$data['image_list']=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 			$data['post_images']=$this->Motivation_model->get_all_post_lists();
@@ -71,27 +72,58 @@ class Motivation extends CI_Controller {
 	}	
 	public function profile()
 	{
+			
+		if($this->session->userdata('userdetails'))
+		 {
+			
 			$header['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
-			$this->load->view('html/profile');
+			$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
+			//echo '<pre>';print_r($data);exit;
+			$this->load->view('html/profile',$data);
 			$this->load->view('html/footer');
+			
+		 }else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+				
+		}
 	}
 	public function edit_profile()
 	{
+		if($this->session->userdata('userdetails'))
+		 {
 			$header['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
-			$this->load->view('html/edit-profile');
+			$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
+			$this->load->view('html/edit-profile',$data);
 			$this->load->view('html/footer');
+			
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+				
+		}
 	}
 	public function users_list()
 	{
-			$header['currentURL'] = current_url();
+		if($this->session->userdata('userdetails'))
+		 {
+			 $header['currentURL'] = current_url();
 			$this->load->view('html/header',$header);
 			$loginuser_id=$this->session->userdata('userdetails');
-			$this->load->view('html/users_list');
+			$loginuser_id=$this->session->userdata('userdetails');
+			$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
+				
+			$this->load->view('html/users_list',$data);
 			$this->load->view('html/footer');
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+				
+		}
 	}
 	public function contactus()
 	{
@@ -549,7 +581,7 @@ class Motivation extends CI_Controller {
 				$header['currentURL'] = current_url();
 				$this->load->view('html/header',$header);
 				$loginuser_id=$this->session->userdata('userdetails');
-				
+				$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
 				//echo '<pre>';print_r($loginuser_id);exit;
 				$data['user_details']=$this->Motivation_model->get_customer_details($loginuser_id['id']);
 					if($loginuser_id['role']==1){
@@ -894,6 +926,83 @@ class Motivation extends CI_Controller {
 				}
 			}
 		
+	}
+	
+		public function save_profile_pic(){
+		
+		if($this->session->userdata('userdetails'))
+		{
+			$admindetails=$this->session->userdata('userdetails');
+			$post=$this->input->post();
+			//echo '<pre>';print_r($_FILES);exit;
+					$pic=$_FILES['profile_pic']['name'];
+					$picname = str_replace(" ", "", $pic);
+					$imagename=microtime().basename($picname);
+					$imgname = str_replace(" ", "", $imagename);
+					move_uploaded_file($_FILES['profile_pic']['tmp_name'], "assets/profile_pic/" . $imgname);
+					$img=array(
+					'profile_pic'=>$imgname,
+					);
+					
+					$old_pic=$this->Motivation_model->get_user_profile($admindetails['id']);
+					if($old_pic['profile_pic']!=''){
+						unlink("assets/profile_pic/".$old_pic['profile_pic']);
+					}
+					//echo '<pre>';print_r($old_pic);exit;
+					$updates=$this->Motivation_model->update_user_details($admindetails['id'],$img);
+					if(count($updates)>0){
+						$this->session->set_flashdata('success',"Profile Pic successfully updated");
+						redirect('motivation/profile');
+					}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('motivation/profile');
+					}
+
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		}
+	}
+	public function editprofilepost(){
+		
+		if($this->session->userdata('userdetails'))
+		{
+			$admindetails=$this->session->userdata('userdetails');
+			$post=$this->input->post();
+				//echo '<pre>';print_r($post);exit;
+					$old_pic=$this->Motivation_model->get_user_profile($admindetails['id']);
+					if(isset($_FILES['profile_pic']['name']) && $_FILES['profile_pic']['name']!=''){
+						unlink("assets/profile_pic/".$old_pic['profile_pic']);
+						$pic=$_FILES['profile_pic']['name'];
+						$picname = str_replace(" ", "", $pic);
+						$imagename=microtime().basename($picname);
+						$imgname = str_replace(" ", "", $imagename);
+						move_uploaded_file($_FILES['profile_pic']['tmp_name'], "assets/profile_pic/" . $imgname);
+						
+					}else{
+						$imgname=$old_pic['profile_pic'];
+					}
+					$img=array(
+					'name'=>isset($post['name'])?$post['name']:'',
+					'email'=>isset($post['email'])?$post['email']:'',
+					'mobile'=>isset($post['mobile'])?$post['mobile']:'',
+					'profile_pic'=>$imgname,
+					);
+					
+					//echo '<pre>';print_r($old_pic);exit;
+					$updates=$this->Motivation_model->update_user_details($admindetails['id'],$img);
+					if(count($updates)>0){
+						$this->session->set_flashdata('success',"Profile Pic successfully updated");
+						redirect('motivation/profile');
+					}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('motivation/profile');
+					}
+
+		}else{
+			$this->session->set_flashdata('loginerror','Please login to continue');
+			redirect('');
+		}
 	}
 	public function logout()
 	{
