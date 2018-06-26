@@ -295,7 +295,7 @@ class Motivation_model extends CI_Model
 	}
 	public function update_post_count_details($pid,$user_id,$data){
 		 $this->db->where('post_count.p_id',$pid);
-		 $this->db->where('post_count.user_id',$user_id);
+		 //$this->db->where('post_count.user_id',$user_id);
 		return $this->db->update('post_count', $data);
 	}
 	
@@ -332,6 +332,36 @@ class Motivation_model extends CI_Model
 		$this->db->select('*')->from('admin');
 		 $this->db->where('id',$id);
 		return $this->db->get()->row_array();
+	}
+	
+	public  function get_all_users_data(){
+		$this->db->select('*')->from('admin');
+		 $this->db->where('role!=',1);
+		return $this->db->get()->result_array();
+	}
+	
+	public  function get_user_post_details($id){
+		$this->db->select('*')->from('post_count');
+		$this->db->where('user_id',$id);
+		return $this->db->get()->result_array();
+	}
+	public  function get_user_post_img_details($id){
+		$this->db->select('*')->from('posts');
+		$this->db->where('post_id',$id);
+		return $this->db->get()->result_array();
+	}
+	
+	public  function delete_post_images_list($id){
+		$sql1="DELETE FROM posts WHERE img_id = '".$id."'";
+		return $this->db->query($sql1);
+	}
+	public  function delete_postdetails_images($id){
+		$sql1="DELETE FROM post_count WHERE p_id = '".$id."'";
+		return $this->db->query($sql1);
+	}
+	public  function delete_user($id){
+		$sql1="DELETE FROM admin WHERE id = '".$id."'";
+		return $this->db->query($sql1);
 	}
 	/* profile purpose*/
 	

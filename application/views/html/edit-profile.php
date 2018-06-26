@@ -108,7 +108,7 @@ th,td{
 								<input class="form-control" type="text"  name="name"  value="<?php echo isset($details['name'])?$details['name']:''; ?>" placeholder="Enter Name" required><br> 
 								<input class="form-control" type="email"  name="email"  value="<?php echo isset($details['email'])?$details['email']:''; ?>" placeholder="Enter Email" required><br> 
 								<input class="form-control" type="text" name="mobile" value="<?php echo isset($details['mobile'])?$details['mobile']:''; ?>" placeholder="Enter Mobile" required><br> 
-								<input class="form-control" type="file" name="profile_pic"   required><br> 
+								<input class="form-control" type="file" name="profile_pic"  ><br> 
 								 <button type="submit" class="btn btn-primary">Update</button>
 							 </form>
                       </div>

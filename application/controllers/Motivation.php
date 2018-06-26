@@ -116,7 +116,8 @@ class Motivation extends CI_Controller {
 			$loginuser_id=$this->session->userdata('userdetails');
 			$loginuser_id=$this->session->userdata('userdetails');
 			$data['details']=$this->Motivation_model->get_user_profile($loginuser_id['id']);
-				
+			$data['user_list']=$this->Motivation_model->get_all_users_data();
+			//echo '<pre>';print_r($data);exit;	
 			$this->load->view('html/users_list',$data);
 			$this->load->view('html/footer');
 		}else{
@@ -450,14 +451,13 @@ class Motivation extends CI_Controller {
 		 {
 				$post=$this->input->post();
 				
-				//echo '<pre>';print_r($post);
+				//echo '<pre>';print_r($post);exit;
 				$loginuser_id=$this->session->userdata('userdetails');
 				//echo '<pre>';print_r($loginuser_id);exit;
 				$image_list=$this->Motivation_model->get_all_images_list($loginuser_id['id']);
 				$editimage_list=$this->Motivation_model->get_alledit_post_images_list($loginuser_id['id'],$post['post_id']);
 				//echo '<pre>';print_r($editimage_list);
 				$data=array(
-				'user_id'=>$loginuser_id['id'],
 				'title'=>$post['title'],
 				'text'=>$post['content'],
 				'image_count'=>count($image_list) + count($editimage_list),
@@ -1003,6 +1003,37 @@ class Motivation extends CI_Controller {
 			$this->session->set_flashdata('loginerror','Please login to continue');
 			redirect('');
 		}
+	}
+	public function userdelete(){
+			if($this->session->userdata('userdetails'))
+			{
+				$loginuser_id=$this->session->userdata('userdetails');
+				$u_id=base64_decode($this->uri->segment(3));
+				$post_details=$this->Motivation_model->get_user_post_details($u_id);
+				foreach($post_details as $list){
+					$posts=$this->Motivation_model->get_user_post_img_details($list['p_id']);
+					foreach($posts as $lis){
+						unlink('assets/files/'.$lis['name']);
+						$this->Motivation_model->delete_post_images_list($lis['img_id']);
+					}
+					$this->Motivation_model->delete_postdetails_images($list['p_id']);
+				}
+				$old_pic=$this->Motivation_model->get_user_profile($u_id);
+				$delete=$this->Motivation_model->delete_user($u_id);
+				unlink('assets/profile_pic/'.$old_pic['profile_pic']);
+				if(count($delete)>0){
+						$this->session->set_flashdata('success',"User successfully Deleted");
+						redirect('motivation/users_list');
+				}else{
+					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+					redirect('motivation/users_list');
+				}
+			
+			}else{
+				$this->session->set_flashdata('loginerror','Please login to continue');
+				redirect('');
+			}
+		
 	}
 	public function logout()
 	{

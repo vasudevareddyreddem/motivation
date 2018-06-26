@@ -128,61 +128,22 @@
             </tr>
         </thead>
         <tbody>
+		
+		<?php foreach($user_list as $List){ ?>
             <tr>
-                <td>Bayapureddy</td>
-                <td>bayapureddy004@gmail.com</td>
-                <td>8500226782</td>
-                <td>2011/04/25</td>
+                <td><?php echo $List['name']; ?></td>
+                <td><?php echo $List['email']; ?></td>
+                <td><?php echo $List['mobile']; ?></td>
+                <td><?php echo $List['create_at']; ?></td>
 				<td>
-					<a href="#" class="btn btn-warning btn-sm">Edit</a>
-					<a href="#" class="btn btn-primary btn-sm">Delete</a>
+					<a href="<?php echo base_url('motivation/userdelete/'.base64_encode($List['id'])); ?>" class="btn btn-primary btn-sm">Delete</a>
 				</td>
                 
             </tr>
-			  <tr>
-                <td>Bayapureddy</td>
-                <td>bayapureddy004@gmail.com</td>
-                <td>8500226782</td>
-                <td>2011/04/25</td>
-				<td>
-					<a href="#" class="btn btn-warning btn-sm">Edit</a>
-					<a href="#" class="btn btn-primary btn-sm">Delete</a>
-				</td>
-                
-            </tr>
-			  <tr>
-                <td>Bayapureddy</td>
-                <td>bayapureddy004@gmail.com</td>
-                <td>8500226782</td>
-                <td>2011/04/25</td>
-				<td>
-					<a href="#" class="btn btn-warning btn-sm">Edit</a>
-					<a href="#" class="btn btn-primary btn-sm">Delete</a>
-				</td>
-                
-            </tr>
-			  <tr>
-                <td>Bayapureddy</td>
-                <td>bayapureddy004@gmail.com</td>
-                <td>8500226782</td>
-                <td>2011/04/25</td>
-				<td>
-					<a href="#" class="btn btn-warning btn-sm">Edit</a>
-					<a href="#" class="btn btn-primary btn-sm">Delete</a>
-				</td>
-                
-            </tr>
-			  <tr>
-                <td>Bayapureddy</td>
-                <td>bayapureddy004@gmail.com</td>
-                <td>8500226782</td>
-                <td>2011/04/25</td>
-				<td>
-					<a href="#" class="btn btn-warning btn-sm">Edit</a>
-					<a href="#" class="btn btn-primary btn-sm">Delete</a>
-				</td>
-                
-            </tr>
+			
+		<?php } ?>
+			
+            
 			
            
            
